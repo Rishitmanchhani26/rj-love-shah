@@ -330,27 +330,43 @@
     </section>
 
     <!-- ===== 5 · The Love experience ===== -->
-    <section class="exp section" id="experience" aria-labelledby="exp-title">
-      <div class="container exp__grid">
-        <div class="exp__left">
-          <p class="eyebrow" data-reveal>The Love experience</p>
-          <h2 class="visually-hidden" id="exp-title">The RJ Love Shah experience: witty, supremely creative, energetic, sharp</h2>
-          <ol class="exp__list" data-exp-list>
-            <li class="is-active"><button type="button" data-exp="0"><span class="exp__num">01</span><span class="exp__word">Witty</span></button></li>
-            <li><button type="button" data-exp="1"><span class="exp__num">02</span><span class="exp__word">Creative</span></button></li>
-            <li><button type="button" data-exp="2"><span class="exp__num">03</span><span class="exp__word">Energy</span></button></li>
-            <li><button type="button" data-exp="3"><span class="exp__num">04</span><span class="exp__word">Precision</span></button></li>
-          </ol>
-          <p class="exp__desc" data-exp-desc aria-live="polite">Quick lines, warm roasts and zero dead air. The room laughs with him, never at the guests.</p>
-        </div>
-        <div class="exp__media">
-          <figure class="exp__frame">
-            <img class="is-active" src="./assets/img/exp-witty2-640.webp" srcset="./assets/img/exp-witty2-640.webp 640w, ./assets/img/exp-witty2-960.webp 960w" sizes="(min-width:960px) 34vw, 90vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah in sunglasses and a peach jacket, holding his microphone">
-            <img src="./assets/img/exp-creative-640.webp" srcset="./assets/img/exp-creative-640.webp 640w, ./assets/img/exp-creative-960.webp 960w" sizes="(min-width:960px) 34vw, 90vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah greeting Rashmika Mandanna with a handshake on the Navratri stage">
-            <img src="./assets/img/exp-energy-640.webp" srcset="./assets/img/exp-energy-640.webp 640w, ./assets/img/exp-energy-960.webp 960w" sizes="(min-width:960px) 34vw, 90vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah performing under purple stage lights at a live show">
-            <img src="./assets/img/exp-ca-640.webp" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah receiving a memento from the Ahmedabad branch of WIRC of ICAI">
-            <figcaption class="exp__badge"><span data-exp-num>01</span></figcaption>
-          </figure>
+    <section class="exp" id="experience" aria-labelledby="exp-title">
+      <h2 class="visually-hidden" id="exp-title">The RJ Love Shah experience: witty, creative, energetic and precise</h2>
+      <!-- Desktop: the section stays on screen while you scroll; each quarter of the scroll lights the next word, photo and clip -->
+      <div class="exp__track" data-exp-track>
+        <div class="exp__stage">
+        <span class="exp__glow is-active" style="--tint: #ff6b5b" aria-hidden="true"></span>
+        <span class="exp__glow" style="--tint: #ff8fa3" aria-hidden="true"></span>
+        <span class="exp__glow" style="--tint: #a98bff" aria-hidden="true"></span>
+        <span class="exp__glow" style="--tint: #f5c26b" aria-hidden="true"></span>
+          <div class="container exp__grid">
+            <div class="exp__left">
+              <p class="eyebrow">The Love experience</p>
+              <ol class="exp__list" data-exp-list aria-hidden="true">
+              <li class="is-active" style="--tint: #ff6b5b"><button type="button" data-exp="0"><span class="exp__num">01</span><span class="exp__word">Witty</span></button></li>
+              <li style="--tint: #ff8fa3"><button type="button" data-exp="1"><span class="exp__num">02</span><span class="exp__word">Creative</span></button></li>
+              <li style="--tint: #a98bff"><button type="button" data-exp="2"><span class="exp__num">03</span><span class="exp__word">Energy</span></button></li>
+              <li style="--tint: #f5c26b"><button type="button" data-exp="3"><span class="exp__num">04</span><span class="exp__word">Precision</span></button></li>
+              </ol>
+              <p class="exp__desc" data-exp-desc>Quick lines, warm roasts and zero dead air. The room laughs with him, never at the guests.</p>
+            </div>
+            <figure class="exp__frame">
+              <img class="is-active" src="./assets/img/exp-witty2-640.webp" srcset="./assets/img/exp-witty2-640.webp 640w, ./assets/img/exp-witty2-960.webp 960w" sizes="40vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah in sunglasses and a peach jacket, holding his microphone">
+              <img src="./assets/img/exp-creative-640.webp" srcset="./assets/img/exp-creative-640.webp 640w, ./assets/img/exp-creative-960.webp 960w" sizes="40vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah greeting Rashmika Mandanna with a handshake on the Navratri stage">
+              <img src="./assets/img/exp-energy-640.webp" srcset="./assets/img/exp-energy-640.webp 640w, ./assets/img/exp-energy-960.webp 960w" sizes="40vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah performing under purple stage lights at a live show">
+              <img src="./assets/img/exp-precision-640.webp" srcset="./assets/img/exp-precision-640.webp 640w, ./assets/img/exp-precision-960.webp 960w" sizes="40vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah in a white blazer with a headset microphone, hand on heart, on a dark stage">
+              <figcaption class="exp__foot">
+                <span class="exp__badge" data-exp-num>01</span>
+                <span class="exp__see">
+                <button class="exp__clip is-active" type="button" data-video-open data-yt="RUrSS4cqIF0" data-shape="tall" aria-label="Play video: The varmala challenge at a wedding carnival"><img src="https://i.ytimg.com/vi/RUrSS4cqIF0/oardefault.jpg" alt="" loading="lazy" decoding="async"><span class="exp__clip-play" aria-hidden="true"></span></button>
+                <button class="exp__clip" type="button" data-video-open data-yt="U92Ut7h2N6o" data-shape="tall" aria-label="Play video: A Squid Game-style wedding carnival"><img src="https://i.ytimg.com/vi/U92Ut7h2N6o/oardefault.jpg" alt="" loading="lazy" decoding="async"><span class="exp__clip-play" aria-hidden="true"></span></button>
+                <button class="exp__clip" type="button" data-video-open data-yt="5kKDOfhS_mk" data-shape="wide" aria-label="Play video: Sangeet warm-up with both families"><img src="https://i.ytimg.com/vi/5kKDOfhS_mk/sddefault.jpg" alt="" loading="lazy" decoding="async"><span class="exp__clip-play" aria-hidden="true"></span></button>
+                <button class="exp__clip" type="button" data-video-open data-yt="ZQAv5U1U4D8" data-shape="tall" aria-label="Play video: Awards night and annual meet"><img src="https://i.ytimg.com/vi/ZQAv5U1U4D8/oardefault.jpg" alt="" loading="lazy" decoding="async"><span class="exp__clip-play" aria-hidden="true"></span></button>
+                  <span class="exp__see-label">See it live</span>
+                </span>
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </div>
       <template data-exp-texts>
@@ -359,6 +375,51 @@
         <p>Called India's most energetic host for a reason. He gets a 10,000-strong ground on its feet and keeps it there.</p>
         <p>A Chartered Accountant's discipline: run-of-show memorised, timings kept, names and sponsors never missed.</p>
       </template>
+      <!-- Phones: swipe through one tall card per quality -->
+      <div class="exp__mobile">
+        <div class="container">
+          <p class="eyebrow" data-reveal>The Love experience</p>
+          <p class="h2 exp__mobile-title" data-reveal>What he brings <em class="grad-text">to the room.</em></p>
+        </div>
+        <div class="exp__cards">
+          <article class="exp-card" style="--tint: #ff6b5b">
+            <img src="./assets/img/exp-witty2-640.webp" srcset="./assets/img/exp-witty2-640.webp 640w, ./assets/img/exp-witty2-960.webp 960w" sizes="84vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah in sunglasses and a peach jacket, holding his microphone">
+            <div class="exp-card__body">
+              <span class="exp-card__num">01</span>
+              <h3 class="exp-card__word">Witty</h3>
+              <p>Quick lines, warm roasts and zero dead air. The room laughs with him, never at the guests.</p>
+              <button class="exp-card__watch" type="button" data-video-open data-yt="RUrSS4cqIF0" data-shape="tall"><span class="exp__clip-play" aria-hidden="true"></span>See it live</button>
+            </div>
+          </article>
+          <article class="exp-card" style="--tint: #ff8fa3">
+            <img src="./assets/img/exp-creative-640.webp" srcset="./assets/img/exp-creative-640.webp 640w, ./assets/img/exp-creative-960.webp 960w" sizes="84vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah greeting Rashmika Mandanna with a handshake on the Navratri stage">
+            <div class="exp-card__body">
+              <span class="exp-card__num">02</span>
+              <h3 class="exp-card__word">Creative</h3>
+              <p>Every brief gets its own script: custom games, entries and moments built around your family or your brand.</p>
+              <button class="exp-card__watch" type="button" data-video-open data-yt="U92Ut7h2N6o" data-shape="tall"><span class="exp__clip-play" aria-hidden="true"></span>See it live</button>
+            </div>
+          </article>
+          <article class="exp-card" style="--tint: #a98bff">
+            <img src="./assets/img/exp-energy-640.webp" srcset="./assets/img/exp-energy-640.webp 640w, ./assets/img/exp-energy-960.webp 960w" sizes="84vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah performing under purple stage lights at a live show">
+            <div class="exp-card__body">
+              <span class="exp-card__num">03</span>
+              <h3 class="exp-card__word">Energy</h3>
+              <p>Called India's most energetic host for a reason. He gets a 10,000-strong ground on its feet and keeps it there.</p>
+              <button class="exp-card__watch" type="button" data-video-open data-yt="5kKDOfhS_mk" data-shape="wide"><span class="exp__clip-play" aria-hidden="true"></span>See it live</button>
+            </div>
+          </article>
+          <article class="exp-card" style="--tint: #f5c26b">
+            <img src="./assets/img/exp-precision-640.webp" srcset="./assets/img/exp-precision-640.webp 640w, ./assets/img/exp-precision-960.webp 960w" sizes="84vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah in a white blazer with a headset microphone, hand on heart, on a dark stage">
+            <div class="exp-card__body">
+              <span class="exp-card__num">04</span>
+              <h3 class="exp-card__word">Precision</h3>
+              <p>A Chartered Accountant's discipline: run-of-show memorised, timings kept, names and sponsors never missed.</p>
+              <button class="exp-card__watch" type="button" data-video-open data-yt="ZQAv5U1U4D8" data-shape="tall"><span class="exp__clip-play" aria-hidden="true"></span>See it live</button>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
     <!-- ===== 6 · Celebrity stages ===== -->

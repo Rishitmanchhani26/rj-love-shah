@@ -74,6 +74,7 @@
     f.title = 'RJ Love Shah on YouTube';
     f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
     f.allowFullscreen = true;
+    modal.classList.toggle('is-tall', b.dataset.shape === 'tall');
     modalFrame.replaceChildren(f);
     modal.showModal();
   }));
@@ -222,29 +223,45 @@
     }
   }
 
-  /* ---------- experience switcher ---------- */
-  const expList = $('[data-exp-list]');
-  if (expList) {
-    const items = $$('li', expList);
-    const imgs = $$('.exp__frame img');
+  /* ---------- experience: pinned while scrolling, one quality per quarter of the scroll (desktop) ---------- */
+  const expTrack = $('[data-exp-track]');
+  if (expTrack) {
+    const expSec = $('#experience');
+    const items = $$('li', expTrack);
+    const imgs = $$('.exp__frame > img', expTrack);
+    const clips = $$('.exp__clip', expTrack);
+    const glows = $$('.exp__glow', expTrack);
     const texts = $$('p', $('[data-exp-texts]').content);
     const desc = $('[data-exp-desc]');
     const num = $('[data-exp-num]');
-    let current = 0, timer;
+    let current = -1;
     const show = (i) => {
+      if (i === current) return;
       current = i;
-      items.forEach((li, k) => li.classList.toggle('is-active', k === i));
-      imgs.forEach((im, k) => im.classList.toggle('is-active', k === i));
+      [items, imgs, clips, glows].forEach((set) => set.forEach((el, k) => el.classList.toggle('is-active', k === i)));
+      expSec.style.setProperty('--tint', items[i].style.getPropertyValue('--tint'));
       desc.textContent = texts[i].textContent;
+      desc.classList.remove('is-in'); void desc.offsetWidth; desc.classList.add('is-in');
       num.textContent = String(i + 1).padStart(2, '0');
     };
-    const auto = () => { clearInterval(timer); if (!reduceMotion) timer = setInterval(() => show((current + 1) % items.length), 4200); };
-    $$('button', expList).forEach((b) => {
-      b.addEventListener('click', () => { show(+b.dataset.exp); auto(); });
-      b.addEventListener('mouseenter', () => { show(+b.dataset.exp); clearInterval(timer); });
-      b.addEventListener('mouseleave', auto);
-    });
-    new IntersectionObserver(([e]) => { e.isIntersecting ? auto() : clearInterval(timer); }).observe(expList);
+    const pick = () => {
+      if (!desktop.matches) return;
+      const r = expTrack.getBoundingClientRect();
+      const run = r.height - innerHeight;
+      const p = run > 0 ? Math.min(0.999, Math.max(0, -r.top / run)) : 0;
+      show(Math.floor(p * items.length));
+    };
+    show(0);
+    let queued = false;
+    addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; pick(); }); } }, { passive: true });
+    addEventListener('resize', pick);
+    pick();
+    // clicking a word scrolls to that word's part of the section
+    $$('button', expTrack.querySelector('[data-exp-list]')).forEach((b) => b.addEventListener('click', () => {
+      const run = expTrack.offsetHeight - innerHeight;
+      const top = expTrack.getBoundingClientRect().top + scrollY + run * ((+b.dataset.exp + 0.5) / items.length);
+      scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
+    }));
   }
 
   /* ---------- across-India carousel ---------- */
