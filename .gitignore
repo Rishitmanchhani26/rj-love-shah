@@ -1,0 +1,14 @@
+# originals and working files: not part of the website
+assets/raw/
+drive-download-*/
+Claude Skills/
+.claude/
+.DS_Store
+Rj love shah!.webp
+*.m4v
+
+# internal notes (client pricing etc.): keep off the public site
+CLAUDE.md
+CLIENT-INFO.md
+HOMEPAGE-PLAN.md
+DESIGN.md
