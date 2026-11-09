@@ -82,6 +82,91 @@
   modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
   modal.addEventListener('close', () => modalFrame.replaceChildren());
 
+  /* ---------- video gallery per event type (all clips are on Love's own YouTube channel @loveshah117) ---------- */
+  // [YouTube id, caption, 'tall' for a vertical Short]
+  const VIDEOS = {
+    corporate: { title: 'Corporate shows', list: [
+      ['5snu1xwpI0g', 'Warm-up, team building and awards night'],
+      ['ZQAv5U1U4D8', 'Awards night and annual meet', 'tall'],
+      ['yZI6Ggl9RTM', 'Corporate engagement games on stage'],
+      ['iUI_PwmD6fM', 'Team building for Litera Group', 'tall'],
+      ['Ofxxoki3l04', 'Team building with the whole audience in play'],
+      ['qUmF9uT589A', 'Annual celebration: awards and entertainment', 'tall'],
+      ['_P_vm0k9ypc', 'Team building and awards: a full corporate show'],
+      ['FeeG_F9NJeI', 'Corporate event games', 'tall'],
+    ] },
+    weddings: { title: 'Luxury weddings', list: [
+      ['5kKDOfhS_mk', 'Sangeet warm-up: getting both families on their feet'],
+      ['YVkzI0gv_Rc', 'An Indo-Italian NRI wedding', 'tall'],
+      ['RUrSS4cqIF0', 'The varmala challenge at a wedding carnival', 'tall'],
+      ['s4PsYV704ns', 'Haldi ceremony games'],
+      ['yBJ0mJpY1ek', 'Sangeet night, full energy', 'tall'],
+      ['4apaIc3am6k', 'The craziest baraat', 'tall'],
+      ['U92Ut7h2N6o', 'Squid Game-style wedding carnival', 'tall'],
+      ['KT73FH9sE1c', 'Sangeet sandhya with the family'],
+    ] },
+    live: { title: 'Sports & live events', list: [
+      ['h3TcUziqsVs', 'The Ambani family’s entrance at Reliance Navratri', 'tall'],
+      ['_6wW9BsNKt0', 'Hosting The Neha Kakkar Show'],
+      ['AM9vLF0upcg', 'Rashmika Mandanna at Reliance Navratri', 'tall'],
+      ['bOjP3X-52Ls', 'Sardar Patel Jayanti with Amit Shah and CM Bhupendra Patel'],
+      ['bxlkcbgJNlQ', 'Disha Patani at Reliance Navratri', 'tall'],
+      ['Yh3U-ENDIT0', 'Jigardan Gadhvi live in concert'],
+      ['58TsaOrJzeQ', 'Marathon run with our soldiers'],
+      ['HoIf919WMuM', 'Hosting a public gathering', 'tall'],
+    ] },
+  };
+  const gallery = $('[data-gallery]');
+  const gGrid = $('[data-gallery-grid]');
+  const gPlayer = $('[data-gallery-player]');
+  const gFrame = $('[data-gallery-frame]');
+  const gNow = $('[data-gallery-now]');
+  const ytFrame = (id) => {
+    const f = document.createElement('iframe');
+    f.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+    f.title = 'RJ Love Shah on YouTube';
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen = true;
+    return f;
+  };
+  const showGrid = () => { gFrame.replaceChildren(); gPlayer.hidden = true; gGrid.hidden = false; };
+  const play = ([id, caption, shape]) => {
+    gFrame.className = `gallery__frame${shape === 'tall' ? ' is-tall' : ''}`;
+    gFrame.replaceChildren(ytFrame(id));
+    gNow.textContent = caption;
+    gGrid.hidden = true; gPlayer.hidden = false;
+    $('[data-gallery-back]').focus();
+  };
+  const openGallery = (key) => {
+    const cat = VIDEOS[key];
+    $('[data-gallery-title]').textContent = cat.title;
+    gGrid.replaceChildren(...cat.list.map((v) => {
+      const [id, caption, shape] = v;
+      const li = document.createElement('li');
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = `vcard${shape === 'tall' ? ' vcard--tall' : ''}`;
+      const src = shape === 'tall' ? `https://i.ytimg.com/vi/${id}/oardefault.jpg` : `https://i.ytimg.com/vi/${id}/sddefault.jpg`;
+      b.innerHTML = `<span class="vcard__media">${shape === 'tall' ? `<img class="vcard__blur" src="${src}" alt="" loading="lazy" decoding="async">` : ''}<img class="vcard__img" src="${src}" alt="" loading="lazy" decoding="async"></span><span class="vcard__play" aria-hidden="true"></span><span class="vcard__cap"></span>`;
+      b.querySelector('.vcard__cap').textContent = caption;
+      b.setAttribute('aria-label', `Play video: ${caption}`);
+      b.addEventListener('click', () => play(v));
+      li.append(b);
+      return li;
+    }));
+    showGrid();
+    gallery.showModal();
+    gallery.scrollTop = 0;
+  };
+  $$('[data-gallery-open]').forEach((b) => b.addEventListener('click', () => {
+    if (typeof gallery.showModal !== 'function') { window.open('https://www.youtube.com/@loveshah117', '_blank', 'noopener'); return; }
+    openGallery(b.dataset.galleryOpen);
+  }));
+  $('[data-gallery-back]').addEventListener('click', showGrid);
+  $('[data-gallery-close]').addEventListener('click', () => gallery.close());
+  gallery.addEventListener('click', (e) => { if (e.target === gallery) gallery.close(); });
+  gallery.addEventListener('close', showGrid);
+
   /* ---------- about: words light up while scrolling ---------- */
   const words = $('[data-words]');
   if (words && !reduceMotion) {

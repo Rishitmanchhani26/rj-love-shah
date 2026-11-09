@@ -313,17 +313,17 @@
       <div class="container watch__cats">
         <p class="watch__hint" data-reveal>Choose your kind of event and see him at it.</p>
         <ul class="cat-grid">
-          <li data-reveal><button class="cat" type="button" data-video-open data-yt="5snu1xwpI0g">
+          <li data-reveal><button class="cat" type="button" data-gallery-open="corporate" data-yt="5snu1xwpI0g">
             <img src="./assets/img/cat-corporate-960.webp" width="960" height="1200" loading="lazy" decoding="async" style="object-position: 30% 22%" alt="RJ Love Shah in a white blazer with a headset and microphone hosting a corporate show on stage">
-            <span class="cat__name">Corporate shows</span><span class="cat__count">Watch on YouTube</span><span class="cat__play" aria-hidden="true"></span>
+            <span class="cat__name">Corporate shows</span><span class="cat__count">8 videos</span><span class="cat__play" aria-hidden="true"></span>
           </button></li>
-          <li data-reveal><button class="cat" type="button" data-video-open data-yt="5kKDOfhS_mk">
+          <li data-reveal><button class="cat" type="button" data-gallery-open="weddings" data-yt="5kKDOfhS_mk">
             <img src="./assets/img/cat-wedding-960.webp" width="960" height="1200" loading="lazy" decoding="async" style="object-position: 50% 45%" alt="RJ Love Shah laughing in a pink blazer with a microphone at a colourful wedding venue">
-            <span class="cat__name">Luxury weddings</span><span class="cat__count">Watch on YouTube</span><span class="cat__play" aria-hidden="true"></span>
+            <span class="cat__name">Luxury weddings</span><span class="cat__count">8 videos</span><span class="cat__play" aria-hidden="true"></span>
           </button></li>
-          <li data-reveal><button class="cat" type="button" data-video-open data-yt="_6wW9BsNKt0">
+          <li data-reveal><button class="cat" type="button" data-gallery-open="live" data-yt="_6wW9BsNKt0">
             <img src="./assets/img/cat-live-960.webp" width="960" height="1200" loading="lazy" decoding="async" style="object-position: 82% 40%" alt="RJ Love Shah hosting on the Reliance Navratri stage with a dancer and live band">
-            <span class="cat__name">Sports &amp; live</span><span class="cat__count">Watch on YouTube</span><span class="cat__play" aria-hidden="true"></span>
+            <span class="cat__name">Sports &amp; live</span><span class="cat__count">8 videos</span><span class="cat__play" aria-hidden="true"></span>
           </button></li>
         </ul>
       </div>
@@ -711,6 +711,21 @@
     <button class="modal__close" type="button" data-modal-close aria-label="Close video">×</button>
     <!-- Filled with a YouTube player from Love's channel when a "watch" button is pressed -->
     <div class="modal__video" data-modal-frame></div>
+  </dialog>
+
+  <!-- Video gallery per event type: cards are filled from Love's YouTube channel when a category is opened -->
+  <dialog class="gallery" data-gallery aria-labelledby="gallery-title">
+    <button class="gallery__close" type="button" data-gallery-close aria-label="Close videos">×</button>
+    <div class="gallery__panel">
+      <p class="eyebrow">Watch Love</p>
+      <h2 class="gallery__title" id="gallery-title" data-gallery-title>Videos</h2>
+      <ul class="gallery__grid" data-gallery-grid></ul>
+      <div class="gallery__player" data-gallery-player hidden>
+        <button class="gallery__back" type="button" data-gallery-back><span aria-hidden="true">←</span> All videos</button>
+        <div class="gallery__frame" data-gallery-frame></div>
+        <p class="gallery__now" data-gallery-now></p>
+      </div>
+    </div>
   </dialog>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
