@@ -150,6 +150,21 @@ body.menu-open { overflow: hidden; }
 .hero__actions { margin-top: 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .hero__actions .btn { padding: 0 12px; }
 @media (min-width: 480px) { .hero__actions { display: flex; } .hero__actions .btn { padding: 0 24px; } }
+/* phones: the photo fills the first screen with Love's face clear; headline + buttons sit on the dark fade at the bottom,
+   the intro sentence follows below the photo on solid navy (no text over his face, nothing hidden by the action bar) */
+@media (max-width: 767px) {
+  .hero { display: block; min-height: 0; background: var(--ink); }
+  .hero__bg, .hero__shade { bottom: auto; height: 100svh; min-height: 560px; }
+  .hero__shade { background: linear-gradient(180deg, rgb(11 19 36 / .6) 0%, rgb(11 19 36 / 0) 22%, rgb(11 19 36 / 0) 44%, rgb(11 19 36 / .82) 66%, rgb(11 19 36 / .97) 84%, var(--ink) 100%); }
+  .hero__inner { gap: 0; padding-bottom: 36px; }
+  .hero__top { min-height: max(calc(100svh - var(--header-h) - 24px - 262px), 230px); }
+  .hero__right { display: flex; flex-direction: column; }
+  .hero__actions { order: -1; margin: 0 0 30px; }
+  .hero__right p { font-size: 1rem; }
+  /* every stat gets its own dot so a wrapped line never starts with a stray separator */
+  .hero__meta { gap: 6px 16px; }
+  .hero__meta li::before, .hero__meta li + li::before { content: ""; display: inline-block; width: 5px; height: 5px; margin: 0 8px 2px 0; border-radius: 50%; background: var(--coral); vertical-align: middle; }
+}
 
 /* ---------- ticker ---------- */
 .ticker { overflow: hidden; background: var(--grad); color: var(--ink); padding: 15px 0; }

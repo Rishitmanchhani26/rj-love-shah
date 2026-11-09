@@ -12,6 +12,7 @@
   const railMic = $('[data-rail-mic]');
   const bar = $('.action-bar');
   const contact = $('#contact');
+  const heroActions = $('.hero__actions');
   let ticking = false;
   const onScroll = () => {
     ticking = false;
@@ -23,7 +24,9 @@
     railMic.style.top = `${p * 100}%`;
     if (contact && bar) {
       const r = contact.getBoundingClientRect();
-      bar.classList.toggle('is-hidden', r.top < innerHeight * 0.6 && r.bottom > 0);
+      // hidden while the hero's own Book / Watch buttons are still on screen, and again at the booking form
+      const heroBtns = heroActions ? heroActions.getBoundingClientRect().bottom > 0 : false;
+      bar.classList.toggle('is-hidden', heroBtns || (r.top < innerHeight * 0.6 && r.bottom > 0));
     }
   };
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
