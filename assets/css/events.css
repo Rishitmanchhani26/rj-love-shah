@@ -10,6 +10,19 @@
 .ep-hero__sticky { position: sticky; top: 0; height: 100svh; overflow: hidden; display: grid; place-items: center; }
 .ep-hero__frame { position: absolute; inset: 0; overflow: hidden; transform-origin: 50% 45%; will-change: transform, border-radius; }
 .ep-hero__frame img, .ep-hero__frame video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* three-photo opening (weddings): sharp stills side by side; phones show only the middle photo */
+.ep-hero__panels { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr; gap: 6px; background: #070c18; }
+.ep-hero__frame .ep-hero__panel { position: relative; inset: auto; width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; }
+.ep-hero__panel:not(:nth-child(2)) { display: none; }
+@media (min-width: 768px) {
+  .ep-hero__panels { grid-template-columns: 1fr 1.15fr 1fr; }
+  .ep-hero__panel:not(:nth-child(2)) { display: block; }
+}
+/* photo opening: headline sits low so every face stays visible, on a deeper fade */
+.ep-hero--panels .ep-hero__sticky { place-items: end center; }
+.ep-hero--panels .ep-hero__copy { padding-bottom: 112px; max-width: 1240px; }
+.ep-hero--panels .ep-hero__title { font-size: clamp(2.5rem, 6.2vw, 5.75rem); }
+.ep-hero__panels::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgb(7 12 24 / .94) 0%, rgb(7 12 24 / .78) 30%, rgb(7 12 24 / .1) 58%, transparent 70%); }
 .ep-hero__frame video { opacity: 0; transition: opacity .8s; }
 .ep-hero__frame video.is-playing { opacity: 1; }
 .ep-hero__frame::after { content: ""; position: absolute; inset: 0; background:

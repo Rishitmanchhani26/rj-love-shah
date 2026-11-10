@@ -11,12 +11,18 @@ PAGES = [
   {
     "slug": "corporate", "nav": "Corporate",
     "title": "Corporate Event Anchor in Ahmedabad | Award Nights, Family Day & Launches | RJ Love Shah",
-    "desc": "Book RJ Love Shah to host your corporate show: award nights, team building, family days and product launches across India. Hindi, English and Gujarati.",
+    "desc": "Book RJ Love Shah to host your corporate show: award nights, team building, family days and product launches across India and abroad. Hindi, English and Gujarati.",
     "crumb": "Corporate shows",
     "h1": 'Your annual night, <em class="grad-text">switched on.</em>',
     "lede": "Award nights, team building, family days and launches, hosted with a Chartered Accountant's precision and a showman's energy.",
-    "hero_img": "/assets/img/events/corp-team.webp", "hero_video": "/assets/video/events/corp-team.mp4",
-    "hero_alt": "RJ Love Shah running a tug-of-war challenge at a corporate team-building event",
+    "hero_img": "/assets/img/events/corp-panel-2.webp",
+    "hero_alt": "RJ Love Shah in a white blazer with a headset microphone on a dark stage",
+    # three sharp full-resolution photos instead of a video (phones show only the middle one)
+    "hero_panels": [
+      ("/assets/img/events/corp-panel-1.webp", 1000, 1296, "RJ Love Shah in a mustard blazer holding a microphone"),
+      ("/assets/img/events/corp-panel-2.webp", 1400, 2489, "RJ Love Shah in a white blazer with a headset microphone on a dark stage"),
+      ("/assets/img/events/corp-panel-3.webp", 1000, 1295, "RJ Love Shah in a navy velvet bandhgala with a microphone and cue card"),
+    ],
     "stage_kicker": "The corporate line-up",
     "stage_h2": 'Pick the night. <em class="grad-text">Watch it come alive.</em>',
     "cases": [
@@ -43,20 +49,26 @@ PAGES = [
       ("Show night", "Run-of-show held to the minute. Sponsors, names and winners never missed."),
     ],
     "faq": [
-      ("Does RJ Love Shah host corporate events in English?", "Yes. He hosts in English, Hindi and Gujarati, and mixes them for pan-India teams."),
+      ("Does RJ Love Shah host corporate events in English?", "Yes. He hosts in English, Hindi and Gujarati, and mixes them for teams from across India and abroad."),
       ("Can he design the games for a team-building or family day?", "Yes. He plans the engagement segments and games with your event team so they fit the venue, the time slot and the audience."),
-      ("Does he travel for corporate events outside Ahmedabad?", "Yes. He is based in Ahmedabad and hosts corporate shows across India."),
+      ("Does he travel for corporate events outside Ahmedabad?", "Yes. He is based in Ahmedabad and hosts corporate shows across India and abroad."),
     ],
   },
   {
     "slug": "weddings", "nav": "Weddings",
     "title": "Wedding Anchor in Ahmedabad | Haldi, Sangeet & Baraat Host | RJ Love Shah",
-    "desc": "RJ Love Shah hosts luxury and destination weddings across India: carnival and haldi, sangeet, baraat on wheels and reception, in Hindi, English and Gujarati.",
+    "desc": "RJ Love Shah hosts luxury and destination weddings across India and abroad: carnival and haldi, sangeet, baraat on wheels and reception, in Hindi, English and Gujarati.",
     "crumb": "Luxury weddings",
     "h1": 'Every function, <em class="grad-text">its own show.</em>',
     "lede": "He learns the families, the inside jokes and the love story, then turns every function into the one your guests talk about.",
-    "hero_img": "/assets/img/events/wed-haldi.webp", "hero_video": "/assets/video/events/wed-haldi.mp4",
-    "hero_alt": "Guests dancing through clouds of colour at a haldi celebration",
+    "hero_img": "/assets/img/events/wed-panel-2.webp",
+    "hero_alt": "RJ Love Shah in a pink blazer with a microphone, dancing at a colourful wedding carnival",
+    # three sharp full-resolution photos instead of a video (phones show only the middle one)
+    "hero_panels": [
+      ("/assets/img/events/wed-panel-1.webp", 1000, 1224, "RJ Love Shah in a sherwani giving a thumbs up at a lit wedding venue"),
+      ("/assets/img/events/wed-panel-2.webp", 1400, 1867, "RJ Love Shah in a pink blazer with a microphone, dancing at a colourful wedding carnival"),
+      ("/assets/img/events/wed-panel-3.webp", 1000, 1226, "RJ Love Shah in a floral sherwani smiling in front of a red wedding mandap"),
+    ],
     "stage_kicker": "The wedding line-up",
     "stage_h2": 'Every function. <em class="grad-text">Its own mood.</em>',
     "cases": [
@@ -83,7 +95,7 @@ PAGES = [
       ("On the day", "He holds the mic and the clock, so you can enjoy your own wedding."),
     ],
     "faq": [
-      ("Does RJ Love Shah host destination weddings?", "Yes. He is based in Ahmedabad, travels across India for weddings and is open to destination weddings abroad."),
+      ("Does RJ Love Shah host destination weddings?", "Yes. He is based in Ahmedabad and hosts weddings across India and abroad, including NRI and destination weddings."),
       ("Has RJ Love Shah hosted NRI or international weddings?", "Yes, including an Indo-Italian wedding. He hosts in English, Hindi and Gujarati so families and guests from abroad can follow every moment."),
       ("Can he host in Gujarati for family functions?", "Yes. He hosts in Gujarati, Hindi and English and switches between them for mixed families."),
       ("How early should we book him for a wedding?", "As early as possible. Wedding-season dates go first, so send your dates on WhatsApp to check availability."),
@@ -92,12 +104,18 @@ PAGES = [
   {
     "slug": "live", "nav": "Sports & Live",
     "title": "Live Event & Sports Anchor | Navratri, Concerts & Sports Hosting | RJ Love Shah",
-    "desc": "RJ Love Shah hosts Navratri nights, concerts, sports events and college shows for crowds of thousands. Host of the Reliance Navratri. Book across India.",
+    "desc": "RJ Love Shah hosts Navratri nights, concerts, sports events and college shows for crowds of thousands. Host of the Reliance Navratri. Book him anywhere in India or abroad.",
     "crumb": "Sports & live events",
     "h1": 'Thousands of people. <em class="grad-text">One host.</em>',
     "lede": "Navratri grounds, concerts, sports properties and college fests. Big crowds, open skies, and a host who makes them move as one.",
-    "hero_img": "/assets/img/events/live-crowd.webp", "hero_video": "/assets/video/events/live-crowd.mp4",
-    "hero_alt": "RJ Love Shah pointing at a packed open-air Navratri crowd at night",
+    "hero_img": "/assets/img/events/live-panel-2.webp",
+    "hero_alt": "RJ Love Shah hosting on the Reliance Navratri stage with a microphone and cue card",
+    # three sharp full-resolution photos instead of a video (phones show only the middle one)
+    "hero_panels": [
+      ("/assets/img/events/live-panel-1.webp", 1000, 1288, "RJ Love Shah on the Navratri stage with a celebrity guest"),
+      ("/assets/img/events/live-panel-2.webp", 1400, 2101, "RJ Love Shah hosting on the Reliance Navratri stage with a microphone and cue card"),
+      ("/assets/img/events/live-panel-3.webp", 1000, 1334, "RJ Love Shah giving a thumbs up beside cricket legend Kapil Dev at a golf event"),
+    ],
     "stage_kicker": "The live line-up",
     "stage_h2": 'Big grounds. <em class="grad-text">Bigger energy.</em>',
     "cases": [
@@ -158,6 +176,19 @@ def case_html(i, c):
         </button>'''
 
 
+def hero_media(p):
+    """Opening visual: three sharp photo panels (no video) when the page has hero_panels, else poster + muted video loop."""
+    if p.get("hero_panels"):
+        rows = []
+        for i, (src, w, h, alt) in enumerate(p["hero_panels"]):
+            prio = ' fetchpriority="high"' if i == 1 else ''
+            rows.append(f'\n            <img class="ep-hero__panel" src="{src}" width="{w}" height="{h}"{prio} decoding="async" alt="{e(alt)}">')
+        return '          <div class="ep-hero__panels">' + "".join(rows) + '\n          </div>'
+    img = f'          <img src="{p["hero_img"]}" width="960" height="540" fetchpriority="high" decoding="async" alt="{e(p["hero_alt"])}">'
+    vid = f'          <video muted loop playsinline preload="none" aria-hidden="true" data-hero-video data-src="{p["hero_video"]}"></video>'
+    return img + "\n" + vid
+
+
 def page(p):
     url = f"{SITE}/events/{p['slug']}/"
     cases = "".join(case_html(i, c) for i, c in enumerate(p["cases"]))
@@ -175,7 +206,7 @@ def page(p):
           {"@type": "ListItem", "position": 2, "name": p["crumb"], "item": url}]},
         {"@type": "Service", "name": f"{p['crumb']} hosting by RJ Love Shah", "serviceType": p["crumb"],
          "provider": {"@type": "Person", "@id": SITE + "/#person", "name": "RJ Love Shah"},
-         "areaServed": "India", "url": url, "description": p["desc"],
+         "areaServed": ["India", "Worldwide"], "url": url, "description": p["desc"],
          "hasOfferCatalog": {"@type": "OfferCatalog", "name": p["crumb"], "itemListElement": [
            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": c["title"], "description": c["text"]}} for c in p["cases"]]}},
         {"@type": "FAQPage", "mainEntity": [
@@ -230,11 +261,10 @@ def page(p):
 
   <main id="main">
     <!-- 1 · Opening -->
-    <section class="ep-hero" aria-labelledby="ep-title">
+    <section class="ep-hero{' ep-hero--panels' if p.get('hero_panels') else ''}" aria-labelledby="ep-title">
       <div class="ep-hero__sticky">
         <div class="ep-hero__frame">
-          <img src="{p['hero_img']}" width="960" height="540" fetchpriority="high" decoding="async" alt="{e(p['hero_alt'])}">
-          <video muted loop playsinline preload="none" aria-hidden="true" data-hero-video data-src="{p['hero_video']}"></video>
+{hero_media(p)}
         </div>
         <div class="ep-hero__dim" aria-hidden="true"></div>
         <div class="ep-hero__copy">
@@ -299,7 +329,7 @@ def page(p):
       <div class="footer__grid" style="margin-top:0;border-top:0;padding-top:0">
         <div class="footer__brand">
           <p class="logo"><span class="logo__kicker">Anchor · Host</span><span class="logo__name">RJ Love Shah</span></p>
-          <p>Celebrity anchor for weddings, corporate shows and live events. Based in Ahmedabad, hosting across India.</p>
+          <p>Celebrity anchor for weddings, corporate shows and live events. Based in Ahmedabad, hosting across India and abroad.</p>
           <address><a href="tel:+917383972757">+91 73839 72757</a><br><a href="mailto:rjloveshah12@gmail.com">rjloveshah12@gmail.com</a><br>Ahmedabad, Gujarat, India</address>
         </div>
         <nav aria-label="Footer: events"><ul>{nav}</ul></nav>
@@ -308,7 +338,6 @@ def page(p):
           <li><a href="https://www.instagram.com/rjlove_shah" rel="noopener">Instagram</a></li>
           <li><a href="https://www.facebook.com/share/1CkYNs7Qu3/" rel="noopener">Facebook</a></li>
           <li><a href="https://youtube.com/@loveshah117" rel="noopener">YouTube</a></li>
-          <li><a href="https://www.linkedin.com/in/rj-love-anchor-host-9b65aa155" rel="noopener">LinkedIn</a></li>
         </ul></nav>
       </div>
       <p class="footer__legal">© 2026 RJ Love Shah. All rights reserved.</p>
