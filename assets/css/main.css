@@ -73,7 +73,7 @@ button { font: inherit; color: inherit; }
 .btn span[aria-hidden] { transition: transform .2s var(--ease); }
 .btn:hover span[aria-hidden] { transform: translateX(3px); }
 .btn:active { transform: scale(.98); }
-.btn--grad { background: var(--grad); color: var(--ink); box-shadow: 0 10px 30px -12px rgb(255 107 91 / .7); }
+.btn--grad { background: var(--grad) border-box; color: var(--ink); box-shadow: 0 10px 30px -12px rgb(255 107 91 / .7); }
 .btn--grad:hover { box-shadow: 0 14px 36px -10px rgb(255 107 91 / .85); }
 .btn--ghost { color: var(--cream); border-color: rgb(244 237 224 / .3); background: rgb(11 19 36 / .2); }
 .btn--ghost:hover { background: rgb(244 237 224 / .08); border-color: rgb(244 237 224 / .6); }
@@ -157,13 +157,23 @@ body.menu-open { overflow: hidden; }
   .hero__bg, .hero__shade { bottom: auto; height: 100svh; min-height: 560px; }
   .hero__shade { background: linear-gradient(180deg, rgb(11 19 36 / .6) 0%, rgb(11 19 36 / 0) 22%, rgb(11 19 36 / 0) 44%, rgb(11 19 36 / .82) 66%, rgb(11 19 36 / .97) 84%, var(--ink) 100%); }
   .hero__inner { gap: 0; padding-bottom: 36px; }
-  .hero__top { min-height: max(calc(100svh - var(--header-h) - 24px - 262px), 230px); }
+  .hero__top { min-height: max(calc(100svh - var(--header-h) - 24px - 284px), 230px); }
   .hero__right { display: flex; flex-direction: column; }
   .hero__actions { order: -1; margin: 0 0 30px; }
   .hero__right p { font-size: 1rem; }
   /* every stat gets its own dot so a wrapped line never starts with a stray separator */
-  .hero__meta { gap: 6px 16px; }
-  .hero__meta li::before, .hero__meta li + li::before { content: ""; display: inline-block; width: 5px; height: 5px; margin: 0 8px 2px 0; border-radius: 50%; background: var(--coral); vertical-align: middle; }
+  /* tagline always on one clean line */
+  .hero__eyebrow { white-space: nowrap; font-size: min(.6875rem, 2.95vw); letter-spacing: .16em; }
+  .hero__eyebrow-long { display: none; }
+  /* stats as three even columns: big number, small label */
+  .hero__meta { margin-top: 20px; display: grid; grid-template-columns: repeat(3, auto); justify-content: space-between; gap: 0; padding: 14px 0; border-block: 1px solid rgb(244 237 224 / .12); }
+  .hero__meta li { display: flex; flex-direction: column; gap: 6px; font-size: .5625rem; letter-spacing: .14em; color: var(--cream-mute); }
+  .hero__meta li + li { padding-left: 16px; border-left: 1px solid rgb(244 237 224 / .12); }
+  .hero__meta li + li::before { content: none; }
+  .hero__meta b { font: 600 1.5rem/1 var(--f-serif); letter-spacing: 0; text-transform: none; color: var(--cream); }
+  /* slightly smaller, evenly sized buttons */
+  .hero__actions { gap: 12px; }
+  .hero__actions .btn { min-height: 46px; padding: 0 10px; font-size: .6875rem; letter-spacing: .12em; }
 }
 
 /* ---------- ticker ---------- */
