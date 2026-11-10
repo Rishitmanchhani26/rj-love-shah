@@ -227,6 +227,13 @@ body.menu-open { overflow: hidden; }
 .section-divider::after { content: "✦"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
   padding: 0 14px; background: var(--ink); color: var(--coral); font-size: .8125rem; line-height: 1; }
 @media (min-width: 960px) { .section-divider { margin-top: 72px; } }
+/* chapter break: marks the start of a new section where two dark sections meet */
+.chapter-break { position: relative; z-index: 1; background: var(--ink); padding: 0 var(--gutter); }
+.chapter-break .section-divider { margin: 0 auto; max-width: var(--max);
+  background: linear-gradient(90deg, transparent, rgb(244 237 224 / .16) 12%, rgb(255 107 91 / .85) 50%, rgb(244 237 224 / .16) 88%, transparent); }
+.chapter-break .section-divider::after { display: grid; place-items: center; width: 46px; height: 46px; padding: 0; border-radius: 50%;
+  border: 1px solid rgb(255 107 91 / .65); background: var(--ink); color: var(--coral); font-size: 1rem;
+  box-shadow: 0 0 0 8px var(--ink), 0 0 36px rgb(255 107 91 / .35); }
 
 /* ---------- 3 · about ---------- */
 .about__grid { display: grid; gap: 40px; align-items: start; }
