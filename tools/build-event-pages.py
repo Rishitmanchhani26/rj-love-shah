@@ -398,3 +398,5 @@ for p in PAGES:
 # keep every link relative so the site works on any host (GitHub Pages, Netlify, final domain)
 import runpy
 runpy.run_path(str(ROOT / "tools" / "make-relative.py"))
+# stamp CSS/JS links with a content hash so browsers never mix new pages with an old cached stylesheet
+runpy.run_path(str(ROOT / "tools" / "version-assets.py"))
