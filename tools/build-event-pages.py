@@ -248,14 +248,14 @@ def page(p):
         <li><a href="/">Home</a></li>{nav}
         <li><a href="/#celebrities">Celebrities</a></li><li><a href="/#about">About</a></li><li><a href="/#contact">Contact</a></li>
       </ul></nav>
-      <a class="btn btn--grad btn--sm header-cta" href="https://wa.me/{WA}?text={e(wa_text)}" rel="noopener">Book Love</a>
+      <a class="btn btn--grad btn--sm header-cta" href="https://wa.me/{WA}?text={e(wa_text)}" rel="noopener">Book RJ Love</a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-btn>
         <span class="menu-btn__bars" aria-hidden="true"></span><span class="visually-hidden">Menu</span>
       </button>
     </div>
     <div class="mobile-menu" id="mobile-menu" hidden data-menu>
       <ul><li><a href="/">Home</a></li>{nav}<li><a href="/#celebrities">Celebrities</a></li><li><a href="/#about">About</a></li><li><a href="/#contact">Contact</a></li></ul>
-      <a class="btn btn--grad" href="https://wa.me/{WA}?text={e(wa_text)}" rel="noopener">Book Love</a>
+      <a class="btn btn--grad" href="https://wa.me/{WA}?text={e(wa_text)}" rel="noopener">Book RJ Love</a>
     </div>
   </header>
 
@@ -311,13 +311,12 @@ def page(p):
     <!-- CTA -->
     <section class="ep-cta" aria-labelledby="cta-title">
       <div class="container">
-        <p class="eyebrow" data-reveal>Book Love</p>
+        <p class="eyebrow" data-reveal>Book RJ Love</p>
         <h2 class="h2" id="cta-title" data-reveal>Ready to switch <em class="grad-text">your night on?</em></h2>
         <p data-reveal>Send the date, city and crowd size. Advance booking recommended.</p>
         <div class="ep-cta__actions" data-reveal>
           <a class="btn btn--grad" href="https://wa.me/{WA}?text={e(wa_text)}" rel="noopener">WhatsApp Love <span aria-hidden="true">→</span></a>
           <a class="btn btn--ghost" href="/#contact">Booking form</a>
-          <a class="btn btn--ghost" href="tel:+917383972757">+91 73839 72757</a>
         </div>
         <nav class="other-events" aria-label="Other event types" data-reveal>{others}</nav>
       </div>
@@ -330,7 +329,7 @@ def page(p):
         <div class="footer__brand">
           <p class="logo"><span class="logo__kicker">Anchor · Host</span><span class="logo__name">RJ Love Shah</span></p>
           <p>Celebrity anchor for weddings, corporate shows and live events. Based in Ahmedabad, hosting across India and abroad.</p>
-          <address><a href="tel:+917383972757">+91 73839 72757</a><br><a href="mailto:rjloveshah12@gmail.com">rjloveshah12@gmail.com</a><br>Ahmedabad, Gujarat, India</address>
+          <address><a href="mailto:rjloveshah12@gmail.com">rjloveshah12@gmail.com</a><br>Ahmedabad, Gujarat, India</address>
         </div>
         <nav aria-label="Footer: events"><ul>{nav}</ul></nav>
         <nav aria-label="Footer: site"><ul><li><a href="/">Home</a></li><li><a href="/#about">About</a></li><li><a href="/#faq">FAQ</a></li><li><a href="/#contact">Contact</a></li></ul></nav>
@@ -345,7 +344,7 @@ def page(p):
   </footer>
 
   <div class="action-bar" role="region" aria-label="Quick booking">
-    <a class="btn btn--grad" href="/#contact">Book Love</a>
+    <a class="btn btn--grad" href="/#contact">Book RJ Love</a>
     <a class="btn btn--ghost glass" href="https://wa.me/{WA}?text={e(wa_text)}" rel="noopener">WhatsApp</a>
   </div>
 
@@ -369,7 +368,7 @@ def page(p):
         <ul class="tags" data-op-anim data-op-tags></ul>
         <div class="opener__actions" data-op-anim>
           <button class="btn btn--ghost" type="button" data-op-watch hidden><span class="play-dot" aria-hidden="true"></span> Watch the full clip</button>
-          <a class="btn btn--grad" href="#" rel="noopener" data-op-book><span>Book Love</span></a>
+          <a class="btn btn--grad" href="#" rel="noopener" data-op-book><span>Book RJ Love</span></a>
         </div>
       </div>
     </div>

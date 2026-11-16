@@ -102,7 +102,7 @@
       const li = document.createElement('li'); li.textContent = s.textContent; return li;
     }));
     opBook.href = `https://wa.me/${WA}?text=${encodeURIComponent(`Hi Love, I'd like to book you for a ${c.dataset.title} event.`)}`;
-    opBook.querySelector('span').textContent = `Book Love for ${c.dataset.title}`;
+    opBook.querySelector('span').textContent = `Book RJ Love for ${c.dataset.title}`;
     opCount.textContent = `${String(i + 1).padStart(2, '0')} / ${String(cases.length).padStart(2, '0')}`;
   };
 

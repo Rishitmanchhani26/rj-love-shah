@@ -22,10 +22,9 @@
 
   <link rel="preload" href="./assets/fonts/playfair-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./assets/fonts/playfair-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" as="image" href="./assets/img/hero-wide-1920.webp"
-        imagesrcset="./assets/img/hero-wide-1280.webp 1280w, ./assets/img/hero-wide-1920.webp 1920w"
-        imagesizes="(max-width: 767px) 1300px, 100vw" fetchpriority="high">
-  <link rel="stylesheet" href="./assets/css/main.css?v=5c597c64">
+  <link rel="preload" as="image" href="./assets/img/hero-alt-tall-1000.webp" media="(max-width: 767px), (orientation: portrait) and (max-width: 1199px)" fetchpriority="high">
+  <link rel="preload" as="image" href="./assets/img/hero-alt-1920.webp" imagesrcset="./assets/img/hero-alt-1280.webp 1280w, ./assets/img/hero-alt-1920.webp 1920w" imagesizes="100vw" media="(min-width: 768px) and (orientation: landscape), (min-width: 1200px)" fetchpriority="high">
+  <link rel="stylesheet" href="./assets/css/main.css?v=b78c3f6e">
   <script>document.documentElement.classList.add('js')</script>
 
   <script type="application/ld+json">
@@ -45,7 +44,6 @@
         "url": "https://www.rjloveshah.com/",
         "image": "https://www.rjloveshah.com/assets/img/intro-love-765.webp",
         "email": "mailto:rjloveshah12@gmail.com",
-        "telephone": "+91-73839-72757",
         "homeLocation": {"@type": "Place", "name": "Ahmedabad, Gujarat, India"},
         "knowsLanguage": ["Hindi", "English", "Gujarati"],
         "sameAs": [
@@ -60,7 +58,6 @@
         "name": "RJ Love Shah – Anchor & Event Host",
         "url": "https://www.rjloveshah.com/",
         "image": "https://www.rjloveshah.com/assets/img/hero-wide-1280.webp",
-        "telephone": "+91-73839-72757",
         "email": "rjloveshah12@gmail.com",
         "address": {"@type": "PostalAddress", "addressLocality": "Ahmedabad", "addressRegion": "Gujarat", "addressCountry": "IN"},
         "areaServed": ["India", "Sri Lanka", "Worldwide"],
@@ -88,7 +85,7 @@
         "@type": "FAQPage",
         "mainEntity": [
           {"@type": "Question", "name": "How do I book RJ Love Shah for an event?",
-           "acceptedAnswer": {"@type": "Answer", "text": "Send the event date, city and type through the booking form, WhatsApp +91 73839 72757 or email rjloveshah12@gmail.com. Advance booking is recommended."}},
+           "acceptedAnswer": {"@type": "Answer", "text": "Send the event date, city and type through the booking form, WhatsApp or email rjloveshah12@gmail.com. Advance booking is recommended."}},
           {"@type": "Question", "name": "Which languages does RJ Love Shah host in?",
            "acceptedAnswer": {"@type": "Answer", "text": "Hindi, English and Gujarati, and he switches between them to suit the crowd."}},
           {"@type": "Question", "name": "Where is RJ Love Shah based? Does he travel?",
@@ -117,7 +114,6 @@
       </a>
       <nav class="nav" aria-label="Main">
         <ul>
-          <li><a href="#experience">Experience</a></li>
           <li><a href="./events/corporate/">Corporate</a></li>
           <li><a href="./events/weddings/">Weddings</a></li>
           <li><a href="./events/live/">Sports &amp; Live</a></li>
@@ -126,14 +122,13 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <a class="btn btn--grad btn--sm header-cta" href="#contact">Book Love</a>
+      <a class="btn btn--grad btn--sm header-cta" href="#contact">Book RJ Love</a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-btn>
         <span class="menu-btn__bars" aria-hidden="true"></span><span class="visually-hidden">Menu</span>
       </button>
     </div>
     <div class="mobile-menu" id="mobile-menu" hidden data-menu>
       <ul>
-        <li><a href="#experience">Experience</a></li>
         <li><a href="./events/corporate/">Corporate</a></li>
         <li><a href="./events/weddings/">Weddings</a></li>
         <li><a href="./events/live/">Sports &amp; Live</a></li>
@@ -141,7 +136,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a class="btn btn--grad" href="#contact">Book Love</a>
+      <a class="btn btn--grad" href="#contact">Book RJ Love</a>
     </div>
   </header>
 
@@ -152,280 +147,154 @@
 
     <!-- ===== 1 · Hero ===== -->
     <section class="hero" aria-labelledby="hero-title">
-      <picture class="hero__bg">
-        <img src="./assets/img/hero-wide-1920.webp" srcset="./assets/img/hero-wide-1280.webp 1280w, ./assets/img/hero-wide-1920.webp 1920w"
-             sizes="(max-width: 767px) 1300px, 100vw" width="1920" height="1280" fetchpriority="high" decoding="async"
-             alt="RJ Love Shah with a microphone, arms wide, on the Reliance Navratri stage">
-      </picture>
+      <!-- Two hero photos that slowly crossfade: corporate (white blazer) first, then live entertainment (Navratri) -->
+      <div class="hero__slides" data-hero-slides>
+        <picture class="hero__bg hero__slide hero__bg--alt is-active" data-label="Corporate">
+          <source media="(max-width: 767px), (orientation: portrait) and (max-width: 1199px)" srcset="./assets/img/hero-alt-tall-1000.webp" width="1000" height="2170">
+          <img src="./assets/img/hero-alt-1920.webp" srcset="./assets/img/hero-alt-1280.webp 1280w, ./assets/img/hero-alt-1920.webp 1920w"
+               sizes="100vw" width="1920" height="1200" fetchpriority="high" decoding="async"
+               alt="RJ Love Shah in a white blazer with a headset microphone, speaking on stage against a deep blue backdrop">
+        </picture>
+        <picture class="hero__bg hero__slide" data-label="Live shows">
+          <img src="./assets/img/hero-wide-1920.webp" srcset="./assets/img/hero-wide-1280.webp 1280w, ./assets/img/hero-wide-1920.webp 1920w"
+               sizes="(max-width: 767px) 1300px, 100vw" width="1920" height="1280" loading="lazy" decoding="async"
+               alt="RJ Love Shah with a microphone, arms wide, on the Reliance Navratri stage">
+        </picture>
+      </div>
       <div class="hero__shade" aria-hidden="true"></div>
 
       <div class="hero__inner">
         <div class="hero__top">
-          <p class="hero__big hero__big--left" aria-hidden="true" data-intro>The voice.</p>
-          <p class="hero__big hero__big--right" aria-hidden="true" data-intro>The energy.</p>
+          <p class="hero__big hero__big--left" aria-hidden="true" data-intro><span class="hero__big-pre">The Voice of</span> <em class="grad-text">Radio</em></p>
+          <p class="hero__big hero__big--right" aria-hidden="true" data-intro><span class="hero__big-pre">The Voice of</span> <em class="grad-text">Big Shows</em></p>
         </div>
 
         <div class="hero__bottom">
           <div class="hero__left">
             <p class="eyebrow hero__eyebrow" data-intro><span class="hero__eyebrow-long">Supremely </span>creative · Witty · Celebrity anchor</p>
             <h1 class="hero__title" id="hero-title" data-intro>
-              <span class="visually-hidden">RJ Love Shah: the voice, the energy, </span>
-              <span class="hero__title-main">The <em class="grad-text">experience.</em></span>
+              <span class="hero__title-main">RJ Love Shah</span>
+              <span class="hero__title-sub">Be My Guest</span>
             </h1>
             <ul class="hero__meta" data-intro>
-              <li><b>11+</b> years on stage</li><li><b>1,500+</b> events</li><li><b>Global</b> India &amp; abroad</li>
+              <li><b>11+</b> years on stage</li><li><b>1,500+</b> live shows</li>
             </ul>
           </div>
           <div class="hero__right" data-intro>
-            <p class="hero__lede"><strong>RJ Love Shah</strong> is India's most energetic host: a Chartered Accountant turned anchor who
-              has run the mic at the Ambani family's Reliance Navratri, luxury weddings and stadium-size crowds.</p>
+            <p class="hero__lede"><strong>RJ Love Shah</strong> is India's most energetic host: a Chartered Accountant turned Radio Host &amp; an Anchor
+              who has run the mic at the Ambani family's Reliance Navratri, luxury weddings and stadium-size crowds.</p>
             <div class="hero__actions">
-              <a class="btn btn--grad" href="#contact">Book Love <span aria-hidden="true">→</span></a>
-              <button class="btn btn--ghost" type="button" data-video-open data-yt="E7U9Dcw59yk">Watch him live</button>
+              <a class="btn btn--grad" href="#contact">Book RJ Love <span aria-hidden="true">→</span></a>
+              <button class="btn btn--ghost" type="button" data-video-open data-yt="E7U9Dcw59yk">Watch Intro Video</button>
             </div>
           </div>
         </div>
       </div>
-      <div class="hero__lede-m"><p><strong>RJ Love Shah</strong> is India's most energetic host: a Chartered Accountant turned anchor who
-              has run the mic at the Ambani family's Reliance Navratri, luxury weddings and stadium-size crowds.</p></div>
-    </section>
-
-    <!-- Gradient ticker -->
-    <div class="ticker" aria-label="What Love brings">
-      <div class="ticker__track">
-        <ul class="ticker__list">
-          <li>Witty</li><li>Supremely creative</li><li>India's most energetic host</li><li>Luxury weddings</li>
-          <li>Corporate shows</li><li>Sports &amp; live</li><li>Hindi · English · Gujarati</li><li>1,500+ events</li>
-        </ul>
-        <ul class="ticker__list" aria-hidden="true">
-          <li>Witty</li><li>Supremely creative</li><li>India's most energetic host</li><li>Luxury weddings</li>
-          <li>Corporate shows</li><li>Sports &amp; live</li><li>Hindi · English · Gujarati</li><li>1,500+ events</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- ===== 2 · Big stages (replaces awards) ===== -->
-    <section class="stages section" aria-labelledby="stages-title">
-      <div class="container">
-        <header class="section-head section-head--center">
-          <p class="eyebrow" data-reveal>Headline stages</p>
-          <h2 class="h2" id="stages-title" data-reveal>The nights people <em class="grad-text">still talk about.</em></h2>
-        </header>
-        <ul class="stages__grid">
-          <li class="stage-card stage-card--lead" data-reveal>
-            <span class="medal medal--gold"><span>Navratri</span></span>
-            <h3>Reliance Navratri</h3><p>For the Ambani family · Jamnagar</p>
-          </li>
-          <li class="stage-card" data-reveal>
-            <span class="medal medal--rose"><span>Concert</span></span>
-            <h3>Neha Kakkar</h3><p>Live in Concert</p>
-          </li>
-          <li class="stage-card" data-reveal>
-            <span class="medal medal--rose"><span>Concert</span></span>
-            <h3>Piyush Mishra</h3><p>Live in Concert</p>
-          </li>
-          <li class="stage-card" data-reveal>
-            <span class="medal medal--silver"><span>Garba</span></span>
-            <h3>NUVOCO</h3><p>Sauthi Khaas Garba</p>
-          </li>
-          <li class="stage-card" data-reveal>
-            <span class="medal medal--silver"><span>Sports</span></span>
-            <h3>Adani × PGTI</h3><p>Golf pre-tournament event</p>
-          </li>
-          <li class="stage-card" data-reveal>
-            <span class="medal medal--gold"><span>ICAI</span></span>
-            <h3>Felicitated by ICAI</h3><p>A CA who excels as an artist</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ===== 3 · Meet Love ===== -->
-    <section class="about section light" id="about" aria-labelledby="about-title">
-      <div class="container about__grid">
-        <div class="about__sticky">
-          <figure class="about__photo" data-reveal data-about-photo>
-            <!-- Three portraits; scrolling through the intro crossfades between them (like the reference) -->
-            <img class="about__layer is-active" src="./assets/img/intro-love-600.webp" srcset="./assets/img/intro-love-600.webp 600w, ./assets/img/intro-love-765.webp 765w"
-                 sizes="(min-width: 960px) 40vw, 100vw" width="765" height="1020" loading="lazy" decoding="async"
-                 alt="RJ Love Shah smiling with a microphone in a navy sequinned velvet bandhgala at a wedding venue">
-            <img class="about__layer" src="./assets/img/portrait-sage-720.webp" srcset="./assets/img/portrait-sage-480.webp 480w, ./assets/img/portrait-sage-720.webp 720w"
-                 sizes="(min-width: 960px) 40vw, 100vw" width="720" height="900" loading="lazy" decoding="async"
-                 alt="RJ Love Shah in a sage green bandhgala on a staircase">
-            <img class="about__layer" src="./assets/img/portrait-maroon-720.webp" srcset="./assets/img/portrait-maroon-480.webp 480w, ./assets/img/portrait-maroon-720.webp 720w"
-                 sizes="(min-width: 960px) 40vw, 100vw" width="720" height="900" loading="lazy" decoding="async"
-                 alt="RJ Love Shah in a maroon blazer on a grand staircase">
-            <figcaption class="tag">Meet Love</figcaption>
-          </figure>
-        </div>
-        <div class="about__copy">
-          <p class="eyebrow eyebrow--dark" data-reveal>Meet Love</p>
-          <h2 class="about__name" id="about-title" data-reveal>RJ Love Shah</h2>
-          <p class="about__tagline" data-reveal>The Voice. The Energy. <em class="grad-text">The Experience.</em></p>
-          <p class="about__roles" data-reveal>Celebrity Host <span aria-hidden="true">|</span> Entertainer <span aria-hidden="true">|</span> Actor <span aria-hidden="true">|</span> Chartered Accountant</p>
-          <p class="about__text" data-words>
-            A dynamic stage personality with <em>1,500+ live events</em> across India and internationally, bringing unmatched energy,
-            creativity and audience engagement to celebrity shows, luxury weddings, corporate events,
-            sports properties and exclusive HNI gatherings.
-          </p>
-          <p class="about__body" data-reveal>
-            A rare CA turned entertainer, with a distinctive radio legacy at <strong>94.3 MY FM &amp; Fever FM</strong>,
-            trusted by leading brands like <strong>Reliance, Zydus, Coca-Cola, BMW, Gujarat Titans</strong> &amp; many more.
-          </p>
-          <p class="about__close" data-reveal>More than a host. <em>An experience in himself.</em></p>
-          <div class="about__actions" data-reveal>
-            <a class="btn btn--grad" href="#contact">Book Love <span aria-hidden="true">→</span></a>
-            <a class="btn btn--outline-dark" href="https://wa.me/917383972757?text=Hi%20Love%2C%20are%20you%20free%20on%20" rel="noopener">Check his dates</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== 3b · Radio legacy (after the intro) ===== -->
-    <section class="radio-sec section" aria-label="8 years on radio">
-      <div class="container">
-        <div class="onair" data-reveal>
-          <p class="onair__label">8 years on air at</p>
-          <ul class="onair__list"><li>94.3 MY FM</li><li>Fever FM</li></ul>
-          <div class="onair__photos">
-            <img src="./assets/img/radio-myfm-720.webp" width="720" height="478" loading="lazy" decoding="async"
-                 alt="RJ Love Shah with a guest celebrity at the 94.3 MY FM studio">
-            <img src="./assets/img/radio-studio-640.webp" width="640" height="712" loading="lazy" decoding="async"
-                 alt="RJ Love Shah cutting a celebration cake with guests at 94.3 MY FM">
-          </div>
-        </div>
-        <span class="section-divider" aria-hidden="true"></span>
-      </div>
-    </section>
-
-    <!-- ===== 4 · Watch ===== -->
-    <section class="watch" id="watch" aria-labelledby="watch-title">
-      <div class="watch__hero">
-        <img class="watch__poster" src="./assets/img/ev-live-1280.webp" width="1280" height="720" loading="lazy" decoding="async" alt="">
-        <video class="watch__video" muted loop playsinline preload="none" aria-hidden="true" data-lazy-video
-               data-src-webm="./assets/video/hero-loop.webm" data-src-mp4="./assets/video/hero-loop.mp4"></video>
-        <div class="watch__shade" aria-hidden="true"></div>
-        <button class="play" type="button" data-video-open data-yt="E7U9Dcw59yk" aria-label="Play RJ Love Shah's showreel"><span aria-hidden="true"></span></button>
-        <div class="watch__copy">
-          <p class="eyebrow" data-reveal>Watch Love</p>
-          <h2 class="h2 h2--xl" id="watch-title" data-reveal>One mic.<br><em class="grad-text">A whole ground dancing.</em></h2>
-        </div>
-      </div>
-      <div class="container watch__cats">
-        <p class="watch__hint" data-reveal>Choose your kind of event and see him at it.</p>
-        <ul class="cat-grid">
-          <li data-reveal><button class="cat" type="button" data-gallery-open="corporate" data-yt="5snu1xwpI0g">
-            <img src="./assets/img/cat-corporate-960.webp" width="960" height="1200" loading="lazy" decoding="async" style="object-position: 30% 22%" alt="RJ Love Shah in a white blazer with a headset and microphone hosting a corporate show on stage">
-            <span class="cat__name">Corporate shows</span><span class="cat__count">8 videos</span><span class="cat__play" aria-hidden="true"></span>
-          </button></li>
-          <li data-reveal><button class="cat" type="button" data-gallery-open="weddings" data-yt="5kKDOfhS_mk">
-            <img src="./assets/img/cat-wedding-960.webp" width="960" height="1200" loading="lazy" decoding="async" style="object-position: 50% 45%" alt="RJ Love Shah laughing in a pink blazer with a microphone at a colourful wedding venue">
-            <span class="cat__name">Luxury weddings</span><span class="cat__count">8 videos</span><span class="cat__play" aria-hidden="true"></span>
-          </button></li>
-          <li data-reveal><button class="cat" type="button" data-gallery-open="live" data-yt="_6wW9BsNKt0">
-            <img src="./assets/img/cat-live-960.webp" width="960" height="1200" loading="lazy" decoding="async" style="object-position: 82% 40%" alt="RJ Love Shah hosting on the Reliance Navratri stage with a dancer and live band">
-            <span class="cat__name">Sports &amp; live</span><span class="cat__count">8 videos</span><span class="cat__play" aria-hidden="true"></span>
-          </button></li>
-        </ul>
-      </div>
+      <div class="hero__lede-m"><p><strong>RJ Love Shah</strong> is India's most energetic host: a Chartered Accountant turned Radio Host &amp; an Anchor
+              who has run the mic at the Ambani family's Reliance Navratri, luxury weddings and stadium-size crowds.</p></div>
     </section>
 
     <div class="chapter-break" aria-hidden="true"><span class="section-divider"></span></div>
 
-    <!-- ===== 5 · The Love experience ===== -->
-    <section class="exp" id="experience" aria-labelledby="exp-title">
-      <h2 class="visually-hidden" id="exp-title">The RJ Love Shah experience: witty, creative, energetic and precise</h2>
-      <!-- Desktop: the section stays on screen while you scroll; each quarter of the scroll lights the next word, photo and clip -->
-      <div class="exp__track" data-exp-track>
-        <div class="exp__stage">
-        <span class="exp__glow is-active" style="--tint: #ff6b5b" aria-hidden="true"></span>
-        <span class="exp__glow" style="--tint: #ff8fa3" aria-hidden="true"></span>
-        <span class="exp__glow" style="--tint: #a98bff" aria-hidden="true"></span>
-        <span class="exp__glow" style="--tint: #f5c26b" aria-hidden="true"></span>
-          <div class="container exp__grid">
-            <div class="exp__left">
-              <p class="eyebrow">The Love experience</p>
-              <ol class="exp__list" data-exp-list aria-hidden="true">
-              <li class="is-active" style="--tint: #ff6b5b"><button type="button" data-exp="0"><span class="exp__num">01</span><span class="exp__word">Witty</span></button></li>
-              <li style="--tint: #ff8fa3"><button type="button" data-exp="1"><span class="exp__num">02</span><span class="exp__word">Creative</span></button></li>
-              <li style="--tint: #a98bff"><button type="button" data-exp="2"><span class="exp__num">03</span><span class="exp__word">Energy</span></button></li>
-              <li style="--tint: #f5c26b"><button type="button" data-exp="3"><span class="exp__num">04</span><span class="exp__word">Precision</span></button></li>
-              </ol>
-              <p class="exp__desc" data-exp-desc>Quick lines, warm roasts and zero dead air. The room laughs with him, never at the guests.</p>
-            </div>
-            <figure class="exp__frame">
-              <img class="is-active" src="./assets/img/exp-witty2-640.webp" srcset="./assets/img/exp-witty2-640.webp 640w, ./assets/img/exp-witty2-960.webp 960w" sizes="40vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah in sunglasses and a peach jacket, holding his microphone">
-              <img src="./assets/img/exp-creative-640.webp" srcset="./assets/img/exp-creative-640.webp 640w, ./assets/img/exp-creative-960.webp 960w" sizes="40vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah greeting Rashmika Mandanna with a handshake on the Navratri stage">
-              <img src="./assets/img/exp-energy-640.webp" srcset="./assets/img/exp-energy-640.webp 640w, ./assets/img/exp-energy-960.webp 960w" sizes="40vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah performing under purple stage lights at a live show">
-              <img src="./assets/img/exp-precision-640.webp" srcset="./assets/img/exp-precision-640.webp 640w, ./assets/img/exp-precision-960.webp 960w" sizes="40vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah in a sky-blue blazer, smiling, at a wedding venue draped in white">
-              <figcaption class="exp__foot">
-                <span class="exp__badge" data-exp-num>01</span>
-                <span class="exp__see">
-                <button class="exp__clip is-active" type="button" data-video-open data-yt="RUrSS4cqIF0" data-shape="tall" aria-label="Play video: The varmala challenge at a wedding carnival"><img src="https://i.ytimg.com/vi/RUrSS4cqIF0/oardefault.jpg" alt="" loading="lazy" decoding="async"><span class="exp__clip-play" aria-hidden="true"></span></button>
-                <button class="exp__clip" type="button" data-video-open data-yt="U92Ut7h2N6o" data-shape="tall" aria-label="Play video: A Squid Game-style wedding carnival"><img src="https://i.ytimg.com/vi/U92Ut7h2N6o/oardefault.jpg" alt="" loading="lazy" decoding="async"><span class="exp__clip-play" aria-hidden="true"></span></button>
-                <button class="exp__clip" type="button" data-video-open data-yt="5kKDOfhS_mk" data-shape="wide" aria-label="Play video: Sangeet warm-up with both families"><img src="https://i.ytimg.com/vi/5kKDOfhS_mk/sddefault.jpg" alt="" loading="lazy" decoding="async"><span class="exp__clip-play" aria-hidden="true"></span></button>
-                <button class="exp__clip" type="button" data-video-open data-yt="ZQAv5U1U4D8" data-shape="tall" aria-label="Play video: Awards night and annual meet"><img src="https://i.ytimg.com/vi/ZQAv5U1U4D8/oardefault.jpg" alt="" loading="lazy" decoding="async"><span class="exp__clip-play" aria-hidden="true"></span></button>
-                  <span class="exp__see-label">See it live</span>
-                </span>
-              </figcaption>
-            </figure>
+    <!-- ===== 2 · Reliance Navratri (Ambani family) ===== -->
+    <section class="rnav" id="reliance-navratri" aria-labelledby="rnav-title">
+      <div class="container rnav__grid">
+        <div class="rnav__copy">
+          <p class="eyebrow" data-reveal>Reliance Navratri · Jamnagar</p>
+          <h2 class="rnav__title" id="rnav-title" data-reveal>Hosted India&rsquo;s <em class="grad-text">Biggest Navratri</em></h2>
+          <p class="rnav__sub" data-reveal>Ambani Family&rsquo;s Reliance Navratri</p>
+          <p class="rnav__text" data-reveal>On stage for one of the grandest Navratri celebrations in the country: the Ambani family on the ground, Bollywood stars on the stage, and thousands of garba dancers in front of it. Nights like these need a host who can hold the mic, the moment and the crowd together.</p>
+          <div class="rnav__actions" data-reveal>
+            <a class="btn btn--grad" href="#contact">Book RJ Love <span aria-hidden="true">&rarr;</span></a>
+            <a class="link-arrow" href="https://www.instagram.com/reel/DepbZI9ynJw/" rel="noopener">Watch on Instagram</a>
           </div>
         </div>
-      </div>
-      <template data-exp-texts>
-        <p>Quick lines, warm roasts and zero dead air. The room laughs with him, never at the guests.</p>
-        <p>Every brief gets its own script: custom games, entries and moments built around your family or your brand.</p>
-        <p>Called India's most energetic host for a reason. He gets a 10,000-strong ground on its feet and keeps it there.</p>
-        <p>A Chartered Accountant's discipline: run-of-show memorised, timings kept, names and sponsors never missed.</p>
-      </template>
-      <!-- Phones: swipe through one tall card per quality -->
-      <div class="exp__mobile">
-        <div class="container">
-          <p class="eyebrow" data-reveal>The Love experience</p>
-          <p class="h2 exp__mobile-title" data-reveal>What he brings <em class="grad-text">to the room.</em></p>
-        </div>
-        <div class="exp__cards">
-          <article class="exp-card" style="--tint: #ff6b5b">
-            <img src="./assets/img/exp-witty2-640.webp" srcset="./assets/img/exp-witty2-640.webp 640w, ./assets/img/exp-witty2-960.webp 960w" sizes="84vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah in sunglasses and a peach jacket, holding his microphone">
-            <div class="exp-card__body">
-              <span class="exp-card__num">01</span>
-              <h3 class="exp-card__word">Witty</h3>
-              <p>Quick lines, warm roasts and zero dead air. The room laughs with him, never at the guests.</p>
-              <button class="exp-card__watch" type="button" data-video-open data-yt="RUrSS4cqIF0" data-shape="tall"><span class="exp__clip-play" aria-hidden="true"></span>See it live</button>
-            </div>
-          </article>
-          <article class="exp-card" style="--tint: #ff8fa3">
-            <img src="./assets/img/exp-creative-640.webp" srcset="./assets/img/exp-creative-640.webp 640w, ./assets/img/exp-creative-960.webp 960w" sizes="84vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah greeting Rashmika Mandanna with a handshake on the Navratri stage">
-            <div class="exp-card__body">
-              <span class="exp-card__num">02</span>
-              <h3 class="exp-card__word">Creative</h3>
-              <p>Every brief gets its own script: custom games, entries and moments built around your family or your brand.</p>
-              <button class="exp-card__watch" type="button" data-video-open data-yt="U92Ut7h2N6o" data-shape="tall"><span class="exp__clip-play" aria-hidden="true"></span>See it live</button>
-            </div>
-          </article>
-          <article class="exp-card" style="--tint: #a98bff">
-            <img src="./assets/img/exp-energy-640.webp" srcset="./assets/img/exp-energy-640.webp 640w, ./assets/img/exp-energy-960.webp 960w" sizes="84vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah performing under purple stage lights at a live show">
-            <div class="exp-card__body">
-              <span class="exp-card__num">03</span>
-              <h3 class="exp-card__word">Energy</h3>
-              <p>Called India's most energetic host for a reason. He gets a 10,000-strong ground on its feet and keeps it there.</p>
-              <button class="exp-card__watch" type="button" data-video-open data-yt="5kKDOfhS_mk" data-shape="wide"><span class="exp__clip-play" aria-hidden="true"></span>See it live</button>
-            </div>
-          </article>
-          <article class="exp-card" style="--tint: #f5c26b">
-            <img src="./assets/img/exp-precision-640.webp" srcset="./assets/img/exp-precision-640.webp 640w, ./assets/img/exp-precision-960.webp 960w" sizes="84vw" width="640" height="800" loading="lazy" decoding="async" alt="RJ Love Shah in a sky-blue blazer, smiling, at a wedding venue draped in white">
-            <div class="exp-card__body">
-              <span class="exp-card__num">04</span>
-              <h3 class="exp-card__word">Precision</h3>
-              <p>A Chartered Accountant's discipline: run-of-show memorised, timings kept, names and sponsors never missed.</p>
-              <button class="exp-card__watch" type="button" data-video-open data-yt="ZQAv5U1U4D8" data-shape="tall"><span class="exp__clip-play" aria-hidden="true"></span>See it live</button>
-            </div>
-          </article>
+        <div class="rnav__media" data-reveal>
+          <div class="rnav__phone" data-rnav>
+            <video class="rnav__teaser" src="./assets/video/reliance-navratri-teaser.mp4" poster="./assets/img/reliance-navratri-poster.webp"
+                   muted loop playsinline preload="none" aria-hidden="true" data-rnav-teaser></video>
+            <button class="rnav__play" type="button" data-video-open data-src="./assets/video/reliance-navratri.mp4" data-poster="./assets/img/reliance-navratri-poster.webp" data-shape="tall" data-title="RJ Love Shah hosting the Ambani family at Reliance Navratri"><span class="rnav__play-icon" aria-hidden="true"></span>Watch with sound</button>
+          </div>
+          <p class="rnav__caption">&ldquo;Truly an honour &amp; privilege to be hosting Reliance Navratri&rdquo;</p>
         </div>
       </div>
     </section>
 
-    <!-- ===== 6 · Celebrity stages ===== -->
+    <!-- ===== 3 · Meet Love ===== -->
+    <section class="about about--blue" id="about" aria-labelledby="about-title">
+      <!-- Intro, then the CA to RJ story told on scroll: the year rolls 2011 > Today while the photo changes -->
+      <div class="container about__head">
+        <div class="about__intro" data-about-intro>
+        <p class="eyebrow" data-reveal>Meet RJ Love</p>
+        <h2 class="about__name" id="about-title" data-reveal>Who is <span class="grad-text">RJ Love Shah?</span></h2>
+        <ul class="about__roles" data-reveal>
+          <li>Radio Host</li><li>Celebrity Host</li><li>A Chartered Accountant turned Entertainer</li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="story" data-story>
+        <div class="story__stage">
+          <div class="container story__grid">
+            <figure class="about__photo story__photo" data-story-photo>
+              <img class="about__layer is-active" src="./assets/img/portrait-burgundy-720.webp" srcset="./assets/img/portrait-burgundy-480.webp 480w, ./assets/img/portrait-burgundy-720.webp 720w"
+                   sizes="(min-width: 960px) 34vw, 60vw" width="720" height="900" loading="lazy" decoding="async"
+                   alt="RJ Love Shah smiling in a burgundy blazer and white shirt">
+              <img class="about__layer" src="./assets/img/portrait-sage-720.webp" srcset="./assets/img/portrait-sage-480.webp 480w, ./assets/img/portrait-sage-720.webp 720w"
+                   sizes="(min-width: 960px) 34vw, 60vw" width="720" height="900" loading="lazy" decoding="async"
+                   alt="RJ Love Shah in a sage green bandhgala on a staircase">
+              <img class="about__layer" src="./assets/img/portrait-bluefloral-720.webp" srcset="./assets/img/portrait-bluefloral-480.webp 480w, ./assets/img/portrait-bluefloral-720.webp 720w"
+                   sizes="(min-width: 960px) 34vw, 60vw" width="720" height="900" loading="lazy" decoding="async"
+                   alt="RJ Love Shah smiling in a light blue floral bandhgala in front of a wall of lights">
+              <figcaption class="tag">Meet RJ Love</figcaption>
+            </figure>
+
+            <div class="story__panel">
+              <div class="story__intro-slot" data-intro-slot></div>
+              <p class="story__kicker">RJ Love Shah&rsquo;s journey &middot; From CA to RJ</p>
+              <ol class="story__steps">
+              <li class="story__step is-active" data-photo="0">
+                <p class="story__meta"><span class="story__yr">2011</span><span class="story__rule" aria-hidden="true"></span><span class="story__chapter">The beginning</span></p>
+                <p class="story__line">What began as an uncertain journey in 2011 turned into <span class="hl">a story of passion, perseverance, and finding one&rsquo;s true calling</span>.</p>
+              </li>
+              <li class="story__step" data-photo="0">
+                <p class="story__meta"><span class="story__yr">2015</span><span class="story__rule" aria-hidden="true"></span><span class="story__chapter">The first stage</span></p>
+                <p class="story__line">While pursuing Chartered Accountancy, Love discovered his love for the stage during a college cultural event, leading him to <span class="hl">host his first official event</span> in 2015.</p>
+              </li>
+              <li class="story__step" data-photo="1">
+                <p class="story__meta"><span class="story__yr">2017</span><span class="story__rule" aria-hidden="true"></span><span class="story__chapter">Chartered Accountant</span></p>
+                <p class="story__line">True to his determination to finish what he started, he <span class="hl">became a Chartered Accountant in July 2017</span>.</p>
+              </li>
+              <li class="story__step" data-photo="1">
+                <p class="story__meta"><span class="story__yr">2018</span><span class="story__rule" aria-hidden="true"></span><span class="story__chapter">On air &middot; 94.3 MY FM</span></p>
+                <p class="story__line">But the stage had other plans. In 2018, he stepped into the world of radio as <span class="hl">an RJ with 94.3 MY FM</span>, bringing his voice to Ahmedabad.</p>
+              </li>
+              <li class="story__step" data-photo="2">
+                <p class="story__meta"><span class="story__yr">Today</span><span class="story__rule" aria-hidden="true"></span><span class="story__chapter">Event Host &middot; Entertainer &middot; Voice Artist</span></p>
+                <p class="story__line">RJ Love Shah has evolved into a <span class="hl">seasoned Event Host, Entertainer, and Voice Artist</span>, commanding stages across the country and transforming large-scale celebrations, weddings, and corporate events into unforgettable experiences.</p>
+              </li>
+              </ol>
+              <div class="story__progress" aria-hidden="true">
+                <span class="story__bar"><i data-story-fill></i></span>
+                <ol class="story__ticks">
+                <li class="is-active">2011</li>
+                <li>2015</li>
+                <li>2017</li>
+                <li>2018</li>
+                <li>Today</li>
+                </ol>
+              </div>
+              <div class="about__actions">
+                <a class="btn btn--grad" href="#contact">Book RJ Love <span aria-hidden="true">&rarr;</span></a>
+                <a class="btn btn--ghost" href="https://wa.me/917383972757?text=Hi%20Love%2C%20are%20you%20free%20on%20" rel="noopener">Check his dates</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 4 · Bollywood / celebrity stages ===== -->
     <section class="celebs section light" id="celebrities" aria-labelledby="celebs-title">
       <div class="container">
         <header class="section-head section-head--split">
@@ -434,12 +303,12 @@
         </header>
         <div class="bento">
           <article class="bento__card bento__card--lead" data-reveal>
-            <img src="./assets/img/star-vicky-1280.webp" srcset="./assets/img/star-vicky-800.webp 800w, ./assets/img/star-vicky-1280.webp 1280w"
-                 sizes="(min-width: 960px) 60vw, 100vw" width="1280" height="856" loading="lazy" decoding="async"
-                 alt="RJ Love Shah and Vicky Kaushal sharing the mic on the Reliance Navratri stage">
+            <img src="./assets/img/star-kriti-1280.webp" srcset="./assets/img/star-kriti-800.webp 800w, ./assets/img/star-kriti-1280.webp 1280w"
+                 sizes="(min-width: 960px) 60vw, 100vw" width="1280" height="853" loading="lazy" decoding="async"
+                 alt="RJ Love Shah and Kriti Sanon waving to the audience on the Reliance Navratri stage">
             <div class="bento__body">
               <p class="bento__kicker">Reliance Navratri · Jamnagar</p>
-              <h3>With Vicky Kaushal</h3>
+              <h3>With Kriti Sanon</h3>
               <p>Hosting the Ambani family's Navratri, with Bollywood's finest dropping in on the garba.</p>
               <a class="link-arrow" href="https://www.instagram.com/rjlove_shah" rel="noopener">View on Instagram</a>
             </div>
@@ -455,90 +324,149 @@
             <div class="bento__body"><p class="bento__kicker">Navratri</p><h3>With Disha Patani</h3></div>
           </article>
           <article class="bento__card" data-reveal>
-            <img src="./assets/img/star-kriti-640.webp" srcset="./assets/img/star-kriti-640.webp 640w, ./assets/img/star-kriti-960.webp 960w" sizes="(min-width: 960px) 30vw, 100vw"
-                 width="960" height="640" loading="lazy" decoding="async" alt="RJ Love Shah and Kriti Sanon waving to the audience on the Navratri stage">
-            <div class="bento__body"><p class="bento__kicker">Navratri</p><h3>With Kriti Sanon</h3></div>
+            <img src="./assets/img/star-vicky-wide-1000.webp" srcset="./assets/img/star-vicky-wide-1000.webp 1000w, ./assets/img/star-vicky-wide-1400.webp 1400w" sizes="(min-width: 960px) 34vw, 100vw"
+                 width="1400" height="637" loading="lazy" decoding="async" style="object-position: 50% 30%" alt="RJ Love Shah talking with Vicky Kaushal on the Reliance Navratri stage">
+            <div class="bento__body"><p class="bento__kicker">Navratri</p><h3>With Vicky Kaushal</h3></div>
           </article>
         </div>
+      </div>
+    </section>
+
+    <div class="chapter-break chapter-break--light" aria-hidden="true"><span class="section-divider"></span></div>
+
+    <!-- ===== 4b · Bollywood, part two ===== -->
+    <section class="stars2 section light" id="more-stars" aria-labelledby="stars2-title">
+      <div class="container">
+        <header class="section-head stars2__head">
+          <h2 class="h2" id="stars2-title" data-reveal>He calls the name. <em class="grad-text">They take the stage.</em></h2>
+        </header>
+        <ul class="stars2__grid">
+          <li class="star" data-reveal>
+            <img src="./assets/img/star2-neha-720.webp" srcset="./assets/img/star2-neha-480.webp 480w, ./assets/img/star2-neha-720.webp 720w" sizes="(min-width: 960px) 23vw, (min-width: 560px) 46vw, 80vw"
+                 width="720" height="900" loading="lazy" decoding="async" alt="Neha Kakkar singing on stage at her live concert, introduced by RJ Love Shah">
+            <div class="star__body">
+              <p class="star__kicker">Live in concert</p>
+              <h3>With Neha Kakkar</h3>
+            </div>
+            <button class="star__play" type="button" data-video-open data-src="./assets/video/stars/neha-kakkar.mp4" data-poster="./assets/img/star2-neha-720.webp" data-shape="tall"
+                    data-title="RJ Love Shah with Neha Kakkar" aria-label="Watch RJ Love Shah with Neha Kakkar"><span aria-hidden="true"></span></button>
+          </li>
+          <li class="star" data-reveal>
+            <img src="./assets/img/star2-rashmika-720.webp" srcset="./assets/img/star2-rashmika-480.webp 480w, ./assets/img/star2-rashmika-720.webp 720w" sizes="(min-width: 960px) 23vw, (min-width: 560px) 46vw, 80vw"
+                 width="720" height="900" loading="lazy" decoding="async" alt="RJ Love Shah shaking hands with Rashmika Mandanna on the Reliance Navratri stage">
+            <div class="star__body">
+              <p class="star__kicker">Reliance Navratri</p>
+              <h3>With Rashmika Mandanna</h3>
+            </div>
+            <button class="star__play" type="button" data-video-open data-src="./assets/video/stars/rashmika-mandanna.mp4" data-poster="./assets/img/star2-rashmika-720.webp" data-shape="tall"
+                    data-title="RJ Love Shah with Rashmika Mandanna" aria-label="Watch RJ Love Shah with Rashmika Mandanna"><span aria-hidden="true"></span></button>
+          </li>
+          <li class="star" data-reveal>
+            <img src="./assets/img/star2-malaika-720.webp" srcset="./assets/img/star2-malaika-480.webp 480w, ./assets/img/star2-malaika-720.webp 720w" sizes="(min-width: 960px) 23vw, (min-width: 560px) 46vw, 80vw"
+                 width="720" height="900" loading="lazy" decoding="async" alt="Malaika Arora dancing on the Reliance Navratri stage">
+            <div class="star__body">
+              <p class="star__kicker">Reliance Navratri</p>
+              <h3>With Malaika Arora</h3>
+            </div>
+            <button class="star__play" type="button" data-video-open data-src="./assets/video/stars/malaika-arora.mp4" data-poster="./assets/img/star2-malaika-720.webp" data-shape="tall"
+                    data-title="RJ Love Shah with Malaika Arora" aria-label="Watch RJ Love Shah with Malaika Arora"><span aria-hidden="true"></span></button>
+          </li>
+          <li class="star" data-reveal>
+            <img src="./assets/img/star2-karisma-720.webp" srcset="./assets/img/star2-karisma-480.webp 480w, ./assets/img/star2-karisma-720.webp 720w" sizes="(min-width: 960px) 23vw, (min-width: 560px) 46vw, 80vw"
+                 width="720" height="900" loading="lazy" decoding="async" alt="Karisma Kapoor waving to the audience as she walks out on stage">
+            <div class="star__body">
+              <p class="star__kicker">NUVOCO &middot; On stage</p>
+              <h3>With Karisma Kapoor</h3>
+            </div>
+            <button class="star__play" type="button" data-video-open data-src="./assets/video/stars/karisma-kapoor.mp4" data-poster="./assets/img/star2-karisma-720.webp" data-shape="tall"
+                    data-title="RJ Love Shah with Karisma Kapoor" aria-label="Watch RJ Love Shah with Karisma Kapoor"><span aria-hidden="true"></span></button>
+          </li>
+        </ul>
         <div class="also" data-reveal>
           <p class="also__label">Also on stage with</p>
           <ul class="also__list">
-            <li class="is-hl">Neha Kakkar</li><li>Rashmika Mandanna</li><li>Malaika Arora</li><li>Tiger Shroff</li>
-            <li>Sidharth Malhotra</li><li>Mouni Roy</li><li>Taapsee Pannu</li><li>Piyush Mishra</li><li class="is-more">&amp; many more</li>
+            <li>Tiger Shroff</li><li>Sidharth Malhotra</li><li>Mouni Roy</li><li>Taapsee Pannu</li><li>Piyush Mishra</li><li class="is-more">&amp; many more</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- ===== 7 · Stats band ===== -->
-    <section class="stats" aria-label="RJ Love Shah in numbers">
-      <div class="container stats__grid">
-        <div class="stats__lead">
-          <p class="eyebrow eyebrow--plain">Stages so far</p>
-          <p class="stats__big"><span data-count="1500">1,500</span>+</p>
-          <p class="stats__lead-label"><em>events hosted, and counting.</em></p>
-        </div>
-        <ul class="stats__list">
-          <li><span class="stats__num"><span data-count="11">11</span>+</span><span>years on stage</span></li>
-          <li><span class="stats__num"><span data-count="8">8</span></span><span>years on radio</span></li>
-          <li><span class="stats__num"><span data-count="12">12</span>+</span><span>Bollywood stars hosted</span></li>
-          <li><span class="stats__num"><span data-count="3">3</span></span><span>languages on the mic</span></li>
+    <div class="chapter-break" aria-hidden="true"><span class="section-divider"></span></div>
+
+    <!-- ===== 4c · Work experience ===== -->
+    <section class="work section" id="experience" aria-labelledby="work-title">
+      <div class="container">
+        <header class="work__head">
+          <p class="eyebrow" data-reveal>Work experience</p>
+          <h2 class="h2" id="work-title" data-reveal>Built on stage. <em class="grad-text">Tuned on Radio.</em></h2>
+        </header>
+        <ul class="work__grid">
+          <li class="work__card" data-reveal>
+            <div class="work__img"><img src="./assets/img/we-stage-540.webp" srcset="./assets/img/we-stage-360.webp 360w, ./assets/img/we-stage-540.webp 540w" sizes="(min-width: 760px) 30vw, 112px"
+                 width="540" height="540" loading="lazy" decoding="async" alt="RJ Love Shah performing solo on the Navratri stage, mic in hand and arms wide open"></div>
+            <div class="work__body">
+              <p class="work__num"><span data-count="11">11</span>+</p>
+              <h3>Years on stage</h3>
+              <p class="work__note">1,500+ live shows across India and abroad.</p>
+            </div>
+          </li>
+          <li class="work__card" data-reveal>
+            <div class="work__img"><img src="./assets/img/we-radio-540.webp" srcset="./assets/img/we-radio-360.webp 360w, ./assets/img/we-radio-540.webp 540w" sizes="(min-width: 760px) 30vw, 112px"
+                 width="540" height="540" loading="lazy" decoding="async" alt="RJ Love Shah with a guest at the 94.3 MY FM studio"></div>
+            <div class="work__body">
+              <p class="work__num"><span data-count="8">8</span></p>
+              <h3>Years in radio</h3>
+              <p class="work__note">On air at 94.3 MY FM and Fever FM.</p>
+            </div>
+          </li>
+          <li class="work__card" data-reveal>
+            <div class="work__img"><img src="./assets/img/we-mic-540.webp" srcset="./assets/img/we-mic-360.webp 360w, ./assets/img/we-mic-540.webp 540w" sizes="(min-width: 760px) 30vw, 112px"
+                 width="540" height="540" loading="lazy" decoding="async" alt="RJ Love Shah holding a microphone, ready to host"></div>
+            <div class="work__body">
+              <p class="work__num"><span data-count="3">3</span></p>
+              <h3>Languages on the mic</h3>
+              <p class="work__note">English, Hindi and Gujarati, fluently.</p>
+            </div>
+          </li>
         </ul>
       </div>
     </section>
 
-    <!-- ===== 8 · Events (horizontal) ===== -->
-    <section class="events" id="events" aria-labelledby="events-title">
-      <div class="events__pin" data-hscroll>
-        <div class="events__track" data-hscroll-track>
-          <header class="events__intro">
-            <p class="eyebrow">Events he hosts</p>
-            <h2 class="h2" id="events-title">Every crowd. <em class="grad-text">Every brief.</em></h2>
-            <p>Three worlds, one host. Polished for the boardroom, emotional at the pheras, and flat-out loud when the stadium lights come on.</p>
-            <p class="events__scroll-hint" aria-hidden="true">Keep scrolling →</p>
-          </header>
+    <div class="chapter-break" aria-hidden="true"><span class="section-divider"></span></div>
 
-          <article class="ev-card">
-            <img src="./assets/img/ev2-corporate-1200.webp" sizes="(min-width: 960px) 62vw, 100vw"
-                 width="1200" height="1470" loading="lazy" decoding="async" style="object-position: 50% 12%"
-                 alt="RJ Love Shah in a mustard blazer holding a microphone, ready to host a corporate show">
-            <div class="ev-card__body">
-              <p class="ev-card__num">01 / 03</p>
-              <h3>Corporate shows</h3>
-              <p>Award nights that run to the minute, family days the whole office remembers, and launches that land the brand message.</p>
-              <ul class="tags"><li>Family Day</li><li>Team Building</li><li>Awards Night</li><li>Product Launch</li><li>Annual Day</li><li>Panel Discussions</li><li>Custom Events</li></ul>
-              <a class="link-arrow" href="./events/corporate/">Explore corporate shows</a>
-            </div>
-          </article>
-
-          <article class="ev-card">
-            <img src="./assets/img/ev2-wedding-1200.webp" sizes="(min-width: 960px) 62vw, 100vw"
-                 width="1000" height="1227" loading="lazy" decoding="async" style="object-position: 50% 10%"
-                 alt="RJ Love Shah in an embroidered sherwani at a decorated luxury wedding stage">
-            <div class="ev-card__body">
-              <p class="ev-card__num">02 / 03</p>
-              <h3>Luxury weddings</h3>
-              <p>He learns the families, the inside jokes and the love story, then turns every function into a show the guests talk about.</p>
-              <ul class="tags"><li>Carnival &amp; Haldi</li><li>Sangeet</li><li>Baraat on Wheels</li><li>Mehendi</li><li>Engagement</li><li>Cocktail</li><li>Reception</li><li>Destination Weddings</li></ul>
-              <a class="link-arrow" href="./events/weddings/">Explore weddings</a>
-            </div>
-          </article>
-
-          <article class="ev-card">
-            <picture>
-              <source media="(min-width: 640px)" srcset="./assets/img/ev-varun-1100.webp 1100w, ./assets/img/ev-varun-1600.webp 1600w" sizes="(min-width: 960px) 62vw, 100vw" width="1600" height="1055">
-              <img src="./assets/img/ev-varun-tall-900.webp" width="900" height="1383" loading="lazy" decoding="async" style="object-position: 50% 20%"
-                   alt="RJ Love Shah pointing to the crowd beside Varun Dhawan on the Reliance Navratri stage">
-            </picture>
-            <div class="ev-card__body">
-              <p class="ev-card__num">03 / 03</p>
-              <h3>Sports &amp; live events</h3>
-              <p>Navratri grounds, concerts and sports properties. Big crowds, open skies and a host who can make thousands move as one.</p>
-              <ul class="tags"><li>Navratri</li><li>Concerts</li><li>Sports Leagues</li><li>Song &amp; Movie Launches</li><li>College Shows</li><li>Festivals</li></ul>
-              <a class="link-arrow" href="./events/live/">Explore sports &amp; live</a>
-            </div>
-          </article>
+    <!-- ===== 5 · Watch ===== -->
+    <section class="watch" id="watch" aria-labelledby="watch-title">
+      <div class="watch__hero">
+        <img class="watch__poster" src="./assets/img/ev-live-1280.webp" width="1280" height="720" loading="lazy" decoding="async" alt="">
+        <video class="watch__video" muted loop playsinline preload="none" aria-hidden="true" data-lazy-video
+               data-src-webm="./assets/video/hero-loop.webm" data-src-mp4="./assets/video/hero-loop.mp4"></video>
+        <div class="watch__shade" aria-hidden="true"></div>
+        <button class="play" type="button" data-video-open data-yt="E7U9Dcw59yk" aria-label="Play RJ Love Shah's showreel"><span aria-hidden="true"></span></button>
+        <div class="watch__copy">
+          <p class="eyebrow" data-reveal>Watch Love</p>
+          <h2 class="h2 h2--xl" id="watch-title" data-reveal>One mic.<br><em class="grad-text">A whole ground dancing.</em></h2>
         </div>
+      </div>
+      <div class="container watch__cats">
+        <p class="watch__hint" data-reveal>Choose your kind of event and see him at it.</p>
+        <ul class="cat-grid">
+          <li data-reveal><button class="cat" type="button" data-gallery-open="corporate">
+            <img src="./assets/img/cat-corporate-960.webp" width="960" height="1200" loading="lazy" decoding="async" style="object-position: 30% 22%" alt="RJ Love Shah in a white blazer with a headset and microphone hosting a corporate show on stage">
+            <span class="cat__name">Corporate shows</span><span class="cat__count">6 videos</span><span class="cat__play" aria-hidden="true"></span>
+          </button></li>
+          <li data-reveal><button class="cat" type="button" data-gallery-open="weddings">
+            <img src="./assets/img/cat-wedding-sherwani-960.webp" width="960" height="1200" loading="lazy" decoding="async" style="object-position: 50% 30%" alt="RJ Love Shah in a black and gold embroidered sherwani with a microphone on a blue-lit wedding stage">
+            <span class="cat__name">Luxury weddings</span><span class="cat__count">9 videos</span><span class="cat__play" aria-hidden="true"></span>
+          </button></li>
+          <li data-reveal><button class="cat" type="button" data-gallery-open="sports">
+            <img src="./assets/img/cat-sports-blazer-960.webp" width="960" height="1200" loading="lazy" decoding="async" style="object-position: 50% 35%" alt="RJ Love Shah in a black blazer and white sneakers, ready to host a sports event">
+            <span class="cat__name">Sports events</span><span class="cat__count">2 videos</span><span class="cat__play" aria-hidden="true"></span>
+          </button></li>
+          <li data-reveal><button class="cat" type="button" data-gallery-open="navratri">
+            <img src="./assets/img/cat-navratri-960.webp" width="960" height="1200" loading="lazy" decoding="async" style="object-position: 50% 30%" alt="RJ Love Shah with a microphone on the Reliance Navratri stage under the lights">
+            <span class="cat__name">Reliance Navratri</span><span class="cat__count">8 videos</span><span class="cat__play" aria-hidden="true"></span>
+          </button></li>
+        </ul>
       </div>
     </section>
 
@@ -612,7 +540,7 @@
 
     <div class="chapter-break" aria-hidden="true"><span class="section-divider"></span></div>
 
-    <!-- ===== 10 · Brands + Google reviews ===== -->
+    <!-- ===== 10 · Brands ===== -->
     <section class="brands section" aria-labelledby="brands-title">
       <div class="container">
         <header class="section-head section-head--center">
@@ -634,16 +562,69 @@
           <li><img src="./assets/img/logos/swati.webp" width="136" height="18" loading="lazy" decoding="async" alt="Swati" class="is-thin"></li>
         </ul>
         <p class="brands__note">Brands and organisers Love has hosted for. Names describe his work, not endorsements.</p>
-        <a class="review-card" href="https://share.google/52uGp4mTiON3Wvi0M" rel="noopener" data-reveal>
-          <span class="review-card__g" aria-hidden="true">G</span>
-          <span><strong>Read what clients say</strong><br>Reviews of RJ Love Shah on Google</span>
-          <span class="review-card__arrow" aria-hidden="true">→</span>
-        </a>
       </div>
     </section>
 
+    <!-- ===== 10b · Client reviews (Google) ===== -->
+    <section class="reviews section light" id="reviews" aria-labelledby="reviews-title">
+      <div class="container">
+        <header class="reviews__head">
+          <p class="eyebrow eyebrow--ink" data-reveal>In their words</p>
+          <h2 class="h2" id="reviews-title" data-reveal>What the families say <em class="grad-text">after the mic drops.</em></h2>
+        </header>
+        <ol class="rv-list">
+          <li class="rv" style="--i:0">
+            <figure class="rv__card">
+              <div class="rv__img"><img src="./assets/img/reviews/harrison-duo-900.webp" srcset="./assets/img/reviews/harrison-duo-450.webp 450w, ./assets/img/reviews/harrison-duo-900.webp 900w" sizes="(min-width: 768px) 40vw, 86vw"
+                   width="900" height="1024" loading="lazy" decoding="async" style="object-position: 50% 12%" alt="RJ Love Shah and Harrison O'Brien giving a thumbs up in front of a flower wall at the Indo-Australian welcome party"></div>
+              <div class="rv__body">
+                <p class="rv__src"><span class="rv__stars" role="img" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google review</p>
+                <span class="rv__mark" aria-hidden="true">&ldquo;</span>
+                <blockquote>I don&rsquo;t believe anyone could have done as good as RJ Love Shah in hosting our Indo Australian function. Love has an amazing skills of making anyone feel comfortable and was indeed a professional host for the evening.</blockquote>
+                <figcaption><span class="rv__rule" aria-hidden="true"></span><span><strong>Harrison O&rsquo;Brien</strong><span>Indo-Australian welcome party</span></span></figcaption>
+              </div>
+            </figure>
+          </li>
+          <li class="rv" style="--i:1">
+            <figure class="rv__card">
+              <div class="rv__img"><img src="./assets/img/reviews/kinjal-1000.webp" srcset="./assets/img/reviews/kinjal-640.webp 640w, ./assets/img/reviews/kinjal-1000.webp 666w" sizes="(min-width: 768px) 40vw, 86vw"
+                   width="666" height="1000" loading="lazy" decoding="async" style="object-position: 50% 30%" alt="RJ Love Shah hosting on a white floral wedding stage with a microphone"></div>
+              <div class="rv__body">
+                <p class="rv__src"><span class="rv__stars" role="img" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google review</p>
+                <span class="rv__mark" aria-hidden="true">&ldquo;</span>
+                <blockquote>He has hosted haldi and sangeet of my son and I can say from 7 year kid to 84 years age of my father participated in event due to Mr. Love. He is energetic and due to him energy flows in event.</blockquote>
+                <figcaption><span class="rv__rule" aria-hidden="true"></span><span><strong>Kinjal Sanghvi</strong><span>Haldi &amp; sangeet, parent of the groom</span></span></figcaption>
+              </div>
+            </figure>
+          </li>
+          <li class="rv" style="--i:2">
+            <figure class="rv__card">
+              <div class="rv__img"><img src="./assets/img/reviews/viral-1000.webp" srcset="./assets/img/reviews/viral-640.webp 640w, ./assets/img/reviews/viral-1000.webp 1000w" sizes="(min-width: 768px) 40vw, 86vw"
+                   width="1000" height="701" loading="lazy" decoding="async" style="object-position: 50% 45%" alt="The Ajmera family cutting the cake at their 25th anniversary celebration hosted by RJ Love Shah"></div>
+              <div class="rv__body">
+                <p class="rv__src"><span class="rv__stars" role="img" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google review</p>
+                <span class="rv__mark" aria-hidden="true">&ldquo;</span>
+                <blockquote>Love, you are the best. Amazing anchor, great entertainer, super humour, he made our event success. He made our 25th anniversary memorable.</blockquote>
+                <figcaption><span class="rv__rule" aria-hidden="true"></span><span><strong>Viral &amp; Manashvi Ajmera</strong><span>25th wedding anniversary</span></span></figcaption>
+              </div>
+            </figure>
+          </li>
+        </ol>
+        <div class="rv-score" data-reveal>
+          <p class="rv-score__num">5.0</p>
+          <div class="rv-score__meta">
+            <span class="rv-score__stars" role="img" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="rv-score__src"><svg class="rv-score__g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>112 client reviews on Google</span>
+          </div>
+          <a class="btn btn--grad rv-score__btn" href="https://share.google/52uGp4mTiON3Wvi0M" target="_blank" rel="noopener">Read all reviews <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <div class="chapter-break chapter-break--light" aria-hidden="true"><span class="section-divider"></span></div>
+
     <!-- ===== 11 · Instagram ===== -->
-    <section class="insta section light" aria-labelledby="insta-title">
+    <section class="insta section light" aria-labelledby="insta-title" data-ig-feed="">
       <div class="container">
         <header class="section-head section-head--center">
           <p class="eyebrow eyebrow--dark" data-reveal>Latest from Instagram</p>
@@ -655,20 +636,23 @@
             <p class="insta__handle">rjlove_shah</p>
             <p class="insta__bio">RJ Love Shah · Anchor · Host · CA<br>Weddings, corporate &amp; live · India &amp; abroad</p>
           </div>
-          <a class="btn btn--grad btn--sm" href="https://www.instagram.com/rjlove_shah" rel="noopener">Follow</a>
+          <a class="btn btn--grad btn--sm" href="https://www.instagram.com/rjlove_shah/" target="_blank" rel="noopener">Follow</a>
         </div>
-        <ul class="insta__grid">
-          <li><a href="https://www.instagram.com/rjlove_shah" rel="noopener"><img src="./assets/img/ig-1-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="RJ Love Shah with Vicky Kaushal at Navratri"></a></li>
-          <li><a href="https://www.instagram.com/rjlove_shah" rel="noopener"><img src="./assets/img/ig-6-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="Tug of war during a corporate team-building show hosted by RJ Love Shah"></a></li>
-          <li><a href="https://www.instagram.com/rjlove_shah" rel="noopener"><img src="./assets/img/ig-3-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="RJ Love Shah with Rashmika Mandanna on the Navratri stage"></a></li>
-          <li><a href="https://www.instagram.com/rjlove_shah" rel="noopener"><img src="./assets/img/ig-10-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="RJ Love Shah in sunglasses and a peach jacket holding out the microphone"></a></li>
-          <li><a href="https://www.instagram.com/rjlove_shah" rel="noopener"><img src="./assets/img/ig-12-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="RJ Love Shah in a navy velvet bandhgala at a red wedding venue"></a></li>
-          <li><a href="https://www.instagram.com/rjlove_shah" rel="noopener"><img src="./assets/img/ig-13-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="Portrait of RJ Love Shah in a sage green bandhgala"></a></li>
-          <li><a href="https://www.instagram.com/rjlove_shah" rel="noopener"><img src="./assets/img/ig-2-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="RJ Love Shah and Vicky Kaushal under the Navratri stage lights"></a></li>
-          <li><a href="https://www.instagram.com/rjlove_shah" rel="noopener"><img src="./assets/img/ig-14-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="RJ Love Shah with arms wide on a lawn at night"></a></li>
-          <li><a href="https://www.instagram.com/rjlove_shah" rel="noopener"><img src="./assets/img/ig-15-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="RJ Love Shah in a grey suit outdoors"></a></li>
+        <ul class="insta__grid" data-ig-grid>
+          <li><a href="https://www.instagram.com/reel/Dfj-XbChK2J/" target="_blank" rel="noopener"><img src="./assets/img/insta/Dfj-XbChK2J.webp" width="480" height="640" loading="lazy" decoding="async" alt="Karisma Kapoor at the NUVOCO garba night hosted by RJ Love Shah"><span class="insta__reel" aria-hidden="true"></span></a></li>
+          <li><a href="https://www.instagram.com/reel/DfC9_6nhBNn/" target="_blank" rel="noopener"><img src="./assets/img/insta/DfC9_6nhBNn.webp" width="480" height="640" loading="lazy" decoding="async" alt="RJ Love Shah presenting Karisma Kapoor on the NUVOCO stage"><span class="insta__reel" aria-hidden="true"></span></a></li>
+          <li><a href="https://www.instagram.com/reel/Deqs12tBtTv/" target="_blank" rel="noopener"><img src="./assets/img/insta/Deqs12tBtTv.webp" width="480" height="640" loading="lazy" decoding="async" alt="Disha Patani on the Reliance Navratri stage in Jamnagar with RJ Love Shah"><span class="insta__reel" aria-hidden="true"></span></a></li>
+          <li><a href="https://www.instagram.com/reel/DepbZI9ynJw/" target="_blank" rel="noopener"><img src="./assets/img/insta/DepbZI9ynJw.webp" width="480" height="640" loading="lazy" decoding="async" alt="The Ambani family on day 8 of Reliance Navratri, hosted by RJ Love Shah"><span class="insta__reel" aria-hidden="true"></span></a></li>
+          <li><a href="https://www.instagram.com/reel/DeoKrA_Caw7/" target="_blank" rel="noopener"><img src="./assets/img/insta/DeoKrA_Caw7.webp" width="480" height="640" loading="lazy" decoding="async" alt="Vicky Kaushal performing at Reliance Navratri in Jamnagar"><span class="insta__reel" aria-hidden="true"></span></a></li>
+          <li><a href="https://www.instagram.com/reel/DemwF8GvZ9L/" target="_blank" rel="noopener"><img src="./assets/img/insta/DemwF8GvZ9L.webp" width="480" height="640" loading="lazy" decoding="async" alt="Vicky Kaushal speaking Gujarati with RJ Love Shah at Reliance Navratri"><span class="insta__reel" aria-hidden="true"></span></a></li>
+          <li><a href="https://www.instagram.com/reel/DekFNuizVaL/" target="_blank" rel="noopener"><img src="./assets/img/insta/DekFNuizVaL.webp" width="480" height="640" loading="lazy" decoding="async" alt="Kriti Sanon inviting RJ Love Shah to dance on the Navratri stage"><span class="insta__reel" aria-hidden="true"></span></a></li>
+          <li><a href="https://www.instagram.com/reel/DeXPlctv5kl/" target="_blank" rel="noopener"><img src="./assets/img/insta/DeXPlctv5kl.webp" width="480" height="640" loading="lazy" decoding="async" alt="RJ Love Shah with Varun Dhawan on day 1 of Reliance Navratri"><span class="insta__reel" aria-hidden="true"></span></a></li>
+          <li><a href="https://www.instagram.com/reel/DSKyRK0jKXh/" target="_blank" rel="noopener"><img src="./assets/img/insta/DSKyRK0jKXh.webp" width="480" height="640" loading="lazy" decoding="async" alt="RJ Love Shah hosting a sangeet night"><span class="insta__reel" aria-hidden="true"></span></a></li>
+          <li><a href="https://www.instagram.com/reel/DRjN4UijD4G/" target="_blank" rel="noopener"><img src="./assets/img/insta/DRjN4UijD4G.webp" width="480" height="640" loading="lazy" decoding="async" alt="RJ Love Shah hosting a wedding carnival"><span class="insta__reel" aria-hidden="true"></span></a></li>
+          <li><a href="https://www.instagram.com/reel/DEITXgpI-9J/" target="_blank" rel="noopener"><img src="./assets/img/insta/DEITXgpI-9J.webp" width="480" height="640" loading="lazy" decoding="async" alt="RJ Love Shah hosting an Indo-Italian haldi carnival"><span class="insta__reel" aria-hidden="true"></span></a></li>
+          <li><a href="https://www.instagram.com/reel/C0vP7NYP4DV/" target="_blank" rel="noopener"><img src="./assets/img/insta/C0vP7NYP4DV.webp" width="480" height="640" loading="lazy" decoding="async" alt="RJ Love Shah with the bride and groom at a sangeet night"><span class="insta__reel" aria-hidden="true"></span></a></li>
         </ul>
-        <p class="center"><a class="btn btn--outline-dark" href="https://www.instagram.com/rjlove_shah" rel="noopener">See more on Instagram</a></p>
+        <p class="center"><a class="btn btn--outline-dark" href="https://www.instagram.com/rjlove_shah/" target="_blank" rel="noopener">See more on Instagram</a></p>
       </div>
     </section>
 
@@ -681,7 +665,7 @@
         </header>
         <div class="faq__list">
           <details data-reveal><summary>How do I book RJ Love Shah for an event?</summary>
-            <p>Send your event date, city and type through the form below, WhatsApp <a href="https://wa.me/917383972757">+91 73839 72757</a> or email <a href="mailto:rjloveshah12@gmail.com">rjloveshah12@gmail.com</a>. Book in advance: wedding-season dates go first.</p></details>
+            <p>Send your event date, city and type through the form below, <a href="https://wa.me/917383972757">WhatsApp</a> or email <a href="mailto:rjloveshah12@gmail.com">rjloveshah12@gmail.com</a>. Book in advance: wedding-season dates go first.</p></details>
           <details data-reveal><summary>Which languages does he host in?</summary>
             <p>Hindi, English and Gujarati. He mixes them to match the crowd, which works well for Gujarati families, NRI guests and corporate audiences from across India and abroad.</p></details>
           <details data-reveal><summary>Where is he based? Does he travel?</summary>
@@ -703,16 +687,13 @@
       <div class="book__bg" aria-hidden="true"></div>
       <div class="container book__grid">
         <div class="book__copy">
-          <p class="eyebrow" data-reveal>Book Love</p>
+          <p class="eyebrow" data-reveal>Book RJ Love</p>
           <h2 class="h2" id="book-title" data-reveal>Got a big night <em class="grad-text">coming up?</em></h2>
           <p data-reveal>Tell him the date, the city and the crowd. He'll come back with how to make it unforgettable.</p>
           <ul class="contact-list" data-reveal>
             <li><a href="https://wa.me/917383972757?text=Hi%20Love%2C%20I%27d%20like%20to%20book%20you%20for%20an%20event" rel="noopener">
               <span class="contact-list__icon contact-list__icon--wa" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></span>
               <span><small>Quickest reply</small>WhatsApp Love</span></a></li>
-            <li><a href="tel:+917383972757">
-              <span class="contact-list__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg></span>
-              <span><small>Call</small>+91 73839 72757</span></a></li>
             <li><a href="mailto:rjloveshah12@gmail.com">
               <span class="contact-list__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg></span>
               <span><small>Email</small>rjloveshah12@gmail.com</span></a></li>
@@ -755,7 +736,7 @@
         <p class="eyebrow">Anchor · Host · Entertainer · CA</p>
         <p class="footer__line">Your night deserves a host who brings <em class="grad-text">the whole ground with him.</em></p>
         <div class="footer__actions">
-          <a class="btn btn--grad" href="#contact">Book Love <span aria-hidden="true">→</span></a>
+          <a class="btn btn--grad" href="#contact">Book RJ Love <span aria-hidden="true">→</span></a>
           <a class="btn btn--ghost" href="https://wa.me/917383972757" rel="noopener">WhatsApp</a>
         </div>
       </div>
@@ -764,7 +745,6 @@
           <p class="logo"><span class="logo__kicker">Anchor · Host</span><span class="logo__name">RJ Love Shah</span></p>
           <p>Celebrity anchor for weddings, corporate shows and live events. Based in Ahmedabad, hosting across India and abroad.</p>
           <address>
-            <a href="tel:+917383972757">+91 73839 72757</a><br>
             <a href="mailto:rjloveshah12@gmail.com">rjloveshah12@gmail.com</a><br>
             Ahmedabad, Gujarat, India
           </address>
@@ -773,7 +753,7 @@
           <li><a href="./events/corporate/">Corporate shows</a></li><li><a href="./events/weddings/">Luxury weddings</a></li><li><a href="./events/live/">Sports &amp; live</a></li><li><a href="#celebrities">Celebrities</a></li>
         </ul></nav>
         <nav aria-label="Footer: site"><ul>
-          <li><a href="#about">About</a></li><li><a href="#experience">Experience</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li>
+          <li><a href="#about">About</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li>
         </ul></nav>
         <nav aria-label="Footer: social"><ul>
           <li><a href="https://www.instagram.com/rjlove_shah" rel="noopener">Instagram</a></li>
@@ -787,7 +767,7 @@
 
   <!-- Mobile action bar -->
   <div class="action-bar" role="region" aria-label="Quick booking">
-    <a class="btn btn--grad" href="#contact">Book Love</a>
+    <a class="btn btn--grad" href="#contact">Book RJ Love</a>
     <a class="btn btn--ghost glass" href="https://wa.me/917383972757?text=Hi%20Love%2C%20I%27d%20like%20to%20book%20you%20for%20an%20event" rel="noopener">WhatsApp</a>
   </div>
 
@@ -815,6 +795,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="./assets/js/main.js?v=80a6b4eb" defer></script>
+  <script src="./assets/js/main.js?v=410358e1" defer></script>
 </body>
 </html>

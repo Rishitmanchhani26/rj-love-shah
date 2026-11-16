@@ -32,6 +32,35 @@
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
   onScroll();
 
+  /* ---------- hero: two photos (live shows / corporate) slowly crossfade ---------- */
+  const slideWrap = $('[data-hero-slides]');
+  if (slideWrap && !reduceMotion) {
+    const slides = $$('.hero__slide', slideWrap);
+    const HOLD = 5000; // ms each photo stays on screen
+    let i = 0, timer = null;
+    const show = (n) => { i = n % slides.length; slides.forEach((s, k) => s.classList.toggle('is-active', k === i)); };
+    const start = () => { stop(); timer = setInterval(() => show(i + 1), HOLD); };
+    const stop = () => { clearInterval(timer); timer = null; };
+    // only rotate while the hero is on screen and the tab is visible
+    let heroVisible = true;
+    new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; heroVisible && !document.hidden ? start() : stop(); }).observe($('.hero'));
+    document.addEventListener('visibilitychange', () => { !document.hidden && heroVisible ? start() : stop(); });
+    // load the second photo once the page has settled, so the first paint stays fast
+    addEventListener('load', () => slides.forEach((s) => { const img = s.querySelector('img'); if (img) img.loading = 'eager'; }));
+    start();
+  }
+
+  /* ---------- Reliance Navratri reel: silent teaser loops while on screen; the button opens the full video in the popup ---------- */
+  const rnav = $('[data-rnav]');
+  if (rnav && !reduceMotion) {
+    const teaser = $('[data-rnav-teaser]', rnav);
+    const popup = $('[data-modal]');
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !popup.open) { teaser.preload = 'auto'; teaser.play().catch(() => {}); } else teaser.pause();
+    }, { threshold: 0.35 }).observe(rnav);
+    popup.addEventListener('close', () => { if (rnav.getBoundingClientRect().top < innerHeight) teaser.play().catch(() => {}); });
+  }
+
   /* ---------- mobile menu ---------- */
   const menuBtn = $('[data-menu-btn]');
   const menu = $('[data-menu]');
@@ -67,6 +96,19 @@
   const modal = $('[data-modal]');
   const modalFrame = $('[data-modal-frame]');
   $$('[data-video-open]').forEach((b) => b.addEventListener('click', () => {
+    if (b.dataset.src) { // our own video file (e.g. the Reliance Navratri reel)
+      if (typeof modal.showModal !== 'function') { window.open(b.dataset.src, '_blank', 'noopener'); return; }
+      const v = document.createElement('video');
+      v.src = b.dataset.src; v.controls = true; v.autoplay = true; v.playsInline = true; v.preload = 'auto';
+      if (b.dataset.poster) v.poster = b.dataset.poster;
+      v.setAttribute('aria-label', b.dataset.title || 'Video');
+      modal.classList.toggle('is-tall', b.dataset.shape === 'tall');
+      modalFrame.replaceChildren(v);
+      modal.showModal();
+      const t = $('[data-rnav-teaser]'); if (t) t.pause();
+      v.play().catch(() => {});
+      return;
+    }
     const id = b.dataset.yt || 'E7U9Dcw59yk';
     if (typeof modal.showModal !== 'function') { window.open(`https://www.youtube.com/watch?v=${encodeURIComponent(id)}`, '_blank', 'noopener'); return; }
     const f = document.createElement('iframe');
@@ -83,38 +125,41 @@
   modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
   modal.addEventListener('close', () => modalFrame.replaceChildren());
 
-  /* ---------- video gallery per event type (all clips are on Love's own YouTube channel @loveshah117) ---------- */
-  // [YouTube id, caption, 'tall' for a vertical Short]
+  /* ---------- video gallery per event type (clips from Love's own Drive, served from the site) ---------- */
+  // [file under assets/video (no .mp4), caption, 'tall' for a vertical phone clip]
   const VIDEOS = {
-    corporate: { title: 'Corporate shows', list: [
-      ['5snu1xwpI0g', 'Warm-up, team building and awards night'],
-      ['ZQAv5U1U4D8', 'Awards night and annual meet', 'tall'],
-      ['yZI6Ggl9RTM', 'Corporate engagement games on stage'],
-      ['iUI_PwmD6fM', 'Team building for Litera Group', 'tall'],
-      ['Ofxxoki3l04', 'Team building with the whole audience in play'],
-      ['qUmF9uT589A', 'Annual celebration: awards and entertainment', 'tall'],
-      ['_P_vm0k9ypc', 'Team building and awards: a full corporate show'],
-      ['FeeG_F9NJeI', 'Corporate event games', 'tall'],
+    corporate: { title: "Corporate shows", list: [
+      ["watch/corporate/kotak-annual-day", "Kotak Mahindra Bank annual day", "tall"],
+      ["watch/corporate/meteoric-awards-night", "Meteoric awards night", "tall"],
+      ["watch/corporate/zydus-diwali-party", "Zydus Diwali party", "tall"],
+      ["watch/corporate/family-day", "Corporate family day", "tall"],
+      ["watch/corporate/litera-microsystems-team-building", "Team building for Litera Microsystems", "tall"],
+      ["watch/corporate/litera-team-building", "Litera team-building games", "tall"],
     ] },
-    weddings: { title: 'Luxury weddings', list: [
-      ['5kKDOfhS_mk', 'Sangeet warm-up: getting both families on their feet'],
-      ['YVkzI0gv_Rc', 'An Indo-Italian NRI wedding', 'tall'],
-      ['RUrSS4cqIF0', 'The varmala challenge at a wedding carnival', 'tall'],
-      ['s4PsYV704ns', 'Haldi ceremony games'],
-      ['yBJ0mJpY1ek', 'Sangeet night, full energy', 'tall'],
-      ['4apaIc3am6k', 'The craziest baraat', 'tall'],
-      ['U92Ut7h2N6o', 'Squid Game-style wedding carnival', 'tall'],
-      ['KT73FH9sE1c', 'Sangeet sandhya with the family'],
+    weddings: { title: "Luxury weddings", list: [
+      ["watch/weddings/grand-sangeet-night", "Grand sangeet night", "tall"],
+      ["watch/weddings/nisarg-francesca-carnival", "Nisarg & Francesca: an Indo-Italian wedding", "tall"],
+      ["watch/weddings/varmala-challenge", "The varmala challenge", "tall"],
+      ["watch/weddings/gujarati-haldi", "An energetic Gujarati haldi", "tall"],
+      ["watch/weddings/baraat-2", "A baraat in full swing", "tall"],
+      ["watch/weddings/carnival-1", "Wedding carnival", "tall"],
+      ["watch/weddings/ca-sangeet", "A CA’s sangeet", "tall"],
+      ["watch/weddings/sangeet-1", "Sangeet night", "tall"],
+      ["watch/weddings/baraat-1", "The baraat entry", "tall"],
     ] },
-    live: { title: 'Sports & live events', list: [
-      ['h3TcUziqsVs', 'The Ambani family’s entrance at Reliance Navratri', 'tall'],
-      ['_6wW9BsNKt0', 'Hosting The Neha Kakkar Show'],
-      ['AM9vLF0upcg', 'Rashmika Mandanna at Reliance Navratri', 'tall'],
-      ['bOjP3X-52Ls', 'Sardar Patel Jayanti with Amit Shah and CM Bhupendra Patel'],
-      ['bxlkcbgJNlQ', 'Disha Patani at Reliance Navratri', 'tall'],
-      ['Yh3U-ENDIT0', 'Jigardan Gadhvi live in concert'],
-      ['58TsaOrJzeQ', 'Marathon run with our soldiers'],
-      ['HoIf919WMuM', 'Hosting a public gathering', 'tall'],
+    sports: { title: "Sports events", list: [
+      ["watch/sports/kapil-dev-pgti", "Adani PGTI golf pre-tournament event with Kapil Dev", "tall"],
+      ["watch/sports/bmw-womens-day", "BMW Women’s Day", "tall"],
+    ] },
+    navratri: { title: "Reliance Navratri", list: [
+      ["reliance-navratri", "The Ambani family at Reliance Navratri", "tall"],
+      ["watch/navratri/kriti-sanon", "Introducing Kriti Sanon", "tall"],
+      ["watch/navratri/vicky-kaushal", "Introducing Vicky Kaushal", "tall"],
+      ["watch/navratri/varun-dhawan", "Introducing Varun Dhawan", "tall"],
+      ["watch/navratri/disha-patani", "Introducing Disha Patani", "tall"],
+      ["stars/rashmika-mandanna", "Introducing Rashmika Mandanna", "tall"],
+      ["stars/malaika-arora", "Malaika Arora on the Navratri stage", "tall"],
+      ["watch/navratri/jio-signature-step", "The Jio signature step with Shiamak Davar’s team", "tall"],
     ] },
   };
   const gallery = $('[data-gallery]');
@@ -122,18 +167,17 @@
   const gPlayer = $('[data-gallery-player]');
   const gFrame = $('[data-gallery-frame]');
   const gNow = $('[data-gallery-now]');
-  const ytFrame = (id) => {
-    const f = document.createElement('iframe');
-    f.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
-    f.title = 'RJ Love Shah on YouTube';
-    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-    f.allowFullscreen = true;
-    return f;
-  };
+  const posterOf = (file) => `./assets/img/watch/${file.replace(/^watch\//, '').replace('/', '-')}.webp`;
   const showGrid = () => { gFrame.replaceChildren(); gPlayer.hidden = true; gGrid.hidden = false; };
-  const play = ([id, caption, shape]) => {
+  const play = ([file, caption, shape]) => {
     gFrame.className = `gallery__frame${shape === 'tall' ? ' is-tall' : ''}`;
-    gFrame.replaceChildren(ytFrame(id));
+    const v = document.createElement('video');
+    v.src = `./assets/video/${file}.mp4`;
+    v.poster = posterOf(file);
+    v.controls = true; v.autoplay = true; v.playsInline = true; v.preload = 'auto';
+    v.setAttribute('aria-label', caption);
+    gFrame.replaceChildren(v);
+    v.play().catch(() => {});
     gNow.textContent = caption;
     gGrid.hidden = true; gPlayer.hidden = false;
     $('[data-gallery-back]').focus();
@@ -142,12 +186,12 @@
     const cat = VIDEOS[key];
     $('[data-gallery-title]').textContent = cat.title;
     gGrid.replaceChildren(...cat.list.map((v) => {
-      const [id, caption, shape] = v;
+      const [file, caption, shape] = v;
       const li = document.createElement('li');
       const b = document.createElement('button');
       b.type = 'button';
       b.className = `vcard${shape === 'tall' ? ' vcard--tall' : ''}`;
-      const src = shape === 'tall' ? `https://i.ytimg.com/vi/${id}/oardefault.jpg` : `https://i.ytimg.com/vi/${id}/sddefault.jpg`;
+      const src = posterOf(file);
       b.innerHTML = `<span class="vcard__media">${shape === 'tall' ? `<img class="vcard__blur" src="${src}" alt="" loading="lazy" decoding="async">` : ''}<img class="vcard__img" src="${src}" alt="" loading="lazy" decoding="async"></span><span class="vcard__play" aria-hidden="true"></span><span class="vcard__cap"></span>`;
       b.querySelector('.vcard__cap').textContent = caption;
       b.setAttribute('aria-label', `Play video: ${caption}`);
@@ -197,71 +241,43 @@
     light();
   }
 
-  /* ---------- about: portraits crossfade as you read the intro text (same behaviour as the reference) ---------- */
-  const aboutPhoto = $('[data-about-photo]');
-  const aboutText = $('.about__text');
-  if (aboutPhoto && aboutText) {
-    const layers = $$('.about__layer', aboutPhoto);
-    let shown = 0;
-    const show = (i) => {
-      if (i === shown) return;
-      shown = i;
-      layers.forEach((l, k) => l.classList.toggle('is-active', k === i));
-    };
-    // Same progress as the word highlight: the photo only changes while the text is being read.
-    const pick = () => {
-      const r = aboutText.getBoundingClientRect();
-      const start = innerHeight * 0.85, end = innerHeight * 0.35;
-      const p = Math.max(0, Math.min(1, (start - r.top) / (start - end + r.height * 0.6)));
-      const i = p < 0.35 ? 0 : p < 0.7 ? 1 : 2;
-      show(Math.max(0, Math.min(layers.length - 1, i)));
-    };
-    if (!reduceMotion) {
-      addEventListener('scroll', () => requestAnimationFrame(pick), { passive: true });
-      addEventListener('resize', pick);
-      pick();
-    }
+  /* ---------- about: on desktop the intro heading moves into the pinned story panel ---------- */
+  const aboutIntro = $('[data-about-intro]');
+  const introSlot = $('[data-intro-slot]');
+  const introHome = $('.about__head');
+  if (aboutIntro && introSlot && introHome) {
+    const place = () => { (desktop.matches ? introSlot : introHome).appendChild(aboutIntro); };
+    place();
+    desktop.addEventListener('change', place);
   }
 
-  /* ---------- experience: pinned while scrolling, one quality per quarter of the scroll (desktop) ---------- */
-  const expTrack = $('[data-exp-track]');
-  if (expTrack) {
-    const expSec = $('#experience');
-    const items = $$('li', expTrack);
-    const imgs = $$('.exp__frame > img', expTrack);
-    const clips = $$('.exp__clip', expTrack);
-    const glows = $$('.exp__glow', expTrack);
-    const texts = $$('p', $('[data-exp-texts]').content);
-    const desc = $('[data-exp-desc]');
-    const num = $('[data-exp-num]');
-    let current = -1;
-    const show = (i) => {
-      if (i === current) return;
-      current = i;
-      [items, imgs, clips, glows].forEach((set) => set.forEach((el, k) => el.classList.toggle('is-active', k === i)));
-      expSec.style.setProperty('--tint', items[i].style.getPropertyValue('--tint'));
-      desc.textContent = texts[i].textContent;
-      desc.classList.remove('is-in'); void desc.offsetWidth; desc.classList.add('is-in');
-      num.textContent = String(i + 1).padStart(2, '0');
+  /* ---------- about: the CA to RJ story told on scroll (year rolls 2011 > Today, chapter and photo change) ---------- */
+  const story = $('[data-story]');
+  if (story) {
+    const steps = $$('.story__step', story);
+    const ticks = $$('.story__ticks li', story);
+    const layers = $$('.about__layer', story);
+    const fill = $('[data-story-fill]', story);
+    let cur = -1;
+    const set = (i) => {
+      if (i === cur) return;
+      cur = i;
+      steps.forEach((s, k) => s.classList.toggle('is-active', k === i));
+      ticks.forEach((t, k) => t.classList.toggle('is-active', k <= i));
+      const photo = +(steps[i].dataset.photo || 0);
+      layers.forEach((l, k) => l.classList.toggle('is-active', k === photo));
     };
-    const pick = () => {
-      if (!desktop.matches) return;
-      const r = expTrack.getBoundingClientRect();
+    const update = () => {
+      const r = story.getBoundingClientRect();
       const run = r.height - innerHeight;
-      const p = run > 0 ? Math.min(0.999, Math.max(0, -r.top / run)) : 0;
-      show(Math.floor(p * items.length));
+      const p = run > 0 ? Math.min(1, Math.max(0, -r.top / run)) : 0;
+      if (fill) fill.style.setProperty('--story-p', p.toFixed(3));
+      set(Math.min(steps.length - 1, Math.floor(p * steps.length)));
     };
-    show(0);
     let queued = false;
-    addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; pick(); }); } }, { passive: true });
-    addEventListener('resize', pick);
-    pick();
-    // clicking a word scrolls to that word's part of the section
-    $$('button', expTrack.querySelector('[data-exp-list]')).forEach((b) => b.addEventListener('click', () => {
-      const run = expTrack.offsetHeight - innerHeight;
-      const top = expTrack.getBoundingClientRect().top + scrollY + run * ((+b.dataset.exp + 0.5) / items.length);
-      scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
-    }));
+    addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; update(); }); } }, { passive: true });
+    addEventListener('resize', update);
+    update();
   }
 
   /* ---------- across-India carousel ---------- */
@@ -343,29 +359,42 @@
 
   if (window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
-    const pin = $('[data-hscroll]');
-    const track = $('[data-hscroll-track]');
-    const section = $('#events');
-    const mm = gsap.matchMedia();
-    mm.add('(min-width: 960px)', () => {
-      // The browser keeps the panel in place with CSS `position: sticky` (no JS pinning, so no blank
-      // frame when scrolling back up). The section is made tall enough to scroll the cards sideways.
-      pin.classList.add('is-pinned');
-      const dist = () => Math.max(0, track.scrollWidth - innerWidth);
-      const setHeight = () => { section.style.height = `${pin.offsetHeight + dist()}px`; };
-      setHeight();
-      ScrollTrigger.addEventListener('refreshInit', setHeight);
-      gsap.to(track, {
-        x: () => -dist(), ease: 'none',
-        scrollTrigger: { trigger: section, start: 'top top', end: 'bottom bottom', scrub: 0.4, invalidateOnRefresh: true },
-      });
-      // gsap.matchMedia reverts the tween + ScrollTrigger itself; undo our own changes here.
-      return () => {
-        ScrollTrigger.removeEventListener('refreshInit', setHeight);
-        section.style.height = '';
-        pin.classList.remove('is-pinned');
-      };
-    });
     addEventListener('load', () => ScrollTrigger.refresh());
+  }
+
+  /* ---------- Instagram: live feed ----------
+     Paste a Behold.so JSON feed URL into data-ig-feed on the Instagram section and the grid
+     shows his 12 newest posts on every visit. If it is empty or the feed fails, the 12 posts
+     already in the HTML stay. */
+  const igSection = $('[data-ig-feed]');
+  const igGrid = $('[data-ig-grid]');
+  const igFeed = igSection && igSection.dataset.igFeed.trim();
+  if (igFeed && igGrid) {
+    fetch(igFeed, { mode: 'cors' })
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((data) => {
+        const posts = (Array.isArray(data) ? data : data.posts || []).slice(0, 12);
+        if (!posts.length) return;
+        igGrid.replaceChildren(...posts.map((p) => {
+          const sizes = p.sizes || {};
+          const src = (sizes.medium && sizes.medium.mediaUrl) || p.thumbnailUrl || p.mediaUrl;
+          if (!src || !p.permalink) return null;
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = p.permalink; a.target = '_blank'; a.rel = 'noopener';
+          const img = document.createElement('img');
+          img.src = src; img.width = 480; img.height = 640; img.loading = 'lazy'; img.decoding = 'async';
+          img.alt = (p.prunedCaption || p.caption || 'RJ Love Shah on Instagram').replace(/\s+/g, ' ').slice(0, 120);
+          a.append(img);
+          if (p.mediaType === 'VIDEO' || p.isReel) {
+            const icon = document.createElement('span');
+            icon.className = 'insta__reel'; icon.setAttribute('aria-hidden', 'true');
+            a.append(icon);
+          }
+          li.append(a);
+          return li;
+        }).filter(Boolean));
+      })
+      .catch(() => {});
   }
 })();
