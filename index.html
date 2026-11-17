@@ -24,7 +24,7 @@
   <link rel="preload" href="./assets/fonts/playfair-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="./assets/img/hero-alt-tall-1000.webp" media="(max-width: 767px), (orientation: portrait) and (max-width: 1199px)" fetchpriority="high">
   <link rel="preload" as="image" href="./assets/img/hero-alt-1920.webp" imagesrcset="./assets/img/hero-alt-1280.webp 1280w, ./assets/img/hero-alt-1920.webp 1920w" imagesizes="100vw" media="(min-width: 768px) and (orientation: landscape), (min-width: 1200px)" fetchpriority="high">
-  <link rel="stylesheet" href="./assets/css/main.css?v=af6d9acf">
+  <link rel="stylesheet" href="./assets/css/main.css?v=a58bfa9e">
   <script>document.documentElement.classList.add('js')</script>
 
   <script type="application/ld+json">
@@ -691,7 +691,7 @@
           <p class="visually-hidden"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
           <div class="field"><label for="f-name">Name *</label><input id="f-name" name="name" autocomplete="name" required></div>
           <div class="field"><label for="f-org">Company / family name</label><input id="f-org" name="organisation" autocomplete="organization"></div>
-          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+          <div class="field"><label for="f-email">Email <span class="field__opt">(optional)</span></label><input id="f-email" name="email" type="text" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false"></div>
           <div class="field"><label for="f-phone">Phone / WhatsApp *</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
           <div class="field"><label for="f-type">Event type *</label>
             <select id="f-type" name="event_type" required>
@@ -700,7 +700,7 @@
               <option>Awards night</option><option>Product launch</option><option>Family day / Team building</option>
               <option>Sports event</option><option>Navratri / Concert / Live event</option><option>Other</option>
             </select></div>
-          <div class="field"><label for="f-date">Event date</label><input id="f-date" name="event_date" type="date"></div>
+          <div class="field"><label for="f-date">Event date</label><input id="f-date" name="event_date" type="text" autocomplete="off" placeholder="e.g. 15 December 2026 or Dec 2026"></div>
           <div class="field"><label for="f-city">City / venue</label><input id="f-city" name="city" placeholder="e.g. Ahmedabad, Udaipur"></div>
           <div class="field"><label for="f-guests">Expected audience</label><input id="f-guests" name="audience" inputmode="numeric" placeholder="e.g. 300 guests"></div>
           <div class="field field--full"><label for="f-msg">Tell him about your event</label><textarea id="f-msg" name="message" rows="4" placeholder="The occasion, the vibe, anything special you have in mind"></textarea></div>

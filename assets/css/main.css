@@ -841,3 +841,6 @@ html:not(.js) .story__step { grid-area: auto; opacity: 1; transform: none; margi
   .hero__bottom { position: relative; z-index: 2; }
 }
 @media (prefers-reduced-motion: reduce) { .hero__cut { transition: none; transform: none; } }
+
+/* booking form: quiet 'optional' tag next to a label */
+.field__opt { text-transform: none; letter-spacing: 0; font-weight: 400; opacity: .7; }
