@@ -24,7 +24,7 @@
   <link rel="preload" href="./assets/fonts/playfair-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="./assets/img/hero-alt-tall-1000.webp" media="(max-width: 767px), (orientation: portrait) and (max-width: 1199px)" fetchpriority="high">
   <link rel="preload" as="image" href="./assets/img/hero-alt-1920.webp" imagesrcset="./assets/img/hero-alt-1280.webp 1280w, ./assets/img/hero-alt-1920.webp 1920w" imagesizes="100vw" media="(min-width: 768px) and (orientation: landscape), (min-width: 1200px)" fetchpriority="high">
-  <link rel="stylesheet" href="./assets/css/main.css?v=0f10319e">
+  <link rel="stylesheet" href="./assets/css/main.css?v=af6d9acf">
   <script>document.documentElement.classList.add('js')</script>
 
   <script type="application/ld+json">
@@ -88,14 +88,14 @@
            "acceptedAnswer": {"@type": "Answer", "text": "Send the event date, city and type through the booking form, WhatsApp or email rjloveshah12@gmail.com. Advance booking is recommended."}},
           {"@type": "Question", "name": "Which languages does RJ Love Shah host in?",
            "acceptedAnswer": {"@type": "Answer", "text": "Hindi, English and Gujarati, and he switches between them to suit the crowd."}},
-          {"@type": "Question", "name": "Where is RJ Love Shah based? Does he travel?",
-           "acceptedAnswer": {"@type": "Answer", "text": "He is based in Ahmedabad and hosts across India and internationally: from Reliance Navratri in Jamnagar and destination weddings in Udaipur to events in Sri Lanka and NRI weddings with guests from around the world."}},
+          {"@type": "Question", "name": "Does RJ Love Shah travel for events?",
+           "acceptedAnswer": {"@type": "Answer", "text": "Yes. He hosts across India and internationally: from Reliance Navratri in Jamnagar and destination weddings in Udaipur to events in Sri Lanka and NRI weddings with guests from around the world."}},
           {"@type": "Question", "name": "What kind of events does RJ Love Shah host?",
            "acceptedAnswer": {"@type": "Answer", "text": "Three main segments: corporate shows (family days, team building, award nights, product launches), luxury weddings (carnival and haldi, sangeet, baraat, reception) and sports and live events such as Navratri, concerts and launches."}},
           {"@type": "Question", "name": "Which celebrities has RJ Love Shah shared the stage with?",
            "acceptedAnswer": {"@type": "Answer", "text": "Vicky Kaushal, Kriti Sanon, Rashmika Mandanna, Disha Patani, Varun Dhawan, Malaika Arora, Tiger Shroff, Sidharth Malhotra, Mouni Roy, Taapsee Pannu, Neha Kakkar and Piyush Mishra, among others."}},
           {"@type": "Question", "name": "Is RJ Love Shah really a Chartered Accountant?",
-           "acceptedAnswer": {"@type": "Answer", "text": "Yes. He is a qualified CA and was felicitated by the Ahmedabad branch of WIRC of ICAI as a Chartered Accountant who excels as an artist."}}
+           "acceptedAnswer": {"@type": "Answer", "text": "Yes. He is a qualified CA and was felicitated by WIRC of ICAI as a Chartered Accountant who excels as an artist."}}
         ]
       }
     ]
@@ -114,9 +114,10 @@
       </a>
       <nav class="nav" aria-label="Main">
         <ul>
-          <li><a href="./events/corporate/">Corporate</a></li>
-          <li><a href="./events/weddings/">Weddings</a></li>
-          <li><a href="./events/live/">Sports &amp; Live</a></li>
+          <li><a href="#video-folders">Corporate</a></li>
+          <li><a href="#video-folders">Weddings</a></li>
+          <li><a href="#video-folders">Sports</a></li>
+          <li><a href="#video-folders">Navratri</a></li>
           <li><a href="#celebrities">Celebrities</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -129,9 +130,10 @@
     </div>
     <div class="mobile-menu" id="mobile-menu" hidden data-menu>
       <ul>
-        <li><a href="./events/corporate/">Corporate</a></li>
-        <li><a href="./events/weddings/">Weddings</a></li>
-        <li><a href="./events/live/">Sports &amp; Live</a></li>
+        <li><a href="#video-folders">Corporate</a></li>
+        <li><a href="#video-folders">Weddings</a></li>
+        <li><a href="#video-folders">Sports</a></li>
+        <li><a href="#video-folders">Navratri</a></li>
         <li><a href="#celebrities">Celebrities</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -162,6 +164,11 @@
         </picture>
       </div>
       <div class="hero__shade" aria-hidden="true"></div>
+      <!-- Love cut out of each photo: sits in front of "The Voice of" lines so the words pass behind his head -->
+      <div class="hero__cuts" aria-hidden="true" data-hero-cuts>
+        <img class="hero__cut hero__cut--alt is-active" src="./assets/img/hero-alt-cut-1920.webp" srcset="./assets/img/hero-alt-cut-1280.webp 1280w, ./assets/img/hero-alt-cut-1920.webp 1920w" sizes="100vw" width="1920" height="1200" alt="" decoding="async">
+        <img class="hero__cut hero__cut--wide" src="./assets/img/hero-wide-cut-1920.webp" srcset="./assets/img/hero-wide-cut-1280.webp 1280w, ./assets/img/hero-wide-cut-1920.webp 1920w" sizes="100vw" width="1920" height="1280" alt="" loading="lazy" decoding="async">
+      </div>
 
       <div class="hero__inner">
         <div class="hero__top">
@@ -203,7 +210,7 @@
           <p class="eyebrow" data-reveal>Reliance Navratri · Jamnagar</p>
           <h2 class="rnav__title" id="rnav-title" data-reveal>Hosted India&rsquo;s <em class="grad-text">Biggest Navratri</em></h2>
           <p class="rnav__sub" data-reveal>Ambani Family&rsquo;s Reliance Navratri</p>
-          <p class="rnav__text" data-reveal>On stage for one of the grandest Navratri celebrations in the country: the Ambani family on the ground, Bollywood stars on the stage, and thousands of garba dancers in front of it. Nights like these need a host who can hold the mic, the moment and the crowd together.</p>
+          <p class="rnav__text" data-reveal>On stage for one of the grandest Navratri celebrations in the country: the Ambani family on the ground, Bollywood stars on the stage, and thousands of garba dancers in front of it. Events like these need a host who can hold the mic, the moment and the crowd together.</p>
           <div class="rnav__actions" data-reveal>
             <a class="btn btn--grad" href="#contact">Book RJ Love <span aria-hidden="true">&rarr;</span></a>
             <a class="link-arrow" href="https://www.instagram.com/reel/DepbZI9ynJw/" rel="noopener">Watch on Instagram</a>
@@ -408,7 +415,7 @@
       </div>
       <div class="container watch__cats">
         <p class="watch__hint" data-reveal>Choose your kind of event and see him at it.</p>
-        <ul class="cat-grid">
+        <ul class="cat-grid" id="video-folders">
           <li data-reveal><button class="cat" type="button" data-gallery-open="corporate">
             <img src="./assets/img/cat-corporate-960.webp" width="960" height="1200" loading="lazy" decoding="async" style="object-position: 30% 22%" alt="RJ Love Shah in a white blazer with a headset and microphone hosting a corporate show on stage">
             <span class="cat__name">Corporate shows</span><span class="cat__count">6 videos</span><span class="cat__play" aria-hidden="true"></span>
@@ -647,14 +654,14 @@
             <p>Send your event date, city and type through the form below, <a href="https://wa.me/917383972757">WhatsApp</a> or email <a href="mailto:rjloveshah12@gmail.com">rjloveshah12@gmail.com</a>. Book in advance: wedding-season dates go first.</p></details>
           <details data-reveal><summary>Which languages does he host in?</summary>
             <p>Hindi, English and Gujarati. He mixes them to match the crowd, which works well for Gujarati families, NRI guests and corporate audiences from across India and abroad.</p></details>
-          <details data-reveal><summary>Where is he based? Does he travel?</summary>
-            <p>He is based in Ahmedabad and hosts across India and internationally: from Reliance Navratri in Jamnagar and destination weddings in Udaipur to events in Sri Lanka and NRI weddings with guests from around the world.</p></details>
+          <details data-reveal><summary>Does he travel for events?</summary>
+            <p>Yes. He hosts across India and internationally: from Reliance Navratri in Jamnagar and destination weddings in Udaipur to events in Sri Lanka and NRI weddings with guests from around the world.</p></details>
           <details data-reveal><summary>What kind of events does he host?</summary>
             <p>Corporate shows (family days, team building, award nights, product launches), luxury weddings (carnival and haldi, sangeet, baraat, reception) and sports and live events such as Navratri, concerts and launches.</p></details>
           <details data-reveal><summary>Which celebrities has he shared the stage with?</summary>
             <p>Vicky Kaushal, Kriti Sanon, Rashmika Mandanna, Disha Patani, Varun Dhawan, Malaika Arora, Tiger Shroff, Sidharth Malhotra, Mouni Roy, Taapsee Pannu, Neha Kakkar and Piyush Mishra, among others.</p></details>
           <details data-reveal><summary>Is he really a Chartered Accountant?</summary>
-            <p>Yes. Love is a qualified CA and was felicitated by the Ahmedabad branch of WIRC of ICAI as a Chartered Accountant who also excels as an artist.</p></details>
+            <p>Yes. Love is a qualified CA and was felicitated by WIRC of ICAI as a Chartered Accountant who also excels as an artist.</p></details>
         </div>
       </div>
     </section>
@@ -667,7 +674,7 @@
       <div class="container book__grid">
         <div class="book__copy">
           <p class="eyebrow" data-reveal>Book RJ Love</p>
-          <h2 class="h2" id="book-title" data-reveal>Got a big night <em class="grad-text">coming up?</em></h2>
+          <h2 class="h2" id="book-title" data-reveal>Got a big event <em class="grad-text">coming up?</em></h2>
           <p data-reveal>Tell him the date, the city and the crowd. He'll come back with how to make it unforgettable.</p>
           <ul class="contact-list" data-reveal>
             <li><a href="https://wa.me/917383972757?text=Hi%20Love%2C%20I%27d%20like%20to%20book%20you%20for%20an%20event" rel="noopener">
@@ -713,7 +720,7 @@
     <div class="container">
       <div class="footer__cta">
         <p class="eyebrow">Anchor · Host · Entertainer · CA</p>
-        <p class="footer__line">Your night deserves a host who brings <em class="grad-text">the whole ground with him.</em></p>
+        <p class="footer__line">Your event deserves a host who brings <em class="grad-text">the whole ground with him.</em></p>
         <div class="footer__actions">
           <a class="btn btn--grad" href="#contact">Book RJ Love <span aria-hidden="true">→</span></a>
           <a class="btn btn--ghost" href="https://wa.me/917383972757" rel="noopener">WhatsApp</a>
@@ -722,14 +729,13 @@
       <div class="footer__grid">
         <div class="footer__brand">
           <p class="logo"><span class="logo__kicker">Anchor · Host</span><span class="logo__name">RJ Love Shah</span></p>
-          <p>Celebrity anchor for weddings, corporate shows and live events. Based in Ahmedabad, hosting across India and abroad.</p>
+          <p>Celebrity anchor for weddings, corporate shows and live events, hosting across India and abroad.</p>
           <address>
-            <a href="mailto:rjloveshah12@gmail.com">rjloveshah12@gmail.com</a><br>
-            Ahmedabad, Gujarat, India
+            <a href="mailto:rjloveshah12@gmail.com">rjloveshah12@gmail.com</a>
           </address>
         </div>
         <nav aria-label="Footer: events"><ul>
-          <li><a href="./events/corporate/">Corporate shows</a></li><li><a href="./events/weddings/">Luxury weddings</a></li><li><a href="./events/live/">Sports &amp; live</a></li><li><a href="#celebrities">Celebrities</a></li>
+          <li><a href="#video-folders">Corporate shows</a></li><li><a href="#video-folders">Luxury weddings</a></li><li><a href="#video-folders">Sports events</a></li><li><a href="#video-folders">Reliance Navratri</a></li><li><a href="#celebrities">Celebrities</a></li>
         </ul></nav>
         <nav aria-label="Footer: site"><ul>
           <li><a href="#about">About</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li>
@@ -774,6 +780,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="./assets/js/main.js?v=410358e1" defer></script>
+  <script src="./assets/js/main.js?v=c73badc3" defer></script>
 </body>
 </html>

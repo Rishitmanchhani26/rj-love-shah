@@ -38,7 +38,8 @@
     const slides = $$('.hero__slide', slideWrap);
     const HOLD = 5000; // ms each photo stays on screen
     let i = 0, timer = null;
-    const show = (n) => { i = n % slides.length; slides.forEach((s, k) => s.classList.toggle('is-active', k === i)); };
+    const cuts = $$('.hero__cut', $('[data-hero-cuts]') || document.createElement('div'));
+    const show = (n) => { i = n % slides.length; [slides, cuts].forEach((set) => set.forEach((s, k) => s.classList.toggle('is-active', k === i))); };
     const start = () => { stop(); timer = setInterval(() => show(i + 1), HOLD); };
     const stop = () => { clearInterval(timer); timer = null; };
     // only rotate while the hero is on screen and the tab is visible
@@ -46,7 +47,7 @@
     new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; heroVisible && !document.hidden ? start() : stop(); }).observe($('.hero'));
     document.addEventListener('visibilitychange', () => { !document.hidden && heroVisible ? start() : stop(); });
     // load the second photo once the page has settled, so the first paint stays fast
-    addEventListener('load', () => slides.forEach((s) => { const img = s.querySelector('img'); if (img) img.loading = 'eager'; }));
+    addEventListener('load', () => { slides.forEach((s) => { const img = s.querySelector('img'); if (img) img.loading = 'eager'; }); cuts.forEach((img) => { img.loading = 'eager'; }); });
     start();
   }
 
@@ -203,8 +204,9 @@
     gallery.showModal();
     gallery.scrollTop = 0;
   };
-  $$('[data-gallery-open]').forEach((b) => b.addEventListener('click', () => {
-    if (typeof gallery.showModal !== 'function') { window.open('https://www.youtube.com/@loveshah117', '_blank', 'noopener'); return; }
+  $$('[data-gallery-open]').forEach((b) => b.addEventListener('click', (e) => {
+    if (typeof gallery.showModal !== 'function') return; // old browsers: the #watch link still scrolls to the videos
+    e.preventDefault();
     openGallery(b.dataset.galleryOpen);
   }));
   $('[data-gallery-back]').addEventListener('click', showGrid);
