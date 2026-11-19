@@ -847,10 +847,8 @@ html:not(.js) .story__step { grid-area: auto; opacity: 1; transform: none; margi
 
 /* brand logo: LS mic mark beside the name in the header, the full logo in the footer */
 .logo--mark { flex-direction: row; align-items: center; gap: 12px; }
-.logo__mark { height: 44px; width: auto; flex: none; }
+.logo__mark { height: 56px; width: auto; flex: none; }
 .logo__text { display: inline-flex; flex-direction: column; line-height: 1; }
-@media (max-width: 559px) { .logo__mark { height: 38px; } .logo--mark { gap: 10px; } }
+@media (max-width: 559px) { .logo__mark { height: 52px; } .logo--mark { gap: 10px; } }
+@media (min-width: 1280px) { .logo__mark { height: 62px; } }
 .footer__logo img { display: block; height: 132px; width: auto; }
-/* header lockup: LS mic mark + the logo's own RJ LOVE / BE MY GUEST wordmark */
-.logo__word { height: 34px; width: auto; flex: none; }
-@media (max-width: 559px) { .logo__word { height: 30px; } }
