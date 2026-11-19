@@ -7,6 +7,8 @@
   <meta name="description" content="This page doesn't exist. Head back to the RJ Love Shah homepage to watch his shows or book him for your event.">
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#0B1324">
+  <link rel="icon" href="https://rishitmanchhani26.github.io/rj-love-shah/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://rishitmanchhani26.github.io/rj-love-shah/assets/img/logo/apple-touch-icon.png">
   <style>
     :root { --ink: #0b1324; --cream: #f4ede0; --cream-dim: rgb(244 237 224 / .72); --coral: #ff6b5b; --peach: #ffa36c; --rose: #f0466e;
       --grad: linear-gradient(90deg, var(--peach) 0%, var(--coral) 45%, var(--rose) 100%);
@@ -16,7 +18,9 @@
     body { min-height: 100svh; display: flex; flex-direction: column; background: radial-gradient(120% 80% at 80% 0%, #1a2848 0%, var(--ink) 60%); color: var(--cream); font: 400 1rem/1.6 var(--f-sans); -webkit-font-smoothing: antialiased; }
     a { color: inherit; }
     .top { padding: 22px 20px; max-width: 1320px; width: 100%; margin: 0 auto; }
-    .logo { text-decoration: none; display: inline-flex; flex-direction: column; gap: 2px; }
+    .logo { text-decoration: none; display: inline-flex; align-items: center; gap: 12px; }
+    .logo img { height: 44px; width: auto; }
+    .logo__t { display: inline-flex; flex-direction: column; gap: 2px; }
     .logo small { font: 700 .625rem/1 var(--f-sans); letter-spacing: .22em; text-transform: uppercase; color: var(--peach); }
     .logo span { font: 600 1.25rem/1.1 var(--f-serif); }
     main { flex: 1; display: grid; place-items: center; padding: 24px 20px 64px; text-align: center; }
@@ -49,13 +53,14 @@
       }
       document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('[data-home]').forEach(function (a) { a.href = base + (a.getAttribute('data-home') || ''); });
+        document.querySelectorAll('[data-logo]').forEach(function (i) { i.src = base + 'assets/img/logo/rj-love-mark-112.webp'; });
       });
     })();
   </script>
 </head>
 <body>
   <header class="top">
-    <a class="logo" href="https://www.rjloveshah.com/" data-home="" aria-label="RJ Love Shah, home"><small>Anchor · Host</small><span>RJ Love Shah</span></a>
+    <a class="logo" href="https://www.rjloveshah.com/" data-home="" aria-label="RJ Love Shah, home"><img data-logo src="https://rishitmanchhani26.github.io/rj-love-shah/assets/img/logo/rj-love-mark-112.webp" width="69" height="112" alt=""><span class="logo__t"><small>Anchor · Host</small><span>RJ Love Shah</span></span></a>
   </header>
   <main>
     <div>

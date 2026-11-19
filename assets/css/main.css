@@ -844,3 +844,10 @@ html:not(.js) .story__step { grid-area: auto; opacity: 1; transform: none; margi
 
 /* booking form: quiet 'optional' tag next to a label */
 .field__opt { text-transform: none; letter-spacing: 0; font-weight: 400; opacity: .7; }
+
+/* brand logo: LS mic mark beside the name in the header, the full logo in the footer */
+.logo--mark { flex-direction: row; align-items: center; gap: 12px; }
+.logo__mark { height: 44px; width: auto; flex: none; }
+.logo__text { display: inline-flex; flex-direction: column; line-height: 1; }
+@media (max-width: 559px) { .logo__mark { height: 38px; } .logo--mark { gap: 10px; } }
+.footer__logo img { display: block; height: 132px; width: auto; }
