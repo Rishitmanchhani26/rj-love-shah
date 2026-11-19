@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Page not found | RJ Love Shah</title>
+  <meta name="description" content="This page doesn't exist. Head back to the RJ Love Shah homepage to watch his shows or book him for your event.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0B1324">
+  <style>
+    :root { --ink: #0b1324; --cream: #f4ede0; --cream-dim: rgb(244 237 224 / .72); --coral: #ff6b5b; --peach: #ffa36c; --rose: #f0466e;
+      --grad: linear-gradient(90deg, var(--peach) 0%, var(--coral) 45%, var(--rose) 100%);
+      --f-serif: "Playfair Display", Georgia, "Times New Roman", serif; --f-sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; }
+    html, body { height: 100%; }
+    body { min-height: 100svh; display: flex; flex-direction: column; background: radial-gradient(120% 80% at 80% 0%, #1a2848 0%, var(--ink) 60%); color: var(--cream); font: 400 1rem/1.6 var(--f-sans); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    .top { padding: 22px 20px; max-width: 1320px; width: 100%; margin: 0 auto; }
+    .logo { text-decoration: none; display: inline-flex; flex-direction: column; gap: 2px; }
+    .logo small { font: 700 .625rem/1 var(--f-sans); letter-spacing: .22em; text-transform: uppercase; color: var(--peach); }
+    .logo span { font: 600 1.25rem/1.1 var(--f-serif); }
+    main { flex: 1; display: grid; place-items: center; padding: 24px 20px 64px; text-align: center; }
+    .eyebrow { font: 700 .75rem/1.4 var(--f-sans); letter-spacing: .22em; text-transform: uppercase; color: var(--peach); }
+    h1 { margin-top: 14px; font: 600 clamp(2.25rem, 7vw, 4.5rem)/1.05 var(--f-serif); letter-spacing: -.02em; }
+    h1 em { font-style: italic; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .08em; }
+    p.lede { margin: 18px auto 0; max-width: 34rem; color: var(--cream-dim); font-size: 1.0625rem; }
+    .actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 28px; border-radius: 999px; font: 700 .8125rem/1 var(--f-sans); letter-spacing: .16em; text-transform: uppercase; text-decoration: none; transition: transform .2s, background .2s; }
+    .btn--grad { background: var(--grad); color: var(--ink); }
+    .btn--ghost { border: 1px solid rgb(244 237 224 / .35); }
+    .btn:hover, .btn:focus-visible { transform: translateY(-2px); }
+    .btn:focus-visible { outline: 2px solid var(--peach); outline-offset: 3px; }
+    .links { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: center; font-size: .9375rem; color: var(--cream-dim); }
+    .links a { text-decoration: none; border-bottom: 1px solid rgb(244 237 224 / .25); }
+    .links a:hover { color: var(--cream); }
+    @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+  </style>
+  <script>
+    // Works on both addresses: rishitmanchhani26.github.io/rj-love-shah/ and the final domain (site at the root)
+    (function () {
+      var base = location.hostname.slice(-10) === 'github.io' ? '/rj-love-shah/' : '/';
+      window.__base = base;
+      if (window.FontFace) {
+        [['Playfair Display', 'playfair-latin', 'normal'], ['Playfair Display', 'playfair-italic-latin', 'italic'], ['Manrope', 'manrope-latin', 'normal']]
+          .forEach(function (f) {
+            var face = new FontFace(f[0], 'url(' + base + 'assets/fonts/' + f[1] + '.woff2) format("woff2")', { style: f[2], weight: f[0] === 'Manrope' ? '200 800' : '400 900', display: 'swap' });
+            face.load().then(function (l) { document.fonts.add(l); }).catch(function () {});
+          });
+      }
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('[data-home]').forEach(function (a) { a.href = base + (a.getAttribute('data-home') || ''); });
+      });
+    })();
+  </script>
+</head>
+<body>
+  <header class="top">
+    <a class="logo" href="https://www.rjloveshah.com/" data-home="" aria-label="RJ Love Shah, home"><small>Anchor · Host</small><span>RJ Love Shah</span></a>
+  </header>
+  <main>
+    <div>
+      <p class="eyebrow">Error 404 · Page not found</p>
+      <h1>Wrong stage. <em>The show is this way.</em></h1>
+      <p class="lede">The page you were looking for has moved or doesn't exist. Everything about Love, from the videos to the booking form, is on the homepage.</p>
+      <div class="actions">
+        <a class="btn btn--grad" href="https://www.rjloveshah.com/" data-home="">Go to homepage</a>
+        <a class="btn btn--ghost" href="https://wa.me/917383972757?text=Hi%20Love%2C%20I%27d%20like%20to%20book%20you%20for%20an%20event">WhatsApp Love</a>
+      </div>
+      <nav class="links" aria-label="Popular pages">
+        <a href="https://www.rjloveshah.com/#video-folders" data-home="#video-folders">Watch his shows</a>
+        <a href="https://www.rjloveshah.com/#celebrities" data-home="#celebrities">Celebrities</a>
+        <a href="https://www.rjloveshah.com/#reviews" data-home="#reviews">Client reviews</a>
+        <a href="https://www.rjloveshah.com/#contact" data-home="#contact">Book RJ Love</a>
+        <a href="mailto:info@rjloveshah.com">info@rjloveshah.com</a>
+      </nav>
+    </div>
+  </main>
+</body>
+</html>
