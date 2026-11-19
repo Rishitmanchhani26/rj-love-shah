@@ -54,13 +54,14 @@
       document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('[data-home]').forEach(function (a) { a.href = base + (a.getAttribute('data-home') || ''); });
         document.querySelectorAll('[data-logo]').forEach(function (i) { i.src = base + 'assets/img/logo/rj-love-mark-112.webp'; });
+        document.querySelectorAll('[data-word]').forEach(function (i) { i.src = base + 'assets/img/logo/rj-love-wordmark-96.webp'; });
       });
     })();
   </script>
 </head>
 <body>
   <header class="top">
-    <a class="logo" href="https://www.rjloveshah.com/" data-home="" aria-label="RJ Love Shah, home"><img data-logo src="https://rishitmanchhani26.github.io/rj-love-shah/assets/img/logo/rj-love-mark-112.webp" width="69" height="112" alt=""><span class="logo__t"><small>Anchor · Host</small><span>RJ Love Shah</span></span></a>
+    <a class="logo" href="https://www.rjloveshah.com/" data-home="" aria-label="RJ Love Shah, home"><img data-logo src="https://rishitmanchhani26.github.io/rj-love-shah/assets/img/logo/rj-love-mark-112.webp" width="69" height="112" alt=""><img data-word src="https://rishitmanchhani26.github.io/rj-love-shah/assets/img/logo/rj-love-wordmark-96.webp" width="237" height="96" alt="RJ Love, Be My Guest" style="height:34px"></a>
   </header>
   <main>
     <div>
