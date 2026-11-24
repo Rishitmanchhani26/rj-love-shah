@@ -32,10 +32,9 @@
 
   <link rel="preload" href="./assets/fonts/playfair-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./assets/fonts/playfair-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" as="image" href="./assets/img/hero-alt-tall-1000.webp" media="(max-width: 767px), (orientation: portrait) and (max-width: 1199px)" fetchpriority="high">
-  <link rel="preload" as="image" href="./assets/img/hero-alt-1920.webp" imagesrcset="./assets/img/hero-alt-1280.webp 1280w, ./assets/img/hero-alt-1920.webp 1920w" imagesizes="100vw" media="(min-width: 768px) and (orientation: landscape), (min-width: 1200px)" fetchpriority="high">
-  <link rel="stylesheet" href="./assets/css/main.css?v=9a40351c">
-  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preload" as="image" href="./assets/img/cover/love-blazer.webp" fetchpriority="high">
+  <link rel="stylesheet" href="./assets/css/main.css?v=e53440d2">
+  <script>document.documentElement.classList.add('js');setTimeout(function(){var b=document.body;if(b&&b.classList.contains('cover-loading')){b.classList.remove('cover-loading');var o=document.querySelector('[data-cover-opener]');if(o)o.style.display='none';}},6000)</script>
 
   <script type="application/ld+json">
   {
@@ -113,7 +112,9 @@
   }
   </script>
 </head>
-<body>
+<body class="cover-loading">
+  <!-- opening card: his logo, lifted as soon as the cover is ready -->
+  <div class="cover-opener" data-cover-opener aria-hidden="true"><img src="./assets/img/logo/rj-love-logo-600.webp" width="292" height="600" alt=""></div>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ===== Header ===== -->
@@ -159,58 +160,55 @@
 
   <main id="main">
 
-    <!-- ===== 1 · Hero ===== -->
-    <section class="hero" aria-labelledby="hero-title">
-      <!-- Two hero photos that slowly crossfade: corporate (white blazer) first, then live entertainment (Navratri) -->
-      <div class="hero__slides" data-hero-slides>
-        <picture class="hero__bg hero__slide hero__bg--alt is-active" data-label="Corporate">
-          <source media="(max-width: 767px), (orientation: portrait) and (max-width: 1199px)" srcset="./assets/img/hero-alt-tall-1000.webp" width="1000" height="2170">
-          <img src="./assets/img/hero-alt-1920.webp" srcset="./assets/img/hero-alt-1280.webp 1280w, ./assets/img/hero-alt-1920.webp 1920w"
-               sizes="100vw" width="1920" height="1200" fetchpriority="high" decoding="async"
-               alt="RJ Love Shah in a white blazer with a headset microphone, speaking on stage against a deep blue backdrop">
-        </picture>
-        <picture class="hero__bg hero__slide" data-label="Live shows">
-          <img src="./assets/img/hero-wide-1920.webp" srcset="./assets/img/hero-wide-1280.webp 1280w, ./assets/img/hero-wide-1920.webp 1920w"
-               sizes="(max-width: 767px) 1300px, 100vw" width="1920" height="1280" loading="lazy" decoding="async"
-               alt="RJ Love Shah with a microphone, arms wide, on the Reliance Navratri stage">
-        </picture>
-      </div>
-      <div class="hero__shade" aria-hidden="true"></div>
-      <!-- Love cut out of each photo: sits in front of "The Voice of" lines so the words pass behind his head -->
-      <div class="hero__cuts" aria-hidden="true" data-hero-cuts>
-        <img class="hero__cut hero__cut--alt is-active" src="./assets/img/hero-alt-cut-1920.webp" srcset="./assets/img/hero-alt-cut-1280.webp 1280w, ./assets/img/hero-alt-cut-1920.webp 1920w" sizes="100vw" width="1920" height="1200" alt="" decoding="async">
-        <img class="hero__cut hero__cut--wide" src="./assets/img/hero-wide-cut-1920.webp" srcset="./assets/img/hero-wide-cut-1280.webp 1280w, ./assets/img/hero-wide-cut-1920.webp 1920w" sizes="100vw" width="1920" height="1280" alt="" loading="lazy" decoding="async">
+    <!-- ===== 1 · Cover: his name as a masthead, five Loves, one door per kind of event ===== -->
+    <section class="cover" aria-labelledby="hero-title" data-cover>
+      <h1 class="visually-hidden" id="hero-title">RJ Love Shah: Be My Guest. Celebrity anchor for luxury weddings, corporate shows, sports events and Reliance Navratri.</h1>
+      <p class="cover__traits">Supremely creative, witty, celebrity anchor.</p>
+      <div class="cover__name" aria-hidden="true" data-cover-name></div>
+      <p class="cover__sign" aria-hidden="true">Be my guest</p>
+      <p class="cover__voice"><span>The Voice of Radio.</span> <span>The Voice of Big Shows.</span></p>
+
+      <div class="cover__host" data-cover-host>
+        <a class="cover__hostlink" href="#about" aria-label="Meet RJ Love">
+          <img src="./assets/img/cover/love-blazer.webp" width="738" height="942" fetchpriority="high" decoding="async"
+               alt="RJ Love Shah in a white blazer with a headset microphone, one hand open towards the audience">
+          <span class="cover__label">Meet RJ Love</span>
+        </a>
+        <button class="cover__mic" type="button" data-mic aria-pressed="false" aria-label="Hear his voice">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="6" width="12" height="22" rx="6"/><path d="M12 22a12 12 0 0 0 24 0M24 34v8M17 42h14"/></g></svg>
+          <span class="cover__mic-label" data-mic-label>Hear him</span>
+        </button>
       </div>
 
-      <div class="hero__inner">
-        <div class="hero__top">
-          <p class="hero__big hero__big--left" aria-hidden="true" data-intro><span class="hero__big-pre">The Voice of</span> <em class="grad-text">Radio</em></p>
-          <p class="hero__big hero__big--right" aria-hidden="true" data-intro><span class="hero__big-pre">The Voice of</span> <em class="grad-text">Big Shows</em></p>
-        </div>
+      <ul class="cover__stamps">
+        <li><b>11+</b><span>years on stage</span></li>
+        <li><b>1,500+</b><span>live shows</span></li>
+      </ul>
 
-        <div class="hero__bottom">
-          <div class="hero__left">
-            <p class="eyebrow hero__eyebrow" data-intro><span class="hero__eyebrow-long">Supremely </span>creative · Witty · Celebrity anchor</p>
-            <h1 class="hero__title" id="hero-title" data-intro>
-              <span class="hero__title-main">RJ Love Shah</span>
-              <span class="hero__title-sub">Be My Guest</span>
-            </h1>
-            <ul class="hero__meta" data-intro>
-              <li><b>11+</b> years on stage</li><li><b>1,500+</b> live shows</li>
-            </ul>
-          </div>
-          <div class="hero__right" data-intro>
-            <p class="hero__lede"><strong>RJ Love Shah</strong> is India's most energetic host: a Chartered Accountant turned Radio Host &amp; an Anchor
-              who has run the mic at the Ambani family's Reliance Navratri, luxury weddings and stadium-size crowds.</p>
-            <div class="hero__actions">
-              <a class="btn btn--grad" href="#contact">Book RJ Love <span aria-hidden="true">→</span></a>
-              <button class="btn btn--ghost" type="button" data-video-open data-yt="E7U9Dcw59yk">Watch Intro Video</button>
-            </div>
-          </div>
-        </div>
+      <p class="cover__hint">Choose your kind of event and see him at it.</p>
+      <div class="cover__pick">
+        <ul class="cover__doors">
+          <li><a class="cover__door" href="#video-folders" data-gallery-open="corporate" data-door="corporate">
+            <img src="./assets/img/cover/love-corporate.webp" width="597" height="914" decoding="async" alt="RJ Love Shah in a white blazer with a headset and microphone hosting a corporate show on stage">
+            <span class="cover__label">Corporate shows</span></a></li>
+          <li><a class="cover__door" href="#video-folders" data-gallery-open="weddings" data-door="weddings">
+            <img src="./assets/img/cover/love-sherwani.webp" width="529" height="987" decoding="async" alt="RJ Love Shah in a black and gold embroidered sherwani with a microphone on a wedding stage">
+            <span class="cover__label">Luxury weddings</span></a></li>
+          <li><a class="cover__door" href="#video-folders" data-gallery-open="sports" data-door="sports">
+            <img src="./assets/img/cover/love-sports.webp" width="398" height="1033" decoding="async" alt="RJ Love Shah in a black blazer and white sneakers, ready to host a sports event">
+            <span class="cover__label">Sports events</span></a></li>
+          <li><a class="cover__door" href="#video-folders" data-gallery-open="navratri" data-door="navratri">
+            <img src="./assets/img/cover/love-navratri.webp" width="511" height="977" decoding="async" alt="RJ Love Shah with a microphone on the Reliance Navratri stage under the lights">
+            <span class="cover__label">Reliance Navratri</span></a></li>
+        </ul>
       </div>
-      <div class="hero__lede-m"><p><strong>RJ Love Shah</strong> is India's most energetic host: a Chartered Accountant turned Radio Host &amp; an Anchor
-              who has run the mic at the Ambani family's Reliance Navratri, luxury weddings and stadium-size crowds.</p></div>
+
+      <div class="cover__actions">
+        <a class="cover__btn cover__btn--ink" href="#contact">Book RJ Love</a>
+        <button class="cover__btn cover__btn--line" type="button" data-video-open data-yt="E7U9Dcw59yk"><span class="cover__play" aria-hidden="true"></span>Watch Intro Video</button>
+      </div>
+
+      <p class="cover__onair" role="status" data-onair hidden></p>
     </section>
 
     <div class="chapter-break" aria-hidden="true"><span class="section-divider"></span></div>
@@ -792,6 +790,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="./assets/js/main.js?v=c73badc3" defer></script>
+  <script src="./assets/js/main.js?v=981176aa" defer></script>
 </body>
 </html>

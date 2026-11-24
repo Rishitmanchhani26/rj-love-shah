@@ -12,7 +12,7 @@
   const railMic = $('[data-rail-mic]');
   const bar = $('.action-bar');
   const contact = $('#contact');
-  const heroActions = $('.hero__actions');
+  const heroActions = $('.cover__actions');
   let ticking = false;
   const onScroll = () => {
     ticking = false;
@@ -341,6 +341,156 @@
       setTimeout(() => window.open(waMessage(), '_blank', 'noopener'), 600);
     }
   });
+
+  /* ---------- 1 · cover: masthead fitted to the screen, opening card, the doors, his voice ---------- */
+  const cover = $('[data-cover]');
+  if (cover) {
+    const nameEl = $('[data-cover-name]', cover);
+    const wide = matchMedia('(min-width: 960px)');
+
+    // his name, letter by letter: one line on wide screens, "RJ LOVE / SHAH" on phones
+    const letters = [];
+    ['RJ', 'Love', 'Shah'].forEach((word) => {
+      const w = document.createElement('span');
+      w.className = 'w';
+      [...word].forEach((c) => {
+        const ch = document.createElement('span');
+        ch.className = 'ch';
+        ch.textContent = c;
+        ch.style.setProperty('--i', letters.length);
+        w.append(ch);
+        letters.push(ch);
+      });
+      nameEl.append(w);
+    });
+    const fit = () => {
+      cover.style.setProperty('--name-size', '100px');
+      const words = $$('.w', nameEl).map((w) => w.getBoundingClientRect().width);
+      const gap = 26; // .13em either side of each word at 100px
+      const side = parseFloat(getComputedStyle(nameEl).paddingLeft) || 0;
+      const room = nameEl.getBoundingClientRect().width - side * 2;
+      const line = wide.matches ? words[0] + words[1] + words[2] + gap * 2 : Math.max(words[0] + gap + words[1], words[2]);
+      let size = (room / line) * 100;
+      size = wide.matches ? Math.min(size * 0.965, innerHeight * 0.24) : size * 0.9;
+      cover.style.setProperty('--name-size', `${size.toFixed(1)}px`);
+    };
+    fit();
+    addEventListener('resize', fit);
+
+    // opening card: his logo on ink, lifted once the photo and fonts are ready (never longer than 4s)
+    const opener = $('[data-cover-opener]');
+    const hostImg = $('[data-cover-host] img', cover);
+    const wait = (ms) => new Promise((done) => setTimeout(done, ms));
+    const imageReady = hostImg.complete ? Promise.resolve() : new Promise((done) => { hostImg.onload = hostImg.onerror = done; });
+    const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
+    Promise.race([Promise.all([imageReady, fontsReady, wait(reduceMotion ? 0 : 700)]), wait(4000)]).then(() => {
+      fit();
+      if (opener) { opener.classList.add('is-up'); setTimeout(() => opener.classList.add('is-gone'), 1100); }
+      document.body.classList.remove('cover-loading');
+    });
+
+    // the header reads in ink while it sits on the ivory cover
+    let coverSeen = true;
+    const setInk = () => document.body.classList.toggle('on-cover', coverSeen && (!cover.dataset.hover || cover.dataset.hover === 'navratri'));
+    new IntersectionObserver(([e]) => { coverSeen = e.intersectionRatio > 0.12; setInk(); }, { threshold: [0, 0.12, 0.5] }).observe(cover);
+
+    // doors: the stage takes the colour of the one you point at
+    $$('.cover__door', cover).forEach((door) => {
+      const enter = () => { if (!wide.matches) return; cover.dataset.hover = door.dataset.door; setInk(); };
+      const leave = () => { if (cover.dataset.hover !== door.dataset.door) return; delete cover.dataset.hover; setInk(); };
+      door.addEventListener('pointerenter', enter);
+      door.addEventListener('focus', enter);
+      door.addEventListener('pointerleave', leave);
+      door.addEventListener('blur', leave);
+    });
+
+    // depth: the line-up leans a little with the pointer
+    if (!reduceMotion && matchMedia('(hover: hover) and (min-width: 960px)').matches) {
+      const layers = [
+        [$('.cover__host', cover), -18], [nameEl, 10], [$('.cover__sign', cover), 16],
+        ...$$('.cover__doors li', cover).map((li, i) => [li, i === 1 || i === 2 ? -11 : -6]),
+      ];
+      let raf = 0;
+      cover.addEventListener('pointermove', (e) => {
+        const k = e.clientX / innerWidth - 0.5;
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => layers.forEach(([el, depth]) => el.style.setProperty('--lean', `${(k * depth).toFixed(1)}px`)));
+      });
+    }
+
+    // hand him the mic: each tap plays the next clip of his voice, and the letters of his name jump with it
+    const TRACKS = [
+      ['./assets/audio/love-vicky.m4a', 'introducing Vicky Kaushal at Reliance Navratri'],
+      ['./assets/audio/love-kriti.m4a', 'introducing Kriti Sanon at Reliance Navratri'],
+      ['./assets/audio/love-awards.m4a', 'hosting a corporate awards night'],
+      ['./assets/audio/love-crowd.m4a', 'warming up a concert crowd before Neha Kakkar walks on'],
+    ];
+    const mic = $('[data-mic]', cover);
+    const micLabel = $('[data-mic-label]', cover);
+    const onair = $('[data-onair]', cover);
+    let actx = null; let analyser = null; let freq = null; let audio = null; let track = -1;
+    const playing = () => Boolean(audio && !audio.paused && !audio.ended);
+    const setState = () => {
+      const on = playing();
+      mic.setAttribute('aria-pressed', String(on));
+      mic.setAttribute('aria-label', on ? 'Stop his voice' : 'Hear his voice');
+      micLabel.textContent = on ? 'On air' : 'Hear him';
+      onair.hidden = !on;
+      if (on) { onair.innerHTML = `<b>On air:</b> Love ${TRACKS[track][1]}`; jump(); }
+    };
+    const ensureAudio = () => {
+      if (audio) return;
+      audio = new Audio();
+      audio.preload = 'auto';
+      ['playing', 'pause', 'ended', 'error'].forEach((ev) => audio.addEventListener(ev, setState));
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return;
+      actx = new Ctx();
+      analyser = actx.createAnalyser();
+      analyser.fftSize = 256;
+      analyser.smoothingTimeConstant = 0.78;
+      freq = new Uint8Array(analyser.frequencyBinCount);
+      actx.createMediaElementSource(audio).connect(analyser);
+      analyser.connect(actx.destination);
+    };
+    mic.addEventListener('click', async () => {
+      ensureAudio();
+      if (playing()) { audio.pause(); return; }
+      if (actx && actx.state === 'suspended') await actx.resume();
+      track = (track + 1) % TRACKS.length;
+      audio.src = TRACKS[track][0];
+      audio.play().catch(setState);
+    });
+    // stop his voice when a video starts or the visitor leaves the tab
+    document.addEventListener('play', (e) => { if (e.target !== audio && playing()) audio.pause(); }, true);
+    document.addEventListener('visibilitychange', () => { if (document.hidden && playing()) audio.pause(); });
+
+    const n = letters.length;
+    const levels = new Float32Array(n); const floor = new Float32Array(n); const smooth = new Float32Array(n);
+    let running = false;
+    const frame = () => {
+      const live = playing() && analyser;
+      if (live) {
+        analyser.getByteFrequencyData(freq);
+        const per = 72 / n; // bins above ~72 are mostly hiss at this size
+        for (let b = 0; b < n; b += 1) {
+          let sum = 0; const from = Math.floor(b * per); const to = Math.max(from + 1, Math.floor((b + 1) * per));
+          for (let k = from; k < to; k += 1) sum += freq[k];
+          levels[b] = sum / (to - from) / 255;
+        }
+      }
+      let moving = false;
+      for (let i = 0; i < n; i += 1) {
+        let target = 0;
+        if (live) { floor[i] += (levels[i] - floor[i]) * 0.035; target = Math.min(1, Math.max(0, levels[i] - floor[i] * 0.92) * 5.5); }
+        smooth[i] += (target - smooth[i]) * (target > smooth[i] ? 0.55 : 0.16);
+        if (smooth[i] > 0.004) moving = true; else smooth[i] = 0;
+        letters[i].style.setProperty('--s', smooth[i].toFixed(3));
+      }
+      if (live || moving) requestAnimationFrame(frame); else running = false;
+    };
+    function jump() { if (!running && !reduceMotion) { running = true; requestAnimationFrame(frame); } }
+  }
 
   /* ---------- GSAP: intro, reveals, horizontal events ---------- */
   const intro = $$('[data-intro]');
