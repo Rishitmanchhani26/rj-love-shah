@@ -33,7 +33,7 @@
   <link rel="preload" href="./assets/fonts/playfair-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./assets/fonts/playfair-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="./assets/img/cover/love-blazer.webp" fetchpriority="high">
-  <link rel="stylesheet" href="./assets/css/main.css?v=e53440d2">
+  <link rel="stylesheet" href="./assets/css/main.css?v=6973e143">
   <script>document.documentElement.classList.add('js');setTimeout(function(){var b=document.body;if(b&&b.classList.contains('cover-loading')){b.classList.remove('cover-loading');var o=document.querySelector('[data-cover-opener]');if(o)o.style.display='none';}},6000)</script>
 
   <script type="application/ld+json">
@@ -188,18 +188,18 @@
       <p class="cover__hint">Choose your kind of event and see him at it.</p>
       <div class="cover__pick">
         <ul class="cover__doors">
-          <li><a class="cover__door" href="#video-folders" data-gallery-open="corporate" data-door="corporate">
+          <li><a class="cover__door" href="#ev-corporate" data-door="corporate">
             <img src="./assets/img/cover/love-corporate.webp" width="597" height="914" decoding="async" alt="RJ Love Shah in a white blazer with a headset and microphone hosting a corporate show on stage">
-            <span class="cover__label">Corporate shows</span></a></li>
-          <li><a class="cover__door" href="#video-folders" data-gallery-open="weddings" data-door="weddings">
+            <span class="cover__label">Corporate shows</span><span class="cover__count">6 videos</span></a></li>
+          <li><a class="cover__door" href="#ev-weddings" data-door="weddings">
             <img src="./assets/img/cover/love-sherwani.webp" width="529" height="987" decoding="async" alt="RJ Love Shah in a black and gold embroidered sherwani with a microphone on a wedding stage">
-            <span class="cover__label">Luxury weddings</span></a></li>
-          <li><a class="cover__door" href="#video-folders" data-gallery-open="sports" data-door="sports">
+            <span class="cover__label">Luxury weddings</span><span class="cover__count">9 videos</span></a></li>
+          <li><a class="cover__door" href="#ev-sports" data-door="sports">
             <img src="./assets/img/cover/love-sports.webp" width="398" height="1033" decoding="async" alt="RJ Love Shah in a black blazer and white sneakers, ready to host a sports event">
-            <span class="cover__label">Sports events</span></a></li>
-          <li><a class="cover__door" href="#video-folders" data-gallery-open="navratri" data-door="navratri">
+            <span class="cover__label">Sports events</span><span class="cover__count">2 videos</span></a></li>
+          <li><a class="cover__door" href="#ev-navratri" data-door="navratri">
             <img src="./assets/img/cover/love-navratri.webp" width="511" height="977" decoding="async" alt="RJ Love Shah with a microphone on the Reliance Navratri stage under the lights">
-            <span class="cover__label">Reliance Navratri</span></a></li>
+            <span class="cover__label">Reliance Navratri</span><span class="cover__count">8 videos</span></a></li>
         </ul>
       </div>
 
@@ -210,6 +210,137 @@
 
       <p class="cover__onair" role="status" data-onair hidden></p>
     </section>
+
+    <!-- ===== 1b · Event chapters: each cover cut-out scrolls to its own chapter, his clips playing silently as a wall ===== -->
+    <div class="chapters" data-chapters>
+    <section class="chapter chapter--blue" id="ev-corporate" aria-labelledby="ev-corporate-title">
+      <div class="chapter__in">
+        <div class="chapter__head">
+          <p class="chapter__kicker">Watch Love</p>
+          <h2 class="chapter__title" id="ev-corporate-title">Corporate shows</h2>
+          <p class="chapter__lead">Family days, team building, award nights, product launches</p>
+          <p class="chapter__chip">6 videos</p>
+          <img class="chapter__love" src="./assets/img/cover/love-corporate.webp" width="597" height="914" loading="lazy" decoding="async" alt="">
+        </div>
+        <ul class="chapter__clips" style="--cols: 3">
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/corporate/kotak-annual-day.mp4" data-poster="./assets/img/watch/corporate-kotak-annual-day.webp" data-shape="tall" data-title="Kotak Mahindra Bank annual day" aria-label="Play video: Kotak Mahindra Bank annual day">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/corporate-kotak-annual-day.webp" data-src-preview="./assets/video/previews/watch-corporate-kotak-annual-day.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">Kotak Mahindra Bank annual day</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/corporate/meteoric-awards-night.mp4" data-poster="./assets/img/watch/corporate-meteoric-awards-night.webp" data-shape="tall" data-title="Meteoric awards night" aria-label="Play video: Meteoric awards night">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/corporate-meteoric-awards-night.webp" data-src-preview="./assets/video/previews/watch-corporate-meteoric-awards-night.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">Meteoric awards night</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/corporate/zydus-diwali-party.mp4" data-poster="./assets/img/watch/corporate-zydus-diwali-party.webp" data-shape="tall" data-title="Zydus Diwali party" aria-label="Play video: Zydus Diwali party">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/corporate-zydus-diwali-party.webp" data-src-preview="./assets/video/previews/watch-corporate-zydus-diwali-party.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">Zydus Diwali party</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/corporate/family-day.mp4" data-poster="./assets/img/watch/corporate-family-day.webp" data-shape="tall" data-title="Corporate family day" aria-label="Play video: Corporate family day">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/corporate-family-day.webp" data-src-preview="./assets/video/previews/watch-corporate-family-day.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">Corporate family day</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/corporate/litera-microsystems-team-building.mp4" data-poster="./assets/img/watch/corporate-litera-microsystems-team-building.webp" data-shape="tall" data-title="Team building for Litera Microsystems" aria-label="Play video: Team building for Litera Microsystems">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/corporate-litera-microsystems-team-building.webp" data-src-preview="./assets/video/previews/watch-corporate-litera-microsystems-team-building.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">Team building for Litera Microsystems</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/corporate/litera-team-building.mp4" data-poster="./assets/img/watch/corporate-litera-team-building.webp" data-shape="tall" data-title="Litera team-building games" aria-label="Play video: Litera team-building games">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/corporate-litera-team-building.webp" data-src-preview="./assets/video/previews/watch-corporate-litera-team-building.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">Litera team-building games</span></button></li>
+        </ul>
+      </div>
+    </section>
+    <section class="chapter chapter--wine" id="ev-weddings" aria-labelledby="ev-weddings-title">
+      <div class="chapter__in">
+        <div class="chapter__head">
+          <p class="chapter__kicker">Watch Love</p>
+          <h2 class="chapter__title" id="ev-weddings-title">Luxury weddings</h2>
+          <p class="chapter__lead">Carnival and haldi, sangeet, baraat, reception</p>
+          <p class="chapter__chip">9 videos</p>
+          <img class="chapter__love" src="./assets/img/cover/love-sherwani.webp" width="529" height="987" loading="lazy" decoding="async" alt="">
+        </div>
+        <ul class="chapter__clips" style="--cols: 5">
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/weddings/grand-sangeet-night.mp4" data-poster="./assets/img/watch/weddings-grand-sangeet-night.webp" data-shape="tall" data-title="Grand sangeet night" aria-label="Play video: Grand sangeet night">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/weddings-grand-sangeet-night.webp" data-src-preview="./assets/video/previews/watch-weddings-grand-sangeet-night.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">Grand sangeet night</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/weddings/nisarg-francesca-carnival.mp4" data-poster="./assets/img/watch/weddings-nisarg-francesca-carnival.webp" data-shape="tall" data-title="Nisarg &amp; Francesca: an Indo-Italian wedding" aria-label="Play video: Nisarg &amp; Francesca: an Indo-Italian wedding">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/weddings-nisarg-francesca-carnival.webp" data-src-preview="./assets/video/previews/watch-weddings-nisarg-francesca-carnival.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">Nisarg &amp; Francesca: an Indo-Italian wedding</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/weddings/varmala-challenge.mp4" data-poster="./assets/img/watch/weddings-varmala-challenge.webp" data-shape="tall" data-title="The varmala challenge" aria-label="Play video: The varmala challenge">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/weddings-varmala-challenge.webp" data-src-preview="./assets/video/previews/watch-weddings-varmala-challenge.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">The varmala challenge</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/weddings/gujarati-haldi.mp4" data-poster="./assets/img/watch/weddings-gujarati-haldi.webp" data-shape="tall" data-title="An energetic Gujarati haldi" aria-label="Play video: An energetic Gujarati haldi">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/weddings-gujarati-haldi.webp" data-src-preview="./assets/video/previews/watch-weddings-gujarati-haldi.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">An energetic Gujarati haldi</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/weddings/baraat-2.mp4" data-poster="./assets/img/watch/weddings-baraat-2.webp" data-shape="tall" data-title="A baraat in full swing" aria-label="Play video: A baraat in full swing">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/weddings-baraat-2.webp" data-src-preview="./assets/video/previews/watch-weddings-baraat-2.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">A baraat in full swing</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/weddings/carnival-1.mp4" data-poster="./assets/img/watch/weddings-carnival-1.webp" data-shape="tall" data-title="Wedding carnival" aria-label="Play video: Wedding carnival">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/weddings-carnival-1.webp" data-src-preview="./assets/video/previews/watch-weddings-carnival-1.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">Wedding carnival</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/weddings/ca-sangeet.mp4" data-poster="./assets/img/watch/weddings-ca-sangeet.webp" data-shape="tall" data-title="A CA’s sangeet" aria-label="Play video: A CA’s sangeet">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/weddings-ca-sangeet.webp" data-src-preview="./assets/video/previews/watch-weddings-ca-sangeet.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">A CA’s sangeet</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/weddings/sangeet-1.mp4" data-poster="./assets/img/watch/weddings-sangeet-1.webp" data-shape="tall" data-title="Sangeet night" aria-label="Play video: Sangeet night">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/weddings-sangeet-1.webp" data-src-preview="./assets/video/previews/watch-weddings-sangeet-1.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">Sangeet night</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/weddings/baraat-1.mp4" data-poster="./assets/img/watch/weddings-baraat-1.webp" data-shape="tall" data-title="The baraat entry" aria-label="Play video: The baraat entry">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/weddings-baraat-1.webp" data-src-preview="./assets/video/previews/watch-weddings-baraat-1.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">The baraat entry</span></button></li>
+        </ul>
+      </div>
+    </section>
+    <section class="chapter chapter--green" id="ev-sports" aria-labelledby="ev-sports-title">
+      <div class="chapter__in">
+        <div class="chapter__head">
+          <p class="chapter__kicker">Watch Love</p>
+          <h2 class="chapter__title" id="ev-sports-title">Sports events</h2>
+          <p class="chapter__lead">Sports and live events, concerts and launches</p>
+          <p class="chapter__chip">2 videos</p>
+          <img class="chapter__love" src="./assets/img/cover/love-sports.webp" width="398" height="1033" loading="lazy" decoding="async" alt="">
+        </div>
+        <ul class="chapter__clips" style="--cols: 2">
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/sports/kapil-dev-pgti.mp4" data-poster="./assets/img/watch/sports-kapil-dev-pgti.webp" data-shape="tall" data-title="Adani PGTI golf pre-tournament event with Kapil Dev" aria-label="Play video: Adani PGTI golf pre-tournament event with Kapil Dev">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/sports-kapil-dev-pgti.webp" data-src-preview="./assets/video/previews/watch-sports-kapil-dev-pgti.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">Adani PGTI golf pre-tournament event with Kapil Dev</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/sports/bmw-womens-day.mp4" data-poster="./assets/img/watch/sports-bmw-womens-day.webp" data-shape="tall" data-title="BMW Women’s Day" aria-label="Play video: BMW Women’s Day">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/sports-bmw-womens-day.webp" data-src-preview="./assets/video/previews/watch-sports-bmw-womens-day.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">BMW Women’s Day</span></button></li>
+        </ul>
+      </div>
+    </section>
+    <section class="chapter chapter--gold" id="ev-navratri" aria-labelledby="ev-navratri-title">
+      <div class="chapter__in">
+        <div class="chapter__head">
+          <p class="chapter__kicker">Watch Love</p>
+          <h2 class="chapter__title" id="ev-navratri-title">Reliance Navratri</h2>
+          <p class="chapter__lead">The Ambani family&rsquo;s Navratri in Jamnagar, and the Bollywood stars he introduced</p>
+          <p class="chapter__chip">8 videos</p>
+          <img class="chapter__love" src="./assets/img/cover/love-navratri.webp" width="511" height="977" loading="lazy" decoding="async" alt="">
+        </div>
+        <ul class="chapter__clips" style="--cols: 4">
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/reliance-navratri.mp4" data-poster="./assets/img/watch/reliance-navratri.webp" data-shape="tall" data-title="The Ambani family at Reliance Navratri" aria-label="Play video: The Ambani family at Reliance Navratri">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/reliance-navratri.webp" data-src-preview="./assets/video/previews/reliance-navratri.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">The Ambani family at Reliance Navratri</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/navratri/kriti-sanon.mp4" data-poster="./assets/img/watch/navratri-kriti-sanon.webp" data-shape="tall" data-title="Introducing Kriti Sanon" aria-label="Play video: Introducing Kriti Sanon">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/navratri-kriti-sanon.webp" data-src-preview="./assets/video/previews/watch-navratri-kriti-sanon.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">Introducing Kriti Sanon</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/navratri/vicky-kaushal.mp4" data-poster="./assets/img/watch/navratri-vicky-kaushal.webp" data-shape="tall" data-title="Introducing Vicky Kaushal" aria-label="Play video: Introducing Vicky Kaushal">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/navratri-vicky-kaushal.webp" data-src-preview="./assets/video/previews/watch-navratri-vicky-kaushal.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">Introducing Vicky Kaushal</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/navratri/varun-dhawan.mp4" data-poster="./assets/img/watch/navratri-varun-dhawan.webp" data-shape="tall" data-title="Introducing Varun Dhawan" aria-label="Play video: Introducing Varun Dhawan">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/navratri-varun-dhawan.webp" data-src-preview="./assets/video/previews/watch-navratri-varun-dhawan.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">Introducing Varun Dhawan</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/navratri/disha-patani.mp4" data-poster="./assets/img/watch/navratri-disha-patani.webp" data-shape="tall" data-title="Introducing Disha Patani" aria-label="Play video: Introducing Disha Patani">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/navratri-disha-patani.webp" data-src-preview="./assets/video/previews/watch-navratri-disha-patani.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">Introducing Disha Patani</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/stars/rashmika-mandanna.mp4" data-poster="./assets/img/watch/stars-rashmika-mandanna.webp" data-shape="tall" data-title="Introducing Rashmika Mandanna" aria-label="Play video: Introducing Rashmika Mandanna">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/stars-rashmika-mandanna.webp" data-src-preview="./assets/video/previews/stars-rashmika-mandanna.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">Introducing Rashmika Mandanna</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/stars/malaika-arora.mp4" data-poster="./assets/img/watch/stars-malaika-arora.webp" data-shape="tall" data-title="Malaika Arora on the Navratri stage" aria-label="Play video: Malaika Arora on the Navratri stage">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/stars-malaika-arora.webp" data-src-preview="./assets/video/previews/stars-malaika-arora.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">Malaika Arora on the Navratri stage</span></button></li>
+          <li><button class="chapter__clip" type="button" data-video-open data-src="./assets/video/watch/navratri/jio-signature-step.mp4" data-poster="./assets/img/watch/navratri-jio-signature-step.webp" data-shape="tall" data-title="The Jio signature step with Shiamak Davar’s team" aria-label="Play video: The Jio signature step with Shiamak Davar’s team">
+            <video muted loop playsinline preload="none" poster="./assets/img/watch/navratri-jio-signature-step.webp" data-src-preview="./assets/video/previews/watch-navratri-jio-signature-step.mp4" aria-hidden="true"></video>
+            <span class="chapter__play" aria-hidden="true"></span><span class="chapter__cap">The Jio signature step with Shiamak Davar’s team</span></button></li>
+        </ul>
+      </div>
+    </section>
+    </div>
 
     <div class="chapter-break" aria-hidden="true"><span class="section-divider"></span></div>
 
@@ -790,6 +921,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="./assets/js/main.js?v=981176aa" defer></script>
+  <script src="./assets/js/main.js?v=27999cad" defer></script>
 </body>
 </html>

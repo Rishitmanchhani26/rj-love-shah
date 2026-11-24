@@ -492,6 +492,18 @@
     function jump() { if (!running && !reduceMotion) { running = true; requestAnimationFrame(frame); } }
   }
 
+  /* ---------- 1b · event chapters: his clips play silently while their chapter is on screen ---------- */
+  const chapterClips = $$('.chapter__clip video');
+  if (chapterClips.length && !reduceMotion && !(navigator.connection && navigator.connection.saveData)) {
+    const roll = new IntersectionObserver((entries) => entries.forEach(({ target: v, isIntersecting }) => {
+      if (isIntersecting) {
+        if (!v.src) v.src = v.dataset.srcPreview;
+        v.play().catch(() => {});
+      } else v.pause();
+    }), { threshold: 0.25 });
+    chapterClips.forEach((v) => roll.observe(v));
+  }
+
   /* ---------- GSAP: intro, reveals, horizontal events ---------- */
   const intro = $$('[data-intro]');
   const reveals = $$('[data-reveal]');
