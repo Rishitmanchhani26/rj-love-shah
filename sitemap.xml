@@ -3,14 +3,38 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.rjloveshah.com/</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://www.rjloveshah.com/assets/img/share-rj-love-shah-3.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.rjloveshah.com/assets/img/hero-wide-1920.webp</image:loc>
+      <image:loc>https://www.rjloveshah.com/assets/img/cover/love-blazer-v3.webp</image:loc>
     </image:image>
+  </url>
+  <url>
+    <loc>https://www.rjloveshah.com/events/corporate/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rjloveshah.com/events/weddings/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rjloveshah.com/events/sports/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rjloveshah.com/events/navratri/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
