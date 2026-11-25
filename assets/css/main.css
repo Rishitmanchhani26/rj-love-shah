@@ -976,7 +976,7 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
   .cover__stamps li { text-align: right; }
   .cover__hint { position: absolute; right: var(--gutter); top: calc(var(--band) + var(--cv-s3) + 38px); max-width: 15rem; margin: 0; text-align: right; font-size: var(--cv-s0); }
 
-  .cover__host { position: absolute; left: 50%; bottom: 0; translate: -50% 0; margin: 0; height: min(75svh, 56vw); width: auto; aspect-ratio: 735 / 940; }
+  .cover__host { position: absolute; left: 50%; bottom: 0; translate: -50% 0; margin: 0; height: min(75svh, 56vw); width: auto; aspect-ratio: 1220 / 1557; }
   .js .cover-loading .cover__host { translate: -50% 5%; }
   .cover__hostlink, .cover__hostlink img { height: 100%; width: auto; }
   .cover__hostlink .cover__label { bottom: 26px; }
