@@ -388,7 +388,7 @@
         const H = innerHeight;
         const hw = Math.min(0.75 * H, 0.56 * innerWidth) * 0.391;
         const side = $('.cover__pick', cover).getBoundingClientRect().width / 2 - hw - 14;
-        const w = [0.84 * 0.47 * H * 597 / 914, 0.9 * 0.47 * H * 529 / 987, 0.9 * 0.47 * H * 398 / 1033, 0.84 * 0.47 * H * 511 / 977];
+        const w = [0.84 * 0.47 * H * 597 / 914, 0.9 * 0.47 * H * 529 / 987, 0.9 * 0.47 * H * 398 / 1033, 0.84 * 0.47 * H * 905 / 1700];
         // ...and their heads stay below the Book / Watch buttons and the "choose your event" line
         const above = Math.max(...['.cover__actions', '.cover__hint'].map((q) => { const e = $(q, cover); return e ? e.offsetTop + e.offsetHeight : 0; }));
         const room = cover.offsetHeight - above - 18;
