@@ -999,10 +999,10 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
   .cover__door .cover__label { bottom: 26px; }
   /* pointing at a door: the stage takes its colour and the others fall back into shadow */
   .cover[data-hover] :is(.cover__door img, .cover__hostlink img) { filter: grayscale(1) brightness(.45); opacity: .45; }
-  .cover[data-hover] .cover__door:is(:hover, :focus-visible, .is-picked) img { filter: drop-shadow(0 22px 26px rgb(0 0 0 / .5)); opacity: 1; transform: translateY(-1.2%); }
+  .cover[data-hover] .cover__door:is(:hover, :focus-visible, .is-picked) img { filter: drop-shadow(0 22px 26px rgb(0 0 0 / .5)); opacity: 1; transform: scale(1.03); }
   .cover__door:is(:hover, :focus-visible, .is-picked) { z-index: 5; }
   .cover__door:is(:hover, :focus-visible, .is-picked) .cover__label, .cover__hostlink:is(:hover, :focus-visible) .cover__label { background: var(--cv-gold); color: var(--cv-ink); }
-  .cover__hostlink:is(:hover, :focus-visible) img { transform: translateY(-.8%); }
+  .cover__hostlink:is(:hover, :focus-visible) img { transform: scale(1.015); }
   .cover__host, .cover__name, .cover__sign, .cover__doors li { margin-left: var(--lean, 0px); }
 }
 
@@ -1106,3 +1106,4 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
 .ev-more .btn { justify-self: start; }
 
 .cover__btn[hidden] { display: none; }
+@media (max-width: 959px) { .cover__hostlink img { -webkit-mask-image: linear-gradient(to bottom, #000 86%, transparent 100%); mask-image: linear-gradient(to bottom, #000 86%, transparent 100%); } }
