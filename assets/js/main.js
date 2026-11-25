@@ -498,14 +498,16 @@
     ];
     const mic = $('[data-mic]', cover);
     const micLabel = $('[data-mic-label]', cover);
+    const onair = $('[data-onair]', cover);
     let actx = null; let analyser = null; let freq = null; let audio = null; let track = -1;
     const playing = () => Boolean(audio && !audio.paused && !audio.ended);
     const setState = () => {
       const on = playing();
       mic.setAttribute('aria-pressed', String(on));
       mic.setAttribute('aria-label', on ? 'Stop his voice' : 'Hear his voice');
-      micLabel.textContent = on ? 'On air' : 'Hear him';
-      if (on) jump();
+      micLabel.textContent = 'Hear him';
+      onair.hidden = !on;
+      if (on) { onair.innerHTML = `<b>Love</b> ${TRACKS[track][1]}`; jump(); }
     };
     const ensureAudio = () => {
       if (audio) return;
