@@ -491,10 +491,10 @@
 
     // hand him the mic: each tap plays the next clip of his voice, and the letters of his name jump with it
     const TRACKS = [
-      ['./assets/audio/love-vicky.m4a', 'introducing Vicky Kaushal at Reliance Navratri'],
       ['./assets/audio/love-kriti.m4a', 'introducing Kriti Sanon at Reliance Navratri'],
-      ['./assets/audio/love-awards.m4a', 'hosting a corporate awards night'],
       ['./assets/audio/love-crowd.m4a', 'warming up a concert crowd before Neha Kakkar walks on'],
+      ['./assets/audio/love-vicky.m4a', 'introducing Vicky Kaushal at Reliance Navratri'],
+      ['./assets/audio/love-awards.m4a', 'hosting a corporate awards night'],
     ];
     const mic = $('[data-mic]', cover);
     const micLabel = $('[data-mic-label]', cover);
