@@ -31,6 +31,18 @@
     clips.forEach((v) => roll.observe(v));
   }
 
+  // "All events": back to the exact place on the homepage the visitor came from
+  // (straight back when they came from the homepage; the cover or the video folders after moving between events)
+  const back = $('.chapter__back a');
+  if (back) back.addEventListener('click', (ev) => {
+    const home = new URL('../../', location.href);
+    const ref = document.referrer ? new URL(document.referrer) : null;
+    if (ref && ref.origin === home.origin && ref.pathname === home.pathname && history.length > 1) { ev.preventDefault(); history.back(); return; }
+    let from = null;
+    try { from = sessionStorage.getItem('rjl-from'); } catch (err) { /* keep the link's own target */ }
+    if (from === 'cover') { ev.preventDefault(); location.href = home.href; }
+  });
+
   // pressing a clip opens the full video with sound
   const modal = $('[data-modal]');
   const frame = $('[data-modal-frame]');

@@ -62,6 +62,15 @@
     popup.addEventListener('close', () => { if (rnav.getBoundingClientRect().top < innerHeight) teaser.play().catch(() => {}); });
   }
 
+  /* ---------- event pages: remember where on the homepage the visitor left from (the cover or the video folders) ---------- */
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href*="events/"]');
+    if (!a) return;
+    try {
+      sessionStorage.setItem('rjl-from', a.closest('.cover') ? 'cover' : 'folders');
+    } catch (err) { /* private mode: the back link falls back to the video folders */ }
+  });
+
   /* ---------- mobile menu ---------- */
   const menuBtn = $('[data-menu-btn]');
   const menu = $('[data-menu]');
