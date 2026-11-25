@@ -1061,3 +1061,25 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
   #ev-sports .chapter__clips { --rows: 1; width: min(100%, calc((100svh - var(--header-h) - 12rem) * .5625 * 2 + 24px)); }
 }
 @media (prefers-reduced-motion: reduce) { .chapter__clip:hover, .chapter__clip:hover video { transform: none; } }
+
+/* ---------- event pages (/events/<key>/): one chapter per page, then the other events ---------- */
+.event-page { background: #0b1324; }
+.nav a[aria-current="page"], .mobile-menu a[aria-current="page"] { color: var(--cream); text-decoration: underline; text-decoration-color: #c2a063; text-underline-offset: 6px; }
+.chapter__back { margin-bottom: 18px; }
+.chapter__back a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font: 600 .9rem/1 var(--f-sans); color: inherit; opacity: .8; text-decoration: none; }
+.chapter__back a:hover { opacity: 1; }
+.ev-more { --ch: #0f1c3f; background: var(--ch); color: var(--ch-ink, #f3ede2); border-top: 1px solid rgb(255 255 255 / .12); padding: 48px var(--gutter) 64px; }
+.ev-more.chapter--gold { --ch-ink: #15110e; background: #b0842f; border-top-color: rgb(21 17 14 / .2); }
+.ev-more__in { width: min(100%, 1320px); margin-inline: auto; display: grid; gap: 22px; }
+.ev-more .chapter__kicker { color: var(--ch-foil, #c2a063); margin: 0; }
+.ev-more.chapter--gold .chapter__kicker { color: #4d3208; }
+.ev-more__list { display: grid; gap: 12px; list-style: none; margin: 0; padding: 0; }
+.ev-more__link { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 14px 22px; border-radius: 16px; border: 1px solid rgb(243 237 226 / .22); color: #f3ede2; text-decoration: none; font: 600 clamp(1.3rem, 1.1rem + .8vw, 1.8rem)/1.1 var(--f-serif); transition: transform .4s cubic-bezier(.22, 1, .36, 1), border-color .3s; }
+.ev-more__link:hover { transform: translateY(-3px); border-color: #ecd9ae; }
+.ev-more__link--corporate { background: #0f1c3f; }
+.ev-more__link--weddings { background: #571029; }
+.ev-more__link--sports { background: #0b3a2d; }
+.ev-more__link--navratri { background: linear-gradient(118deg, #b98f3c, #dcbf7a 40%, #c9a557); color: #15110e; }
+.ev-more .btn { justify-self: start; }
+@media (min-width: 900px) { .ev-more__list { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 959px) { .event-page .ev-more { padding-bottom: 104px; } }
