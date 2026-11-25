@@ -428,15 +428,43 @@
     const setInk = () => document.body.classList.toggle('on-cover', coverSeen && (!cover.dataset.hover || cover.dataset.hover === 'navratri'));
     new IntersectionObserver(([e]) => { coverSeen = e.intersectionRatio > 0.12; setInk(); }, { threshold: [0, 0.12, 0.5] }).observe(cover);
 
-    // doors: the stage takes the colour of the one you point at
-    $$('.cover__door', cover).forEach((door) => {
-      const enter = () => { if (!wide.matches) return; cover.dataset.hover = door.dataset.door; setInk(); };
-      const leave = () => { if (cover.dataset.hover !== door.dataset.door) return; delete cover.dataset.hover; setInk(); };
+    // doors: the stage takes the colour of the one you point at (hover);
+    // pressing one keeps that colour and turns "Watch intro video" into a button to that event's page
+    const NAMES = { corporate: 'Corporate shows', weddings: 'Luxury weddings', sports: 'Sports events', navratri: 'Reliance Navratri' };
+    const doors = $$('.cover__door', cover);
+    const intro = $('.cover__actions [data-video-open]', cover);
+    const watch = $('[data-cover-watch]', cover);
+    const watchLabel = $('[data-cover-watch-label]', cover);
+    let picked = null; let peek = null;
+    const paint = () => {
+      const k = peek || picked;
+      if (k) cover.dataset.hover = k; else delete cover.dataset.hover;
+      doors.forEach((d) => d.classList.toggle('is-picked', d.dataset.door === picked && (!peek || peek === picked)));
+      setInk();
+    };
+    const pick = (door) => {
+      picked = door ? door.dataset.door : null;
+      if (door) { watch.href = door.getAttribute('href'); watchLabel.textContent = `Watch ${NAMES[picked]}`; }
+      intro.hidden = Boolean(door);
+      watch.hidden = !door;
+      paint();
+    };
+    doors.forEach((door) => {
+      const enter = () => { if (!wide.matches) return; peek = door.dataset.door; paint(); };
+      const leave = () => { if (peek !== door.dataset.door) return; peek = null; paint(); };
       door.addEventListener('pointerenter', enter);
       door.addEventListener('focus', enter);
       door.addEventListener('pointerleave', leave);
       door.addEventListener('blur', leave);
+      door.addEventListener('click', (e) => {
+        if (!wide.matches || picked === door.dataset.door) return; // phones, or a second press: open the event's page
+        e.preventDefault();
+        pick(door);
+      });
     });
+    // pressing the empty stage puts the cover back as it was
+    cover.addEventListener('click', (e) => { if (picked && !e.target.closest('a, button')) pick(null); });
+    wide.addEventListener('change', () => { if (!wide.matches && picked) pick(null); });
 
     // depth: the line-up leans a little with the pointer
     if (!reduceMotion && matchMedia('(hover: hover) and (min-width: 960px)').matches) {
