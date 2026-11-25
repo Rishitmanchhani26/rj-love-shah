@@ -1074,12 +1074,26 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
 .ev-more .chapter__kicker { color: var(--ch-foil, #c2a063); margin: 0; }
 .ev-more.chapter--gold .chapter__kicker { color: #4d3208; }
 .ev-more__list { display: grid; gap: 12px; list-style: none; margin: 0; padding: 0; }
-.ev-more__link { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 14px 22px; border-radius: 16px; border: 1px solid rgb(243 237 226 / .22); color: #f3ede2; text-decoration: none; font: 600 clamp(1.3rem, 1.1rem + .8vw, 1.8rem)/1.1 var(--f-serif); transition: transform .4s cubic-bezier(.22, 1, .36, 1), border-color .3s; }
-.ev-more__link:hover { transform: translateY(-3px); border-color: #ecd9ae; }
-.ev-more__link--corporate { background: #0f1c3f; }
-.ev-more__link--weddings { background: #571029; }
-.ev-more__link--sports { background: #0b3a2d; }
-.ev-more__link--navratri { background: linear-gradient(118deg, #b98f3c, #dcbf7a 40%, #c9a557); color: #15110e; }
+.ev-more__title { margin: -8px 0 0; font: 600 clamp(1.9rem, 1.4rem + 2vw, 3rem)/1.05 var(--f-serif); letter-spacing: -.02em; }
+.ev-card { --c: #0f1c3f; position: relative; isolation: isolate; display: flex; min-height: 210px; overflow: hidden; border-radius: 22px; background: var(--c); color: #f3ede2; text-decoration: none; border: 1px solid rgb(236 217 174 / .28); box-shadow: 0 22px 40px -26px rgb(0 0 0 / .8); transition: transform .5s cubic-bezier(.22, 1, .36, 1), border-color .3s, box-shadow .5s; }
+.ev-card::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(70% 90% at 82% 70%, rgb(255 255 255 / .16), transparent 70%); }
+.ev-card--corporate { --c: #0f1c3f; }
+.ev-card--weddings { --c: #571029; }
+.ev-card--sports { --c: #0b3a2d; }
+.ev-card--navratri { --c: #c9a557; background: linear-gradient(118deg, #b98f3c, #dcbf7a 45%, #c9a557); color: #15110e; }
+.ev-card__text { position: relative; z-index: 1; display: grid; align-content: end; gap: 6px; width: 62%; padding: 22px 0 22px 22px; }
+.ev-card__count { font: 700 .72rem/1 var(--f-sans); letter-spacing: .16em; text-transform: uppercase; color: #ecd9ae; }
+.ev-card--navratri .ev-card__count { color: #4d3208; }
+.ev-card__name { font: 600 clamp(1.5rem, 1.2rem + 1vw, 2rem)/1.04 var(--f-serif); letter-spacing: -.015em; }
+.ev-card__line { font-size: .88rem; line-height: 1.35; opacity: .82; }
+.ev-card__go { display: inline-flex; align-items: center; gap: 8px; width: max-content; margin-top: 10px; padding: 10px 16px; border-radius: 99px; background: #ecd9ae; color: #15110e; font: 700 .78rem/1 var(--f-sans); letter-spacing: .1em; text-transform: uppercase; transition: background-color .3s, gap .3s; }
+.ev-card--navratri .ev-card__go { background: #15110e; color: #ecd9ae; }
+.ev-card .ev-card__love { position: absolute; left: auto; top: auto; right: -2%; bottom: 0; z-index: 0; height: 104%; width: auto; max-width: 52%; object-fit: contain; object-position: bottom; filter: drop-shadow(0 14px 18px rgb(0 0 0 / .45)); transform-origin: bottom center; transition: transform .7s cubic-bezier(.22, 1, .36, 1); }
+.ev-card:hover, .ev-card:focus-visible { transform: translateY(-6px); border-color: #ecd9ae; box-shadow: 0 30px 50px -24px rgb(0 0 0 / .9); }
+.ev-card:hover .ev-card__love { transform: scale(1.06); }
+.ev-card:hover .ev-card__go { gap: 14px; background: #fff; }
+.ev-card--navratri:hover .ev-card__go { background: #000; }
+@media (prefers-reduced-motion: reduce) { .ev-card, .ev-card__love { transition: none; } .ev-card:hover, .ev-card:hover .ev-card__love { transform: none; } }
 .ev-more .btn { justify-self: start; }
-@media (min-width: 900px) { .ev-more__list { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 900px) { .ev-more__list { grid-template-columns: repeat(3, 1fr); gap: 20px; } .ev-card { min-height: 260px; } }
 @media (max-width: 959px) { .event-page .ev-more { padding-bottom: 104px; } }
