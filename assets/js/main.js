@@ -373,6 +373,31 @@
       let size = (room / line) * 100;
       size = wide.matches ? Math.min(size * 0.965, innerHeight * 0.24) : size * 0.9;
       cover.style.setProperty('--name-size', `${size.toFixed(1)}px`);
+      // the events either side of him: placed from his edges, spaced apart when there is room,
+      // tucked behind each other when there is less, and only shrunk (--ds) when even that does not fit
+      if (wide.matches) {
+        const H = innerHeight;
+        const hw = Math.min(0.75 * H, 0.56 * innerWidth) * 0.391;
+        const side = $('.cover__pick', cover).getBoundingClientRect().width / 2 - hw - 14;
+        const w = [0.84 * 0.47 * H * 597 / 914, 0.9 * 0.47 * H * 529 / 987, 0.9 * 0.47 * H * 398 / 1033, 0.84 * 0.47 * H * 511 / 977];
+        // ...and their heads stay below the Book / Watch buttons and the "choose your event" line
+        const above = Math.max(...['.cover__actions', '.cover__hint'].map((q) => { const e = $(q, cover); return e ? e.offsetTop + e.offsetHeight : 0; }));
+        const room = cover.offsetHeight - above - 18;
+        const ds = Math.min(1, side / (w[0] + 0.62 * w[1]), side / (w[3] + 0.62 * w[2]), room / (0.9 * 0.47 * H));
+        const place = (outer, inner) => Math.max(0.62 * inner * ds, Math.min(inner * ds + 16, side - outer * ds));
+        cover.style.setProperty('--ds', ds.toFixed(3));
+        cover.style.setProperty('--o1', `${place(w[0], w[1]).toFixed(1)}px`);
+        cover.style.setProperty('--o4', `${place(w[3], w[2]).toFixed(1)}px`);
+        // two labels meeting: lift the outer ones above the inner ones
+        cover.classList.toggle('cover--stagger', false);
+        const lab = $$('.cover__door .cover__label', cover).map((l) => l.getBoundingClientRect());
+        cover.classList.toggle('cover--stagger', lab[0].right > lab[1].left - 8 || lab[2].right > lab[3].left - 8);
+        // the mic beside his head never runs into the "11+ years" stamp
+        const mic = $('.cover__mic', cover);
+        mic.style.marginLeft = '0px';
+        const clash = mic.getBoundingClientRect().right + 12 - $('.cover__stamps', cover).getBoundingClientRect().left;
+        if (clash > 0) mic.style.marginLeft = `${-Math.min(clash, 70).toFixed(0)}px`;
+      }
     };
     fit();
     addEventListener('resize', fit);

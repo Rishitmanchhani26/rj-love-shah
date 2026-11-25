@@ -976,7 +976,7 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
   .cover__stamps li { text-align: right; }
   .cover__hint { position: absolute; right: var(--gutter); top: calc(var(--band) + var(--cv-s3) + 38px); max-width: 15rem; margin: 0; text-align: right; font-size: var(--cv-s0); }
 
-  .cover__host { position: absolute; left: 50%; bottom: 0; translate: -50% 0; margin: 0; height: min(75svh, 56vw); width: auto; aspect-ratio: 738 / 942; }
+  .cover__host { position: absolute; left: 50%; bottom: 0; translate: -50% 0; margin: 0; height: min(75svh, 56vw); width: auto; aspect-ratio: 735 / 940; }
   .js .cover-loading .cover__host { translate: -50% 5%; }
   .cover__hostlink, .cover__hostlink img { height: 100%; width: auto; }
   .cover__hostlink .cover__label { bottom: 26px; }
@@ -984,11 +984,16 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
 
   .cover__pick { position: absolute; inset: auto var(--gutter) 0; height: 47svh; margin: 0; pointer-events: none; }
   .cover__doors { display: block; position: absolute; inset: 0; }
-  .cover__doors li { position: absolute; bottom: 0; width: 20%; height: 84%; pointer-events: auto; }
-  .cover__doors li:nth-child(1) { left: 0; }
-  .cover__doors li:nth-child(2) { left: 17.5%; height: 90%; }
-  .cover__doors li:nth-child(3) { right: 17.5%; height: 90%; }
-  .cover__doors li:nth-child(4) { right: 0; }
+  /* the four events stand either side of him, placed from his edges (never over him); main.js shrinks them (--ds) when a screen is too narrow for both */
+  .cover { --hw: calc(min(75svh, 56vw) * .391); --gap: 14px; }
+  .cover__doors li { position: absolute; bottom: 0; width: auto; height: calc(84% * var(--ds, 1)); aspect-ratio: var(--ar); pointer-events: auto; }
+  .cover__doors li:nth-child(1) { --ar: 597 / 914; right: calc(50% + var(--hw) + var(--gap) + var(--o1, 14svh)); }
+  .cover__doors li:nth-child(2) { --ar: 529 / 987; right: calc(50% + var(--hw) + var(--gap)); height: calc(90% * var(--ds, 1)); z-index: 1; }
+  .cover__doors li:nth-child(3) { --ar: 398 / 1033; left: calc(50% + var(--hw) + var(--gap)); height: calc(90% * var(--ds, 1)); z-index: 1; }
+  .cover__doors li:nth-child(4) { --ar: 511 / 977; left: calc(50% + var(--hw) + var(--gap) + var(--o4, 10svh)); }
+  .cover__doors li:nth-child(1) .cover__label { left: 0; translate: none; }
+  .cover__doors li:nth-child(4) .cover__label { left: auto; right: 0; translate: none; }
+  .cover--stagger .cover__doors li:is(:nth-child(1), :nth-child(4)) .cover__label { bottom: 72px; }
   .cover__doors li:nth-child(n) .cover__door { height: 100%; background: none; overflow: visible; border-radius: 0; }
   .cover__door img { bottom: 0; height: 100%; }
   .cover__door .cover__label { bottom: 26px; }
