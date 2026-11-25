@@ -383,11 +383,20 @@
         // ...and their heads stay below the Book / Watch buttons and the "choose your event" line
         const above = Math.max(...['.cover__actions', '.cover__hint'].map((q) => { const e = $(q, cover); return e ? e.offsetTop + e.offsetHeight : 0; }));
         const room = cover.offsetHeight - above - 18;
-        const ds = Math.min(1, side / (w[0] + 0.62 * w[1]), side / (w[3] + 0.62 * w[2]), room / (0.9 * 0.47 * H));
-        const place = (outer, inner) => Math.max(0.62 * inner * ds, Math.min(inner * ds + 16, side - outer * ds));
+        const ds = Math.min(1.12, side / (w[0] + 0.62 * w[1]), side / (w[3] + 0.62 * w[2]), room / (0.9 * 0.47 * H));
+        // with room to spare, the two photos on a side share it evenly: equal gaps from him, between them and to the edge
+        const place = (outer, inner) => {
+          const free = side - (outer + inner) * ds;
+          if (free >= 0) { const g = free / 3; return [g, 2 * g + inner * ds]; }
+          return [0, Math.max(0.62 * inner * ds, side - outer * ds)];
+        };
+        const [i1, o1] = place(w[0], w[1]);
+        const [i4, o4] = place(w[3], w[2]);
         cover.style.setProperty('--ds', ds.toFixed(3));
-        cover.style.setProperty('--o1', `${place(w[0], w[1]).toFixed(1)}px`);
-        cover.style.setProperty('--o4', `${place(w[3], w[2]).toFixed(1)}px`);
+        cover.style.setProperty('--i1', `${i1.toFixed(1)}px`);
+        cover.style.setProperty('--o1', `${o1.toFixed(1)}px`);
+        cover.style.setProperty('--i4', `${i4.toFixed(1)}px`);
+        cover.style.setProperty('--o4', `${o4.toFixed(1)}px`);
         // two labels meeting: lift the outer ones above the inner ones
         cover.classList.toggle('cover--stagger', false);
         const lab = $$('.cover__door .cover__label', cover).map((l) => l.getBoundingClientRect());
