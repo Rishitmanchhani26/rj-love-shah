@@ -1186,3 +1186,12 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
   .rfeat__facts li { flex-direction: column; align-items: flex-start; gap: 4px; }
   .rfeat__facts span { text-align: left; }
 }
+
+/* Navratri: the family photograph on the left, the reel on the right */
+.rfeat__photo--family { grid-column: 1; grid-row: 1; aspect-ratio: 9 / 16; }
+.rfeat__photo--family img { object-position: 52% 30%; }
+.rfeat__reel { grid-column: 2; grid-row: 1; }
+@media (min-width: 960px) {
+  .rfeat__photo--family { grid-column: 1; aspect-ratio: auto; }
+  .rfeat__reel { grid-column: 3; }
+}
