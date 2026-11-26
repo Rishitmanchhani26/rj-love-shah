@@ -1231,3 +1231,23 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
   .profile__actions .mag-btn { flex: 1 1 100%; }
 }
 @media (prefers-reduced-motion: reduce) { .profile__pic img { transition: none; } .profile__pic:hover img { transform: none; } }
+
+/* 2 · Reliance Navratri on the site's own navy: ivory type, the cover's gold for accents */
+.rnav--mag { --mg-on: #f3ede2; color: var(--mg-on); background: radial-gradient(70% 60% at 80% 30%, rgb(194 160 99 / .16), transparent 70%), linear-gradient(180deg, #14213d 0%, #0f1a33 60%, #0b1324 100%); }
+.rnav--mag::before { background: radial-gradient(40% 50% at 15% 85%, rgb(194 160 99 / .08), transparent 70%); }
+.rnav--mag .mag-run { color: var(--mg-gold); border-bottom-color: rgb(243 237 226 / .2); }
+.rnav--mag .rnav__title { color: var(--mg-on); }
+.rnav--mag .rnav__title em { color: var(--mg-gold); }
+.rnav--mag .rnav__sub { color: var(--mg-gold-hi); }
+.rnav--mag .rnav__text { color: rgb(243 237 226 / .78); }
+.rnav--mag .rnav__facts { border-color: rgb(243 237 226 / .2); }
+.rnav--mag .rnav__facts li + li { border-left-color: rgb(243 237 226 / .2); border-top-color: rgb(243 237 226 / .16); }
+.rnav--mag .rnav__facts b { color: var(--mg-gold-hi); }
+.rnav--mag .rnav__facts span { color: rgb(243 237 226 / .7); }
+.rnav--mag .mag-btn--ink { background: var(--mg-on); color: var(--mg-ink); }
+.rnav--mag .mag-btn--ink:hover { background: var(--mg-gold); }
+.rnav--mag .mag-btn--line { color: var(--mg-on); border-color: rgb(243 237 226 / .55); }
+.rnav--mag .mag-btn--line:hover { background: var(--mg-on); border-color: var(--mg-on); color: var(--mg-ink); }
+.rnav__print { box-shadow: 0 40px 80px -30px rgb(0 0 0 / .8), 0 0 0 1px rgb(194 160 99 / .35); }
+.rnav--mag .rnav__caption { color: var(--mg-on); }
+.rnav--mag .rnav__caption span { color: var(--mg-gold); }
