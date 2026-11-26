@@ -1166,72 +1166,6 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
 }
 @media (prefers-reduced-motion: reduce) { .rnav__print { rotate: none; } }
 
-/* ---------- 3 · Meet Love: a magazine profile (portrait collage, statement, fact sheet, the journey at a glance) ---------- */
-.profile { --mg-stage: #f3ede2; --mg-ink: #15110e; --mg-gold: #c2a063; --mg-gold-hi: #ecd9ae; --mg-deep: #8a6a36;
-  position: relative; padding: 56px 0 80px; background: var(--mg-stage); color: var(--mg-ink); }
-.profile .mag-run { color: var(--mg-deep); }
-.profile__grid { margin-top: 36px; display: grid; gap: 48px; }
-/* three portraits laid out like a magazine spread */
-.profile__pics { position: relative; width: 100%; max-width: 560px; aspect-ratio: 1 / 1.08; margin-inline: auto; }
-.profile__pic { position: absolute; margin: 0; overflow: hidden; aspect-ratio: 4 / 5; border-radius: 18px; background: #e5dccb; box-shadow: 0 30px 60px -32px rgb(21 17 14 / .55); }
-.profile__pic img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; transition: transform 1.2s cubic-bezier(.22, 1, .36, 1); }
-.profile__pic:hover img { transform: scale(1.04); }
-.profile__pic--main { left: 0; top: 6%; width: 64%; outline: 1px solid var(--mg-gold); outline-offset: 8px; }
-.profile__pic--top { right: 0; top: 0; width: 38%; border: 6px solid var(--mg-stage); rotate: 3deg; z-index: 1; }
-.profile__pic--low { right: 7%; bottom: 0; width: 38%; border: 6px solid var(--mg-stage); rotate: -2.5deg; z-index: 1; }
-.profile__stamp { position: absolute; z-index: 2; left: 3%; bottom: 3%; width: clamp(92px, 22%, 124px); aspect-ratio: 1; margin: 0; border-radius: 50%; display: grid; place-content: center; text-align: center; rotate: -9deg;
-  background: var(--mg-ink); color: var(--mg-gold-hi); box-shadow: 0 0 0 5px var(--mg-stage), 0 0 0 6px var(--mg-gold); }
-.profile__stamp b { font: 700 .62rem/1 var(--f-sans); letter-spacing: .2em; text-transform: uppercase; }
-.profile__stamp i { font: 500 italic clamp(1.3rem, 2.2vw, 1.7rem)/1 var(--f-serif); color: var(--mg-gold); }
-/* the words */
-.profile__kicker { display: flex; align-items: center; gap: 12px; font: 700 .72rem/1.3 var(--f-sans); letter-spacing: .18em; text-transform: uppercase; color: var(--mg-deep); }
-.profile__kicker::before { content: ""; width: 34px; height: 1px; background: currentColor; }
-.profile__title { margin-top: 14px; font: 600 clamp(2.6rem, 5vw, 4.5rem)/1.02 var(--f-serif); letter-spacing: -.025em; }
-.profile__title em { font-style: italic; color: var(--mg-deep); white-space: nowrap; }
-.profile__roles { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px 0; font: 700 .72rem/1.5 var(--f-sans); letter-spacing: .14em; text-transform: uppercase; color: rgb(21 17 14 / .72); }
-.profile__roles li { display: inline-flex; align-items: center; }
-.profile__roles li + li::before { content: ""; width: 5px; height: 5px; margin: 0 14px; border-radius: 50%; background: var(--mg-gold); }
-.profile__lead { margin-top: 26px; max-width: 34ch; font: 500 clamp(1.35rem, 2.15vw, 1.85rem)/1.38 var(--f-serif); letter-spacing: -.01em; text-wrap: pretty; }
-.profile__lead em { font-style: italic; color: var(--mg-deep); }
-.profile__facts { margin: 30px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid rgb(21 17 14 / .22); }
-.profile__facts div { padding: 16px 12px 16px 0; border-bottom: 1px solid rgb(21 17 14 / .22); }
-.profile__facts div:nth-child(even) { padding-left: 16px; border-left: 1px solid rgb(21 17 14 / .22); }
-.profile__facts dt { font: 600 clamp(1.6rem, 2.4vw, 2.2rem)/1 var(--f-serif); letter-spacing: -.02em; }
-.profile__facts dd { margin: 6px 0 0; font: 600 .8125rem/1.4 var(--f-sans); color: rgb(21 17 14 / .7); }
-.profile__actions { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; }
-/* the journey, readable at a glance */
-.journey { margin-top: 72px; }
-.journey__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; padding-bottom: 14px; border-bottom: 1px solid rgb(21 17 14 / .22); }
-.journey__head span { font: 700 .72rem/1.3 var(--f-sans); letter-spacing: .18em; text-transform: uppercase; color: var(--mg-deep); }
-.journey__head em { font: 500 italic clamp(1.5rem, 2.4vw, 2.1rem)/1.1 var(--f-serif); }
-.journey__list { position: relative; margin-top: 30px; display: grid; gap: 26px; padding-left: 30px; }
-.journey__list::before { content: ""; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(var(--mg-gold), var(--mg-deep)); }
-.journey__list li { position: relative; }
-.journey__list li::before { content: ""; position: absolute; left: -30px; top: 6px; width: 13px; height: 13px; border-radius: 50%; background: var(--mg-stage); border: 2px solid var(--mg-deep); }
-.journey__list li.is-now::before { background: var(--mg-ink); border-color: var(--mg-ink); box-shadow: 0 0 0 4px var(--mg-gold-hi); }
-.journey__list b { font: 600 italic clamp(1.7rem, 2.4vw, 2.3rem)/1 var(--f-serif); color: var(--mg-deep); }
-.journey__list .is-now b { color: var(--mg-ink); }
-.journey__list h3 { margin: 10px 0 6px; font: 700 .75rem/1.4 var(--f-sans); letter-spacing: .14em; text-transform: uppercase; }
-.journey__list p { max-width: 36ch; font-size: .95rem; line-height: 1.55; color: rgb(21 17 14 / .74); }
-@media (min-width: 960px) {
-  .profile { padding: 72px 0 112px; }
-  .profile__grid { margin-top: 56px; grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); gap: 80px; align-items: center; }
-  .profile__pics { margin: 0; }
-  .profile__facts { grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 1px solid rgb(21 17 14 / .22); }
-  .profile__facts div, .profile__facts div:nth-child(even) { padding: 18px 14px; border-bottom: 0; border-left: 1px solid rgb(21 17 14 / .22); }
-  .profile__facts div:first-child { padding-left: 0; border-left: 0; }
-  .journey { margin-top: 96px; }
-  .journey__list { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px; padding: 30px 0 0; margin-top: 34px; }
-  .journey__list::before { left: 0; right: 0; top: 6px; bottom: auto; width: auto; height: 1px; background: linear-gradient(90deg, var(--mg-gold), var(--mg-deep)); }
-  .journey__list li::before { left: 0; top: -30px; }
-}
-@media (max-width: 639px) {
-  .profile__roles { flex-direction: column; gap: 9px; }
-  .profile__roles li::before, .profile__roles li + li::before { content: ""; width: 5px; height: 5px; margin: 0 12px 0 0; border-radius: 50%; background: var(--mg-gold); flex: 0 0 auto; }
-  .profile__actions .mag-btn { flex: 1 1 100%; }
-}
-@media (prefers-reduced-motion: reduce) { .profile__pic img { transition: none; } .profile__pic:hover img { transform: none; } }
-
 /* 2 · Reliance Navratri on the site's own navy: ivory type, the cover's gold for accents */
 .rnav--mag { --mg-on: #f3ede2; color: var(--mg-on); background: radial-gradient(70% 60% at 80% 30%, rgb(194 160 99 / .16), transparent 70%), linear-gradient(180deg, #14213d 0%, #0f1a33 60%, #0b1324 100%); }
 .rnav--mag::before { background: radial-gradient(40% 50% at 15% 85%, rgb(194 160 99 / .08), transparent 70%); }
@@ -1251,3 +1185,36 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
 .rnav__print { box-shadow: 0 40px 80px -30px rgb(0 0 0 / .8), 0 0 0 1px rgb(194 160 99 / .35); }
 .rnav--mag .rnav__caption { color: var(--mg-on); }
 .rnav--mag .rnav__caption span { color: var(--mg-gold); }
+
+/* ---------- 3 · Meet Love: one portrait, one statement that lights up as you read (after the reference's "Meet") ---------- */
+.meet { --mg-stage: #f3ede2; --mg-ink: #15110e; --mg-gold: #c2a063; --mg-deep: #8a6a36;
+  position: relative; overflow: hidden; padding: 72px 0 80px; color: var(--mg-ink);
+  background: radial-gradient(60% 70% at 18% 40%, rgb(194 160 99 / .2), transparent 70%), radial-gradient(50% 60% at 90% 90%, rgb(194 160 99 / .12), transparent 70%), var(--mg-stage); }
+.meet__grid { display: grid; gap: 40px; align-items: center; }
+.meet__photo { position: relative; margin: 0; width: 100%; max-width: 460px; aspect-ratio: 4 / 5; border-radius: 26px; overflow: hidden; background: #e5dccb;
+  box-shadow: 0 50px 90px -40px rgb(138 106 54 / .65), 0 0 0 1px rgb(21 17 14 / .06); }
+.meet__layer { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; opacity: 0; transform: scale(1.06); transition: opacity 1.4s cubic-bezier(.22, 1, .36, 1), transform 6s linear; }
+.meet__layer.is-active { opacity: 1; transform: scale(1); }
+.meet__tag { position: absolute; z-index: 1; left: 18px; top: 18px; padding: 9px 16px; border-radius: 99px; background: rgb(21 17 14 / .78); color: var(--mg-stage); font: 700 .68rem/1 var(--f-sans); letter-spacing: .18em; text-transform: uppercase; }
+.meet__kicker { display: flex; align-items: center; gap: 12px; font: 700 .75rem/1.3 var(--f-sans); letter-spacing: .18em; text-transform: uppercase; color: var(--mg-deep); }
+.meet__kicker::before { content: ""; width: 34px; height: 1px; background: currentColor; }
+.meet__statement { margin-top: 22px; font: 600 clamp(1.75rem, 3.1vw, 2.9rem)/1.2 var(--f-serif); letter-spacing: -.018em; text-wrap: pretty; }
+.meet__statement em { font-style: italic; color: var(--mg-deep); }
+.js .meet__statement .w { opacity: .26; transition: opacity .35s linear; }
+.js .meet__statement .w.on { opacity: 1; }
+.meet__facts { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px 0; font: 600 .875rem/1.3 var(--f-sans); color: rgb(21 17 14 / .7); }
+.meet__facts li { display: inline-flex; align-items: baseline; gap: 6px; }
+.meet__facts li + li::before { content: ""; align-self: center; width: 4px; height: 4px; margin: 0 16px; border-radius: 50%; background: var(--mg-gold); }
+.meet__facts b { font: 600 1.25rem/1 var(--f-serif); color: var(--mg-ink); }
+.meet__actions { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; }
+@media (min-width: 960px) {
+  .meet { padding: 112px 0; }
+  .meet__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 80px; }
+}
+@media (max-width: 959px) { .meet__photo { margin-inline: auto; max-width: 420px; } }
+@media (max-width: 559px) {
+  .meet__facts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+  .meet__facts li + li::before { display: none; }
+  .meet__actions .mag-btn { flex: 1 1 100%; }
+}
+@media (prefers-reduced-motion: reduce) { .meet__layer { transition: none; transform: none; } }
