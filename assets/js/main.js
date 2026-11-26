@@ -252,45 +252,6 @@
     light();
   }
 
-  /* ---------- about: on desktop the intro heading moves into the pinned story panel ---------- */
-  const aboutIntro = $('[data-about-intro]');
-  const introSlot = $('[data-intro-slot]');
-  const introHome = $('.about__head');
-  if (aboutIntro && introSlot && introHome) {
-    const place = () => { (desktop.matches ? introSlot : introHome).appendChild(aboutIntro); };
-    place();
-    desktop.addEventListener('change', place);
-  }
-
-  /* ---------- about: the CA to RJ story told on scroll (year rolls 2011 > Today, chapter and photo change) ---------- */
-  const story = $('[data-story]');
-  if (story) {
-    const steps = $$('.story__step', story);
-    const ticks = $$('.story__ticks li', story);
-    const layers = $$('.about__layer', story);
-    const fill = $('[data-story-fill]', story);
-    let cur = -1;
-    const set = (i) => {
-      if (i === cur) return;
-      cur = i;
-      steps.forEach((s, k) => s.classList.toggle('is-active', k === i));
-      ticks.forEach((t, k) => t.classList.toggle('is-active', k <= i));
-      const photo = +(steps[i].dataset.photo || 0);
-      layers.forEach((l, k) => l.classList.toggle('is-active', k === photo));
-    };
-    const update = () => {
-      const r = story.getBoundingClientRect();
-      const run = r.height - innerHeight;
-      const p = run > 0 ? Math.min(1, Math.max(0, -r.top / run)) : 0;
-      if (fill) fill.style.setProperty('--story-p', p.toFixed(3));
-      set(Math.min(steps.length - 1, Math.floor(p * steps.length)));
-    };
-    let queued = false;
-    addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; update(); }); } }, { passive: true });
-    addEventListener('resize', update);
-    update();
-  }
-
   /* ---------- across-India carousel ---------- */
   const car = $('[data-carousel]');
   if (car) {
