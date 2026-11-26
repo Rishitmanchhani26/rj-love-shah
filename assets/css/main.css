@@ -1306,3 +1306,17 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
 /* About: one portrait only, no scroll pinning */
 .profile__pics .profile__slide { position: relative; opacity: 1; transform: none; height: 100%; }
 @media (max-width: 959px) { .profile__pics { position: relative; top: auto; } }
+
+/* cover events: two even pairs, one height, one baseline, labels on one line */
+@media (min-width: 960px) {
+  .cover__doors li:nth-child(n) { left: var(--door-x, 0); right: auto; height: var(--door-h, 84%); width: auto; z-index: 1; }
+  .cover__doors li:nth-child(n) .cover__label { left: 50%; right: auto; translate: -50% 0; bottom: 26px; }
+}
+
+@media (min-width: 960px) {
+  /* labels never wider than their photo's space; long names wrap to two centred lines */
+  .cover__doors li:nth-child(n) .cover__label { max-width: var(--door-w, 200px); white-space: normal; text-align: center; width: max-content; }
+}
+@media (min-width: 960px) and (max-width: 1365px) { .cover__doors .cover__label { padding: 6px 12px; letter-spacing: .08em; font-size: .7rem; } }
+@media (min-width: 1366px) and (max-width: 1599px) { .cover__doors .cover__label { padding: 7px 13px; letter-spacing: .09em; } }
+@media (min-width: 960px) { .cover--two-line .cover__doors li:nth-child(n) .cover__label { width: min-content; } }

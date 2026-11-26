@@ -343,34 +343,36 @@
       let size = (room / line) * 100;
       size = wide.matches ? Math.min(size * 0.965, innerHeight * 0.24) : size * 0.9;
       cover.style.setProperty('--name-size', `${size.toFixed(1)}px`);
-      // the events either side of him: placed from his edges, spaced apart when there is room,
-      // tucked behind each other when there is less, and only shrunk (--ds) when even that does not fit
+      // the four events in two even pairs: every cut-out the same height on one baseline,
+      // each centred in its own quarter of the space beside him, labels on one line
       if (wide.matches) {
+        const pick = $('.cover__pick', cover);
+        const pw = pick.getBoundingClientRect().width;
+        const ph = pick.getBoundingClientRect().height;
         const H = innerHeight;
         const hw = Math.min(0.75 * H, 0.56 * innerWidth) * 0.391;
-        const side = $('.cover__pick', cover).getBoundingClientRect().width / 2 - hw - 14;
-        const w = [0.84 * 0.47 * H * 597 / 914, 0.9 * 0.47 * H * 529 / 987, 0.9 * 0.47 * H * 398 / 1033, 0.84 * 0.47 * H * 905 / 1700];
-        // ...and their heads stay below the Book / Watch buttons and the "choose your event" line
+        const side = pw / 2 - hw - 20;
+        const ar = [597 / 914, 529 / 987, 398 / 1033, 905 / 1700];
+        // heads stay below the Book / Watch buttons and the line beside the stats
         const above = Math.max(...['.cover__actions', '.cover__hint'].map((q) => { const e = $(q, cover); return e ? e.offsetTop + e.offsetHeight : 0; }));
         const room = cover.offsetHeight - above - 18;
-        const ds = Math.min(1.12, side / (w[0] + 0.62 * w[1]), side / (w[3] + 0.62 * w[2]), room / (0.9 * 0.47 * H));
-        // with room to spare, the two photos on a side share it evenly: equal gaps from him, between them and to the edge
-        const place = (outer, inner) => {
-          const free = side - (outer + inner) * ds;
-          if (free >= 0) { const g = free / 3; return [g, 2 * g + inner * ds]; }
-          return [0, Math.max(0.62 * inner * ds, side - outer * ds)];
-        };
-        const [i1, o1] = place(w[0], w[1]);
-        const [i4, o4] = place(w[3], w[2]);
-        cover.style.setProperty('--ds', ds.toFixed(3));
-        cover.style.setProperty('--i1', `${i1.toFixed(1)}px`);
-        cover.style.setProperty('--o1', `${o1.toFixed(1)}px`);
-        cover.style.setProperty('--i4', `${i4.toFixed(1)}px`);
-        cover.style.setProperty('--o4', `${o4.toFixed(1)}px`);
-        // two labels meeting: lift the outer ones above the inner ones
-        cover.classList.toggle('cover--stagger', false);
-        const lab = $$('.cover__door .cover__label', cover).map((l) => l.getBoundingClientRect());
-        cover.classList.toggle('cover--stagger', lab[0].right > lab[1].left - 8 || lab[2].right > lab[3].left - 8);
+        // one height for all four, as tall as the room allows with at least 24px between everything
+        const minGap = 24;
+        const hgt = Math.min(ph * 0.9, room, (side - 3 * minGap) / (ar[0] + ar[1]), (side - 3 * minGap) / (ar[2] + ar[3]));
+        const w = ar.map((r) => hgt * r);
+        // equal gaps: edge, photo, gap, photo, gap, him (and the mirror on the right)
+        const gl = (side - w[0] - w[1]) / 3;
+        const gr = (side - w[2] - w[3]) / 3;
+        const xs = [gl, 2 * gl + w[0], pw - side + gr, pw - side + 2 * gr + w[2]];
+        $$('.cover__doors li', cover).forEach((li, i) => {
+          li.style.setProperty('--door-h', `${hgt.toFixed(1)}px`);
+          li.style.setProperty('--door-x', `${xs[i].toFixed(1)}px`);
+          li.style.setProperty('--door-w', `${(w[i] + Math.min(gl, gr) - 4).toFixed(1)}px`);
+        });
+        // labels all on one line, or all on two: never a mix
+        cover.classList.toggle('cover--two-line', false);
+        const lh = $$('.cover__door .cover__label', cover).map((l) => l.getBoundingClientRect().height);
+        cover.classList.toggle('cover--two-line', Math.max(...lh) - Math.min(...lh) > 4);
         // the mic beside his head never runs into the "11+ years" stamp
         const mic = $('.cover__mic', cover);
         mic.style.marginLeft = '0px';
