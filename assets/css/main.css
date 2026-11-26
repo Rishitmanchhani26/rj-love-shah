@@ -1142,42 +1142,7 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
 }
 @media (max-width: 559px) { .rfeat__actions .btn { flex: 1 1 100%; } }
 
-/* ---------- 3 · Meet Love on cream: three portraits, one paragraph, his numbers and the CA-to-RJ road ---------- */
-.whois__grid { display: grid; gap: 36px; }
-.whois__pics { display: grid; grid-template-columns: 1.55fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; aspect-ratio: 6 / 5; }
-.whois__pic { margin: 0; overflow: hidden; border-radius: 20px; background: #e5dccb; }
-.whois__pic--main { grid-row: 1 / 3; }
-.whois__pic img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; transition: transform .7s var(--ease); }
-.whois__pic:hover img { transform: scale(1.03); }
-.whois__lead { font: 500 clamp(1.3rem, 2vw, 1.75rem)/1.42 var(--f-serif); color: var(--paper-ink); text-wrap: pretty; }
-.whois__facts { margin: 26px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid rgb(20 33 61 / .14); }
-.whois__facts div { padding: 14px 0; }
-.whois__facts div + div { padding-left: 16px; border-left: 1px solid rgb(20 33 61 / .14); }
-.whois__facts dt { font: 600 clamp(1.4rem, 2.2vw, 2rem)/1 var(--f-serif); color: var(--paper-ink); }
-.whois__facts dd { margin: 6px 0 0; font-size: .8125rem; color: var(--paper-dim); }
-.whois__road { position: relative; margin-top: 28px; padding-top: 20px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
-.whois__road::before { content: ""; position: absolute; left: 0; right: 0; top: 4px; height: 1px; background: linear-gradient(90deg, #e9603f, #e5384f 60%, rgb(229 56 79 / .2)); }
-.whois__road li { position: relative; }
-.whois__road li::before { content: ""; position: absolute; left: 0; top: -20px; width: 9px; height: 9px; border-radius: 50%; background: var(--cream); border: 2px solid #e5503f; }
-.whois__road li:last-child::before { background: #e5503f; }
-.whois__road b { font: 600 italic 1.1rem/1 var(--f-serif); color: #e5503f; }
-.whois__road span { display: block; margin-top: 6px; font-size: .8125rem; line-height: 1.35; color: var(--paper-dim); }
-.whois__actions { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
-@media (min-width: 960px) {
-  .whois__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; }
-}
-@media (max-width: 639px) {
-  .whois__facts { grid-template-columns: 1fr 1fr; border-bottom: 0; }
-  .whois__facts div { border-bottom: 1px solid rgb(20 33 61 / .14); }
-  .whois__facts div:nth-child(odd) { padding-left: 0; border-left: 0; }
-  .whois__road { grid-template-columns: 1fr; gap: 14px; padding: 0 0 0 24px; }
-  .whois__road::before { left: 4px; right: auto; top: 6px; bottom: 6px; width: 1px; height: auto; background: linear-gradient(#e9603f, rgb(229 56 79 / .25)); }
-  .whois__road li { display: flex; align-items: baseline; gap: 12px; }
-  .whois__road li::before { left: -24px; top: 3px; }
-  .whois__road span { margin-top: 0; }
-  .whois__actions .btn { flex: 1 1 100%; }
-}
-@media (prefers-reduced-motion: reduce) { .rfeat__photo img, .whois__pic img { transition: none; } .rfeat__photo:hover img, .whois__pic:hover img { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .rfeat__photo img { transition: none; } .rfeat__photo:hover img { transform: none; } }
 .section-head--split > div > .eyebrow { justify-self: auto; max-width: none; color: var(--peach); }
 .light .section-head--split > div > .eyebrow { color: var(--coral); }
 @media (max-width: 959px) {
@@ -1222,3 +1187,79 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
   .rfeat__reel { grid-column: 3; grid-row: 1; }
   .rfeat__mid { grid-row: 1; }
 }
+
+/* ---------- About: the magazine profile (restored) ---------- */
+.profile { --mg-stage: #f3ede2; --mg-ink: #15110e; --mg-gold: #c2a063; --mg-deep: #8a6a36; }
+.mag-run { display: flex; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid rgb(21 17 14 / .3); font: 700 .6875rem/1.3 var(--f-sans); letter-spacing: .18em; text-transform: uppercase; }
+.mag-btn { display: inline-flex; align-items: center; justify-content: center; gap: .6em; min-height: 50px; padding: 0 26px; border-radius: 99px; border: 1px solid transparent; font: 700 .78rem/1 var(--f-sans); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color .35s, color .35s, border-color .35s, letter-spacing .5s; }
+.mag-btn:hover { letter-spacing: .15em; }
+.mag-btn--ink { background: var(--mg-ink); color: var(--mg-stage); }
+.mag-btn--ink:hover { background: var(--mg-deep); }
+.mag-btn--line { border-color: currentColor; color: var(--mg-ink); }
+.mag-btn--line:hover { background: var(--mg-ink); border-color: var(--mg-ink); color: var(--mg-stage); }
+/* ---------- 3 · Meet Love: a magazine profile (portrait collage, statement, fact sheet, the journey at a glance) ---------- */
+.profile { --mg-stage: #f3ede2; --mg-ink: #15110e; --mg-gold: #c2a063; --mg-gold-hi: #ecd9ae; --mg-deep: #8a6a36;
+  position: relative; padding: 56px 0 80px; background: var(--mg-stage); color: var(--mg-ink); }
+.profile .mag-run { color: var(--mg-deep); }
+.profile__grid { margin-top: 36px; display: grid; gap: 48px; }
+/* three portraits laid out like a magazine spread */
+.profile__pics { position: relative; width: 100%; max-width: 560px; aspect-ratio: 1 / 1.08; margin-inline: auto; }
+.profile__pic { position: absolute; margin: 0; overflow: hidden; aspect-ratio: 4 / 5; border-radius: 18px; background: #e5dccb; box-shadow: 0 30px 60px -32px rgb(21 17 14 / .55); }
+.profile__pic img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; transition: transform 1.2s cubic-bezier(.22, 1, .36, 1); }
+.profile__pic:hover img { transform: scale(1.04); }
+.profile__pic--main { left: 0; top: 6%; width: 64%; outline: 1px solid var(--mg-gold); outline-offset: 8px; }
+.profile__pic--top { right: 0; top: 0; width: 38%; border: 6px solid var(--mg-stage); rotate: 3deg; z-index: 1; }
+.profile__pic--low { right: 7%; bottom: 0; width: 38%; border: 6px solid var(--mg-stage); rotate: -2.5deg; z-index: 1; }
+.profile__stamp { position: absolute; z-index: 2; left: 3%; bottom: 3%; width: clamp(92px, 22%, 124px); aspect-ratio: 1; margin: 0; border-radius: 50%; display: grid; place-content: center; text-align: center; rotate: -9deg;
+  background: var(--mg-ink); color: var(--mg-gold-hi); box-shadow: 0 0 0 5px var(--mg-stage), 0 0 0 6px var(--mg-gold); }
+.profile__stamp b { font: 700 .62rem/1 var(--f-sans); letter-spacing: .2em; text-transform: uppercase; }
+.profile__stamp i { font: 500 italic clamp(1.3rem, 2.2vw, 1.7rem)/1 var(--f-serif); color: var(--mg-gold); }
+/* the words */
+.profile__kicker { display: flex; align-items: center; gap: 12px; font: 700 .72rem/1.3 var(--f-sans); letter-spacing: .18em; text-transform: uppercase; color: var(--mg-deep); }
+.profile__kicker::before { content: ""; width: 34px; height: 1px; background: currentColor; }
+.profile__title { margin-top: 14px; font: 600 clamp(2.6rem, 5vw, 4.5rem)/1.02 var(--f-serif); letter-spacing: -.025em; }
+.profile__title em { font-style: italic; color: var(--mg-deep); white-space: nowrap; }
+.profile__roles { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px 0; font: 700 .72rem/1.5 var(--f-sans); letter-spacing: .14em; text-transform: uppercase; color: rgb(21 17 14 / .72); }
+.profile__roles li { display: inline-flex; align-items: center; }
+.profile__roles li + li::before { content: ""; width: 5px; height: 5px; margin: 0 14px; border-radius: 50%; background: var(--mg-gold); }
+.profile__lead { margin-top: 26px; max-width: 34ch; font: 500 clamp(1.35rem, 2.15vw, 1.85rem)/1.38 var(--f-serif); letter-spacing: -.01em; text-wrap: pretty; }
+.profile__lead em { font-style: italic; color: var(--mg-deep); }
+.profile__facts { margin: 30px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid rgb(21 17 14 / .22); }
+.profile__facts div { padding: 16px 12px 16px 0; border-bottom: 1px solid rgb(21 17 14 / .22); }
+.profile__facts div:nth-child(even) { padding-left: 16px; border-left: 1px solid rgb(21 17 14 / .22); }
+.profile__facts dt { font: 600 clamp(1.6rem, 2.4vw, 2.2rem)/1 var(--f-serif); letter-spacing: -.02em; }
+.profile__facts dd { margin: 6px 0 0; font: 600 .8125rem/1.4 var(--f-sans); color: rgb(21 17 14 / .7); }
+.profile__actions { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; }
+/* the journey, readable at a glance */
+.journey { margin-top: 72px; }
+.journey__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; padding-bottom: 14px; border-bottom: 1px solid rgb(21 17 14 / .22); }
+.journey__head span { font: 700 .72rem/1.3 var(--f-sans); letter-spacing: .18em; text-transform: uppercase; color: var(--mg-deep); }
+.journey__head em { font: 500 italic clamp(1.5rem, 2.4vw, 2.1rem)/1.1 var(--f-serif); }
+.journey__list { position: relative; margin-top: 30px; display: grid; gap: 26px; padding-left: 30px; }
+.journey__list::before { content: ""; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(var(--mg-gold), var(--mg-deep)); }
+.journey__list li { position: relative; }
+.journey__list li::before { content: ""; position: absolute; left: -30px; top: 6px; width: 13px; height: 13px; border-radius: 50%; background: var(--mg-stage); border: 2px solid var(--mg-deep); }
+.journey__list li.is-now::before { background: var(--mg-ink); border-color: var(--mg-ink); box-shadow: 0 0 0 4px var(--mg-gold-hi); }
+.journey__list b { font: 600 italic clamp(1.7rem, 2.4vw, 2.3rem)/1 var(--f-serif); color: var(--mg-deep); }
+.journey__list .is-now b { color: var(--mg-ink); }
+.journey__list h3 { margin: 10px 0 6px; font: 700 .75rem/1.4 var(--f-sans); letter-spacing: .14em; text-transform: uppercase; }
+.journey__list p { max-width: 36ch; font-size: .95rem; line-height: 1.55; color: rgb(21 17 14 / .74); }
+@media (min-width: 960px) {
+  .profile { padding: 72px 0 112px; }
+  .profile__grid { margin-top: 56px; grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); gap: 80px; align-items: center; }
+  .profile__pics { margin: 0; }
+  .profile__facts { grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 1px solid rgb(21 17 14 / .22); }
+  .profile__facts div, .profile__facts div:nth-child(even) { padding: 18px 14px; border-bottom: 0; border-left: 1px solid rgb(21 17 14 / .22); }
+  .profile__facts div:first-child { padding-left: 0; border-left: 0; }
+  .journey { margin-top: 96px; }
+  .journey__list { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px; padding: 30px 0 0; margin-top: 34px; }
+  .journey__list::before { left: 0; right: 0; top: 6px; bottom: auto; width: auto; height: 1px; background: linear-gradient(90deg, var(--mg-gold), var(--mg-deep)); }
+  .journey__list li::before { left: 0; top: -30px; }
+}
+@media (max-width: 639px) {
+  .profile__roles { flex-direction: column; gap: 9px; }
+  .profile__roles li::before, .profile__roles li + li::before { content: ""; width: 5px; height: 5px; margin: 0 12px 0 0; border-radius: 50%; background: var(--mg-gold); flex: 0 0 auto; }
+  .profile__actions .mag-btn { flex: 1 1 100%; }
+}
+@media (prefers-reduced-motion: reduce) { .profile__pic img { transition: none; } .profile__pic:hover img { transform: none; } }
+
