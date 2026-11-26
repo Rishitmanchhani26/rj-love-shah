@@ -33,7 +33,7 @@
   <link rel="preload" href="./assets/fonts/playfair-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./assets/fonts/playfair-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="./assets/img/cover/love-blazer-v3.webp" fetchpriority="high">
-  <link rel="stylesheet" href="./assets/css/main.css?v=a9b5281e">
+  <link rel="stylesheet" href="./assets/css/main.css?v=89006ac4">
   <script>document.documentElement.classList.add('js');setTimeout(function(){var b=document.body;if(b&&b.classList.contains('cover-loading')){b.classList.remove('cover-loading');var o=document.querySelector('[data-cover-opener]');if(o)o.style.display='none';}},6000)</script>
 
   <script type="application/ld+json">
@@ -212,60 +212,76 @@
       <p class="cover__onair" role="status" data-onair hidden></p>
     </section>
 
-    <!-- ===== 2 · Reliance Navratri (Ambani family) ===== -->
-    <section class="rnav rnav--mag" id="reliance-navratri" aria-labelledby="rnav-title">
+    <!-- ===== 2 · Reliance Navratri: the reel and two photographs from the night, then the facts ===== -->
+    <section class="rfeat section" id="reliance-navratri" aria-labelledby="rnav-title">
       <div class="container">
-        <p class="mag-run"><span>Reliance Navratri &middot; Jamnagar</span></p>
-        <div class="rnav__grid">
-          <div class="rnav__copy">
-            <h2 class="rnav__title" id="rnav-title" data-reveal>Hosted India&rsquo;s <em>biggest Navratri.</em></h2>
-            <p class="rnav__sub" data-reveal>For the Ambani family.</p>
-            <p class="rnav__text" data-reveal>On stage for one of the grandest Navratri celebrations in the country: the Ambani family on the ground, Bollywood stars on the stage, and thousands of garba dancers in front of it. Events like these need a host who can hold the mic, the moment and the crowd together.</p>
-            <ul class="rnav__facts" data-reveal>
-              <li><b>The family</b><span>The Ambanis, on the ground</span></li>
-              <li><b>The stage</b><span>Bollywood stars, introduced by Love</span></li>
-              <li><b>The crowd</b><span>Thousands of garba dancers</span></li>
-            </ul>
-            <div class="rnav__actions" data-reveal>
-              <a class="mag-btn mag-btn--ink" href="#contact">Book RJ Love</a>
-              <a class="mag-btn mag-btn--line" href="https://www.instagram.com/reel/DepbZI9ynJw/" rel="noopener">Watch on Instagram</a>
-            </div>
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal>Reliance Navratri &middot; Jamnagar</p>
+            <h2 class="h2" id="rnav-title" data-reveal>Hosted India&rsquo;s <em class="grad-text">biggest Navratri.</em></h2>
           </div>
-          <figure class="rnav__media" data-reveal>
-            <div class="rnav__print">
-              <div class="rnav__phone" data-rnav>
-                <video class="rnav__teaser" src="./assets/video/reliance-navratri-teaser.mp4" poster="./assets/img/reliance-navratri-poster.webp"
-                       muted loop playsinline preload="none" aria-hidden="true" data-rnav-teaser></video>
-                <button class="rnav__play" type="button" data-video-open data-src="./assets/video/reliance-navratri.mp4" data-poster="./assets/img/reliance-navratri-poster.webp" data-shape="tall" data-title="RJ Love Shah hosting the Ambani family at Reliance Navratri"><span class="rnav__play-icon" aria-hidden="true"></span>Watch with sound</button>
+          <p data-reveal>The Ambani family&rsquo;s Navratri: Bollywood stars on the stage, thousands of garba dancers in front of it, and Love holding the mic, the moment and the crowd together.</p>
+        </header>
+        <div class="rfeat__grid">
+          <div class="rfeat__reel rnav__phone" data-rnav>
+            <video class="rnav__teaser" src="./assets/video/reliance-navratri-teaser.mp4" poster="./assets/img/reliance-navratri-poster.webp"
+                   muted loop playsinline preload="none" aria-hidden="true" data-rnav-teaser></video>
+            <button class="rnav__play" type="button" data-video-open data-src="./assets/video/reliance-navratri.mp4" data-poster="./assets/img/reliance-navratri-poster.webp" data-shape="tall" data-title="RJ Love Shah hosting the Ambani family at Reliance Navratri"><span class="rnav__play-icon" aria-hidden="true"></span>Watch with sound</button>
+          </div>
+          <div class="rfeat__mid">
+            <figure class="rfeat__photo rfeat__photo--stage"><img src="./assets/img/rnav-stage-1400.webp" srcset="./assets/img/rnav-stage-800.webp 800w, ./assets/img/rnav-stage-1400.webp 1400w" sizes="(min-width: 960px) 48vw, 100vw" width="1400" height="933" loading="lazy" decoding="async" alt="RJ Love Shah with the mic, arm out to the crowd, on the Reliance Navratri stage"></figure>
+            <div class="rfeat__card">
+              <ul class="rfeat__facts">
+                <li><b>The family</b><span>The Ambanis, on the ground</span></li>
+                <li><b>The stage</b><span>Bollywood stars, introduced by Love</span></li>
+                <li><b>The crowd</b><span>Thousands of garba dancers</span></li>
+              </ul>
+              <div class="rfeat__actions">
+                <a class="btn btn--grad" href="#contact">Book RJ Love <span aria-hidden="true">&rarr;</span></a>
+                <a class="btn btn--ghost" href="https://www.instagram.com/reel/DepbZI9ynJw/" rel="noopener">Watch on Instagram</a>
               </div>
             </div>
-            <figcaption class="rnav__caption">&ldquo;Truly an honour &amp; privilege to be hosting Reliance Navratri.&rdquo;<span>RJ Love Shah</span></figcaption>
-          </figure>
+          </div>
+          <figure class="rfeat__photo rfeat__photo--ground"><img src="./assets/img/rnav-ground-800.webp" srcset="./assets/img/rnav-ground-480.webp 480w, ./assets/img/rnav-ground-800.webp 800w" sizes="(min-width: 960px) 24vw, 50vw" width="800" height="1422" loading="lazy" decoding="async" alt="The Reliance Navratri stage in Jamnagar, lit up, with guests on stage and photographers in front"></figure>
         </div>
       </div>
     </section>
 
-    <!-- ===== 3 · Meet Love: one portrait, one statement that lights up as you read ===== -->
-    <section class="meet" id="about" aria-labelledby="about-title">
-      <div class="container meet__grid">
-        <figure class="meet__photo" data-meet-photos>
-          <img class="meet__layer is-active" src="./assets/img/portrait-burgundy-720.webp" srcset="./assets/img/portrait-burgundy-480.webp 480w, ./assets/img/portrait-burgundy-720.webp 720w" sizes="(min-width: 960px) 34vw, 88vw" width="720" height="900" loading="lazy" decoding="async" alt="RJ Love Shah smiling in a burgundy blazer and white shirt">
-          <img class="meet__layer" src="./assets/img/portrait-sage-720.webp" srcset="./assets/img/portrait-sage-480.webp 480w, ./assets/img/portrait-sage-720.webp 720w" sizes="(min-width: 960px) 34vw, 88vw" width="720" height="900" loading="lazy" decoding="async" alt="RJ Love Shah in a sage green bandhgala on a staircase">
-          <img class="meet__layer" src="./assets/img/portrait-bluefloral-720.webp" srcset="./assets/img/portrait-bluefloral-480.webp 480w, ./assets/img/portrait-bluefloral-720.webp 720w" sizes="(min-width: 960px) 34vw, 88vw" width="720" height="900" loading="lazy" decoding="async" alt="RJ Love Shah smiling in a light blue floral bandhgala in front of a wall of lights">
-          <figcaption class="meet__tag">Meet RJ Love</figcaption>
-        </figure>
-        <div class="meet__copy">
-          <h2 class="meet__kicker" id="about-title">Who is RJ Love Shah?</h2>
-          <p class="meet__statement" data-meet-words>A Chartered Accountant who chose the <em>mic</em> over the <em>ledger.</em> Eight years on radio gave him <em>timing.</em> Fifteen hundred stages gave him <em>people.</em> From the Ambani family&rsquo;s Navratri to baraats and boardrooms, Love makes every crowd feel like <em>his guest.</em></p>
-          <ul class="meet__facts">
-            <li><b>1,500+</b> live events</li>
-            <li><b>11+ yrs</b> on stage</li>
-            <li><b>8 yrs</b> on radio</li>
-            <li><b>CA</b> since 2017</li>
-          </ul>
-          <div class="meet__actions">
-            <a class="mag-btn mag-btn--ink" href="#contact">Book RJ Love <span aria-hidden="true">&rarr;</span></a>
-            <a class="mag-btn mag-btn--line" href="https://wa.me/917383972757?text=Hi%20Love%2C%20are%20you%20free%20on%20" rel="noopener">Check his dates</a>
+    <!-- ===== 3 · Meet Love: three portraits, his story in one paragraph, his numbers and the CA-to-RJ road ===== -->
+    <section class="whois section light" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow eyebrow--ink" data-reveal>Meet RJ Love</p>
+            <h2 class="h2" id="about-title" data-reveal>Who is <em class="grad-text">RJ Love Shah?</em></h2>
+          </div>
+          <p data-reveal>Radio host, celebrity host, and a Chartered Accountant turned entertainer.</p>
+        </header>
+        <div class="whois__grid">
+          <div class="whois__pics">
+            <figure class="whois__pic whois__pic--main"><img src="./assets/img/portrait-burgundy-720.webp" srcset="./assets/img/portrait-burgundy-480.webp 480w, ./assets/img/portrait-burgundy-720.webp 720w" sizes="(min-width: 960px) 30vw, 60vw" width="720" height="900" loading="lazy" decoding="async" alt="RJ Love Shah smiling in a burgundy blazer and white shirt"></figure>
+            <figure class="whois__pic"><img src="./assets/img/portrait-sage-720.webp" srcset="./assets/img/portrait-sage-480.webp 480w, ./assets/img/portrait-sage-720.webp 720w" sizes="(min-width: 960px) 18vw, 38vw" width="720" height="900" loading="lazy" decoding="async" alt="RJ Love Shah in a sage green bandhgala on a staircase"></figure>
+            <figure class="whois__pic"><img src="./assets/img/portrait-bluefloral-720.webp" srcset="./assets/img/portrait-bluefloral-480.webp 480w, ./assets/img/portrait-bluefloral-720.webp 720w" sizes="(min-width: 960px) 18vw, 38vw" width="720" height="900" loading="lazy" decoding="async" alt="RJ Love Shah smiling in a light blue floral bandhgala in front of a wall of lights"></figure>
+          </div>
+          <div class="whois__copy">
+            <p class="whois__lead">A Chartered Accountant who chose the <em class="grad-text">mic</em> over the ledger. Eight years on radio gave him timing; fifteen hundred stages gave him people. From the Ambani family&rsquo;s Navratri to baraats and boardrooms, Love makes every crowd feel like <em class="grad-text">his guest.</em></p>
+            <dl class="whois__facts">
+              <div><dt>1,500+</dt><dd>Live events</dd></div>
+              <div><dt>11+ yrs</dt><dd>On stage</dd></div>
+              <div><dt>8 yrs</dt><dd>On radio</dd></div>
+              <div><dt>CA</dt><dd>Since 2017</dd></div>
+            </dl>
+            <ol class="whois__road">
+              <li><b>2011</b><span>The beginning</span></li>
+              <li><b>2015</b><span>His first stage</span></li>
+              <li><b>2017</b><span>Chartered Accountant</span></li>
+              <li><b>2018</b><span>RJ at 94.3 MY FM</span></li>
+              <li><b>Today</b><span>Host across India</span></li>
+            </ol>
+            <div class="whois__actions">
+              <a class="btn btn--grad" href="#contact">Book RJ Love <span aria-hidden="true">&rarr;</span></a>
+              <a class="btn btn--outline-dark" href="https://wa.me/917383972757?text=Hi%20Love%2C%20are%20you%20free%20on%20" rel="noopener">Check his dates</a>
+            </div>
           </div>
         </div>
       </div>
@@ -752,6 +768,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="./assets/js/main.js?v=2d7e0645" defer></script>
+  <script src="./assets/js/main.js?v=a924535b" defer></script>
 </body>
 </html>

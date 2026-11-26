@@ -252,48 +252,6 @@
     light();
   }
 
-  /* ---------- about: the statement lights up word by word as it scrolls through the screen; his portraits take turns ---------- */
-  const meetWords = $('[data-meet-words]');
-  if (meetWords) {
-    const words = [];
-    const split = (node) => [...node.childNodes].forEach((n) => {
-      if (n.nodeType === 3) {
-        const frag = document.createDocumentFragment();
-        n.textContent.split(/(\s+)/).forEach((part) => {
-          if (!part) return;
-          if (/^\s+$/.test(part)) { frag.append(part); return; }
-          const w = document.createElement('span'); w.className = 'w'; w.textContent = part; words.push(w); frag.append(w);
-        });
-        n.replaceWith(frag);
-      } else if (n.nodeType === 1) split(n);
-    });
-    split(meetWords);
-    if (reduceMotion) words.forEach((w) => w.classList.add('on'));
-    else {
-      const light = () => {
-        const r = meetWords.getBoundingClientRect();
-        // starts when the statement's top reaches 85% of the screen, fully lit when its bottom reaches 55%
-        const p = Math.min(1, Math.max(0, (innerHeight * 0.85 - r.top) / (r.height + innerHeight * 0.3)));
-        const n = Math.round(p * words.length);
-        words.forEach((w, i) => w.classList.toggle('on', i < n));
-      };
-      let q = false;
-      addEventListener('scroll', () => { if (!q) { q = true; requestAnimationFrame(() => { q = false; light(); }); } }, { passive: true });
-      addEventListener('resize', light);
-      light();
-    }
-  }
-  const meetPhotos = $$('[data-meet-photos] .meet__layer');
-  if (meetPhotos.length > 1 && !reduceMotion) {
-    let k = 0;
-    setInterval(() => {
-      if (document.hidden) return;
-      meetPhotos[k].classList.remove('is-active');
-      k = (k + 1) % meetPhotos.length;
-      meetPhotos[k].classList.add('is-active');
-    }, 4200);
-  }
-
   /* ---------- across-India carousel ---------- */
   const car = $('[data-carousel]');
   if (car) {
