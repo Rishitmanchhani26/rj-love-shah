@@ -252,6 +252,25 @@
     light();
   }
 
+  /* ---------- about: one large portrait that changes to the second as you scroll, then the page moves on ---------- */
+  const pPin = $('[data-profile-pin]');
+  if (pPin) {
+    const slides = $$('.profile__slide', pPin);
+    const dots = $$('.profile__dots li', pPin);
+    const step = () => {
+      const r = pPin.getBoundingClientRect();
+      const run = r.height - innerHeight;
+      const p = run > 0 ? Math.min(1, Math.max(0, -r.top / run)) : 0;
+      const k = p < 0.5 ? 0 : 1;
+      slides.forEach((el, i) => el.classList.toggle('is-active', i === k));
+      dots.forEach((el, i) => el.classList.toggle('is-active', i === k));
+    };
+    let q = false;
+    addEventListener('scroll', () => { if (!q) { q = true; requestAnimationFrame(() => { q = false; step(); }); } }, { passive: true });
+    addEventListener('resize', step);
+    step();
+  }
+
   /* ---------- across-India carousel ---------- */
   const car = $('[data-carousel]');
   if (car) {
