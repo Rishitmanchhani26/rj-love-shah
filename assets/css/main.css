@@ -1210,3 +1210,15 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
 
 .rfeat__photo--family { aspect-ratio: 3 / 4; }
 @media (min-width: 960px) { .rfeat__photo--family { aspect-ratio: auto; } }
+
+/* Navratri: the photograph and the reel the same size, side by side on phones, equal columns on desktop */
+.rfeat__photo--family { grid-column: 1; grid-row: 1; aspect-ratio: 9 / 16; }
+.rfeat__photo--family img { object-position: 50% 50%; }
+.rfeat__reel { grid-column: 2; grid-row: 1; justify-self: stretch; width: 100%; }
+.rfeat__mid { grid-row: 2; }
+@media (min-width: 960px) {
+  .rfeat__grid { grid-template-columns: 3fr 6fr 3fr; }
+  .rfeat__photo--family { grid-column: 1; aspect-ratio: auto; width: 100%; }
+  .rfeat__reel { grid-column: 3; grid-row: 1; }
+  .rfeat__mid { grid-row: 1; }
+}
