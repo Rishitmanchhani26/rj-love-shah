@@ -1298,3 +1298,7 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
   .profile__copy { position: relative; z-index: 1; background: var(--mg-stage, #f3ede2); padding-top: 20px; }
 }
 @media (prefers-reduced-motion: reduce) { .profile__slide { transition: none; transform: none; } }
+
+/* the official WhatsApp logo, full colour */
+.contact-list__icon--wa { background: none; border: 0; }
+.contact-list__icon--wa img { width: 44px; height: 44px; display: block; }
