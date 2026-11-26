@@ -1222,3 +1222,14 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
   .rfeat__reel { grid-column: 3; grid-row: 1; }
   .rfeat__mid { grid-row: 1; }
 }
+
+/* Navratri, two pieces: Love on stage with the facts, and the reel */
+.rfeat__grid { grid-template-columns: 1fr; gap: 16px; }
+.rfeat__mid { grid-column: 1; grid-row: 1; }
+.rfeat__reel { grid-column: 1; grid-row: 2; justify-self: center; width: min(100%, 340px); }
+@media (min-width: 960px) {
+  .rfeat__grid { grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr); gap: 20px; align-items: stretch; }
+  .rfeat__mid { grid-column: 1; grid-row: 1; grid-template-rows: minmax(0, 1fr) auto; gap: 16px; }
+  .rfeat__reel { grid-column: 2; grid-row: 1; width: 100%; }
+  .rfeat__photo--stage img { object-position: 60% 40%; }
+}
