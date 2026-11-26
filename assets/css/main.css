@@ -1198,7 +1198,7 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
 
 /* Navratri: the family group needs a wider frame (desktop) and the full width (phones) */
 .rfeat__photo--family { grid-column: 1 / -1; grid-row: 1; aspect-ratio: 1 / 1; }
-.rfeat__photo--family img { object-position: 0% 60%; }
+.rfeat__photo--family img { object-position: 52% 55%; }
 .rfeat__reel { grid-column: 1 / -1; grid-row: 2; justify-self: center; width: min(100%, 360px); }
 .rfeat__mid { grid-row: 3; }
 @media (min-width: 960px) {
