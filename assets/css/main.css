@@ -953,11 +953,11 @@ html:not(.js) .cover-opener { display: none; }
 .cover__doors li:nth-child(1), .cover__doors li:nth-child(4) { --k: 1; }
 
 /* the site header reads in ink while it sits on the ivory cover */
-body.on-cover .site-header:not(.is-scrolled) { color: #15110e; }
-body.on-cover .site-header:not(.is-scrolled) .nav a { color: rgb(21 17 14 / .72); }
-body.on-cover .site-header:not(.is-scrolled) .nav a:hover { color: #15110e; }
-body.on-cover .site-header:not(.is-scrolled) .logo__kicker { color: #8a6a36; }
-body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237 226 / .6); border-color: rgb(21 17 14 / .2); color: #15110e; }
+body.on-cover:not(.menu-open) .site-header:not(.is-scrolled) { color: #15110e; }
+body.on-cover:not(.menu-open) .site-header:not(.is-scrolled) .nav a { color: rgb(21 17 14 / .72); }
+body.on-cover:not(.menu-open) .site-header:not(.is-scrolled) .nav a:hover { color: #15110e; }
+body.on-cover:not(.menu-open) .site-header:not(.is-scrolled) .logo__kicker { color: #8a6a36; }
+body.on-cover:not(.menu-open) .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237 226 / .6); border-color: rgb(21 17 14 / .2); color: #15110e; }
 .js body.cover-loading .site-header { transform: translateY(-110%); }
 .site-header { transition: background-color .3s, border-color .3s, color .4s, transform .6s cubic-bezier(.22, 1, .36, 1); }
 
@@ -1320,3 +1320,47 @@ body.on-cover .site-header:not(.is-scrolled) .menu-btn { background: rgb(243 237
 @media (min-width: 960px) and (max-width: 1365px) { .cover__doors .cover__label { padding: 6px 12px; letter-spacing: .08em; font-size: .7rem; } }
 @media (min-width: 1366px) and (max-width: 1599px) { .cover__doors .cover__label { padding: 7px 13px; letter-spacing: .09em; } }
 @media (min-width: 960px) { .cover--two-line .cover__doors li:nth-child(n) .cover__label { width: min-content; } }
+
+/* ---------- phone menu: a full-screen navy sheet ---------- */
+/* the blur sits on a layer behind the header, so the header never traps the fixed menu inside its own box */
+.site-header.is-scrolled, body.menu-open .site-header { -webkit-backdrop-filter: none; backdrop-filter: none; background: transparent; }
+.site-header::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgb(11 19 36 / .86); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); opacity: 0; transition: opacity .3s; pointer-events: none; }
+.site-header.is-scrolled::before { opacity: 1; }
+body.menu-open .site-header::before { opacity: 1; background: var(--ink); -webkit-backdrop-filter: none; backdrop-filter: none; }
+body.menu-open .site-header { color: var(--cream); border-bottom-color: var(--line); }
+body.menu-open .menu-btn { background: rgb(244 237 224 / .08); border-color: rgb(244 237 224 / .22); color: var(--cream); }
+.menu-btn { color: var(--cream); }
+
+.mobile-menu { position: fixed; top: var(--header-h); left: 0; right: 0; bottom: 0; height: calc(100dvh - var(--header-h)); z-index: 49; display: flex; flex-direction: column; padding: 8px var(--gutter) calc(20px + env(safe-area-inset-bottom)); overflow-y: auto; overscroll-behavior: contain;
+  background: radial-gradient(120% 60% at 100% 0%, rgb(194 160 99 / .14), transparent 60%), var(--ink); color: var(--cream); }
+.mobile-menu[hidden] { display: none; }
+.mobile-menu__body { flex: 1 0 auto; }
+.mobile-menu__label { margin: 22px 0 6px; font: 700 .625rem/1 var(--f-sans); letter-spacing: .28em; text-transform: uppercase; color: #c2a063; }
+.mobile-menu ul { margin: 0; padding: 0; list-style: none; }
+.mobile-menu a:not(.btn) { border: 0; padding: 0; font: inherit; }
+.mobile-menu__events a { display: flex !important; align-items: baseline; gap: 14px; min-height: 58px; padding: 12px 0 !important; border-bottom: 1px solid var(--line) !important; font: 500 2rem/1.1 var(--f-serif) !important; letter-spacing: -.01em; color: var(--cream); }
+.mobile-menu__events a::after { content: "→"; margin-left: auto; font: 400 1.125rem/1 var(--f-sans); color: rgb(244 237 224 / .4); transition: transform .2s var(--ease), color .2s; }
+.mobile-menu__events a:active::after, .mobile-menu__events a:hover::after { transform: translateX(4px); color: #c2a063; }
+.mobile-menu__num { font: 700 .6875rem/1 var(--f-sans); letter-spacing: .14em; color: #c2a063; min-width: 20px; }
+.mobile-menu__events a[aria-current="page"] { text-decoration: none; color: #c2a063; }
+.mobile-menu__more { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px !important; }
+.mobile-menu__more a { display: inline-flex !important; align-items: center; min-height: 44px; padding: 0 18px !important; border: 1px solid rgb(244 237 224 / .18) !important; border-radius: 999px; font: 600 .75rem/1 var(--f-sans) !important; letter-spacing: .14em; text-transform: uppercase; color: var(--cream); }
+.mobile-menu__more a:active { background: rgb(244 237 224 / .08); }
+.mobile-menu__foot { margin-top: 28px; display: grid; gap: 10px; }
+.mobile-menu__foot .btn { width: 100%; margin: 0; min-height: 52px; justify-content: center; }
+.mobile-menu__quick { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.mobile-menu__quick a { display: inline-flex !important; align-items: center; justify-content: center; gap: 8px; min-height: 48px; border: 1px solid rgb(244 237 224 / .18) !important; border-radius: 999px; font: 600 .8125rem/1 var(--f-sans) !important; color: var(--cream); }
+.mobile-menu__quick a:first-child svg { color: #25d366; }
+@media (prefers-reduced-motion: no-preference) {
+  .mobile-menu:not([hidden]) { animation: mm-in .28s var(--ease) both; }
+  .mobile-menu:not([hidden]) li, .mobile-menu:not([hidden]) .mobile-menu__foot { animation: mm-up .45s var(--ease) both; }
+  .mobile-menu__events li:nth-child(2) { animation-delay: .04s !important; }
+  .mobile-menu__events li:nth-child(3) { animation-delay: .08s !important; }
+  .mobile-menu__events li:nth-child(4) { animation-delay: .12s !important; }
+  .mobile-menu__more li { animation-delay: .16s !important; }
+  .mobile-menu:not([hidden]) .mobile-menu__foot { animation-delay: .2s; }
+}
+@keyframes mm-in { from { opacity: 0; } }
+@keyframes mm-up { from { opacity: 0; transform: translateY(10px); } }
+.mobile-menu__more { display: grid; grid-template-columns: repeat(3, 1fr); }
+.mobile-menu__more a { width: 100%; justify-content: center; padding: 0 6px !important; letter-spacing: .1em; font-size: .6875rem !important; }
