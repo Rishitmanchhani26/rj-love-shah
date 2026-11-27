@@ -71,6 +71,16 @@
     } catch (err) { /* private mode: the back link falls back to the video folders */ }
   });
 
+  /* ---------- reviews: the heading stays pinned; the cards stack in below it ---------- */
+  const rvStage = $('[data-rv-stage]');
+  if (rvStage) {
+    const rvHead = $('.reviews__head', rvStage);
+    const rvSize = () => rvStage.style.setProperty('--rv-head', `${rvHead.offsetHeight}px`);
+    rvSize();
+    addEventListener('resize', rvSize);
+    if (document.fonts) document.fonts.ready.then(rvSize);
+  }
+
   /* ---------- mobile menu ---------- */
   const menuBtn = $('[data-menu-btn]');
   const menu = $('[data-menu]');

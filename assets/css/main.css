@@ -1364,3 +1364,31 @@ body.menu-open .menu-btn { background: rgb(244 237 224 / .08); border-color: rgb
 @keyframes mm-up { from { opacity: 0; transform: translateY(10px); } }
 .mobile-menu__more { display: grid; grid-template-columns: repeat(3, 1fr); }
 .mobile-menu__more a { width: 100%; justify-content: center; padding: 0 6px !important; letter-spacing: .1em; font-size: .6875rem !important; }
+
+/* ---------- reviews: heading pinned under the menu bar, only the review cards move ---------- */
+@media (min-width: 768px) {
+  .rv-stage { --rv-head: 120px; --rv-step: 14px; }
+  .reviews__head { position: sticky; top: var(--header-h); z-index: 3; max-width: none; padding: 22px 0 16px; background: var(--cream);
+    box-shadow: 0 0 0 100vmax var(--cream); clip-path: inset(0 -100vmax); }
+  .reviews__head .eyebrow { margin: 0; }
+  .reviews__head .h2 { margin-top: 10px; font-size: clamp(1.875rem, 3.2vw, 3.25rem); line-height: 1.08; }
+  .reviews__head .h2 em { display: inline; }
+  .rv-list { margin-top: 8px; gap: 40px; }
+  .rv { top: calc(var(--header-h) + var(--rv-head) + 12px + var(--i) * var(--rv-step)); }
+  .rv__card { min-height: 0; height: clamp(360px, calc(100svh - var(--header-h) - var(--rv-head) - 12px - 2 * var(--rv-step) - 24px), 600px); }
+  .rv__body { padding: clamp(22px, 4svh, 48px) clamp(28px, 4vw, 56px); }
+  .rv__mark { font-size: clamp(4.5rem, 10svh, 8.5rem); margin-top: clamp(8px, 2svh, 22px); }
+  .rv blockquote { font-size: clamp(1.125rem, min(2.1vw, 3.3svh), 1.875rem); }
+  .rv figcaption { padding-top: clamp(14px, 3svh, 30px); }
+}
+@media (min-width: 768px) {
+  /* one card height used everywhere, so the heading and the stack can leave together */
+  .rv-stage { --rv-card: clamp(360px, calc(100svh - var(--header-h) - var(--rv-head) - 12px - 2 * var(--rv-step) - 24px), 600px);
+    margin-bottom: calc(var(--rv-card) + 12px + 2 * var(--rv-step)); }
+  .rv__card { height: var(--rv-card); }
+  /* the stage (and so the heading) ends where the stack lets go; the cards run past it into that margin */
+  .rv-list { margin-bottom: calc(-1 * (var(--rv-card) + 12px + 2 * var(--rv-step))); }
+  /* a short pause on the last review before the page moves on */
+  .rv-list::after { content: ""; height: 22svh; }
+}
+@media (min-width: 768px) { .rv-stage { display: flow-root; } }
